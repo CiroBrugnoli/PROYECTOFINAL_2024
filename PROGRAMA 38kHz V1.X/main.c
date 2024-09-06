@@ -1,9 +1,10 @@
+
 /*============================================================================
  * Licencia:
  * Autor:
  * Fecha:
  *===========================================================================*/
-/** @file
+/** @file   
  * @brief	Contiene la función principal
  * 
  * Aquí se encuentra la implementación de la función principal

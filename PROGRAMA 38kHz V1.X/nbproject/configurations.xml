@@ -8,8 +8,13 @@
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
                    projectFiles="true">
+      <logicalFolder name="f1" displayName="New Folder 1" projectFiles="true">
+      </logicalFolder>
       <itemPath>system.h</itemPath>
       <itemPath>user.h</itemPath>
+      <itemPath>tick.h</itemPath>
+      <itemPath>display.h</itemPath>
+      <itemPath>uart.h</itemPath>
     </logicalFolder>
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
@@ -17,6 +22,10 @@
       <itemPath>user.c</itemPath>
       <itemPath>main.c</itemPath>
       <itemPath>DFPlayer Mini.c</itemPath>
+      <itemPath>interrupts.c</itemPath>
+      <itemPath>tick.c</itemPath>
+      <itemPath>display.c</itemPath>
+      <itemPath>uart.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
