@@ -57,17 +57,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=system.h user.h user.c main.c "DFPlayer Mini.c" interrupts.c tick.c tick.h display.c uart.c display.h uart.h
+SOURCEFILES_QUOTED_IF_SPACED=user.c main.c "DFPlayer Mini.c" interrupts.c tick.c display.c uart.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/system.o ${OBJECTDIR}/user.o ${OBJECTDIR}/user.p1 ${OBJECTDIR}/main.p1 "${OBJECTDIR}/DFPlayer Mini.p1" ${OBJECTDIR}/interrupts.p1 ${OBJECTDIR}/tick.p1 ${OBJECTDIR}/tick.o ${OBJECTDIR}/display.p1 ${OBJECTDIR}/uart.p1 ${OBJECTDIR}/display.o ${OBJECTDIR}/uart.o
-POSSIBLE_DEPFILES=${OBJECTDIR}/system.o.d ${OBJECTDIR}/user.o.d ${OBJECTDIR}/user.p1.d ${OBJECTDIR}/main.p1.d "${OBJECTDIR}/DFPlayer Mini.p1.d" ${OBJECTDIR}/interrupts.p1.d ${OBJECTDIR}/tick.p1.d ${OBJECTDIR}/tick.o.d ${OBJECTDIR}/display.p1.d ${OBJECTDIR}/uart.p1.d ${OBJECTDIR}/display.o.d ${OBJECTDIR}/uart.o.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/user.p1 ${OBJECTDIR}/main.p1 "${OBJECTDIR}/DFPlayer Mini.p1" ${OBJECTDIR}/interrupts.p1 ${OBJECTDIR}/tick.p1 ${OBJECTDIR}/display.p1 ${OBJECTDIR}/uart.p1
+POSSIBLE_DEPFILES=${OBJECTDIR}/user.p1.d ${OBJECTDIR}/main.p1.d "${OBJECTDIR}/DFPlayer Mini.p1.d" ${OBJECTDIR}/interrupts.p1.d ${OBJECTDIR}/tick.p1.d ${OBJECTDIR}/display.p1.d ${OBJECTDIR}/uart.p1.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/system.o ${OBJECTDIR}/user.o ${OBJECTDIR}/user.p1 ${OBJECTDIR}/main.p1 ${OBJECTDIR}/DFPlayer\ Mini.p1 ${OBJECTDIR}/interrupts.p1 ${OBJECTDIR}/tick.p1 ${OBJECTDIR}/tick.o ${OBJECTDIR}/display.p1 ${OBJECTDIR}/uart.p1 ${OBJECTDIR}/display.o ${OBJECTDIR}/uart.o
+OBJECTFILES=${OBJECTDIR}/user.p1 ${OBJECTDIR}/main.p1 ${OBJECTDIR}/DFPlayer\ Mini.p1 ${OBJECTDIR}/interrupts.p1 ${OBJECTDIR}/tick.p1 ${OBJECTDIR}/display.p1 ${OBJECTDIR}/uart.p1
 
 # Source Files
-SOURCEFILES=system.h user.h user.c main.c DFPlayer Mini.c interrupts.c tick.c tick.h display.c uart.c display.h uart.h
+SOURCEFILES=user.c main.c DFPlayer Mini.c interrupts.c tick.c display.c uart.c
 
 
 

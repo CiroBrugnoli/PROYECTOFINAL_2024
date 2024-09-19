@@ -14,7 +14,7 @@
 #include <stdint.h>      /* Para las definiciones de uint8_t por ej.*/
 #include <stdio.h>       /* Archivo de Encabezados StdIO */
 #include "user.h"        /* Archivo de Encabezados StdIO */
-#include "system.h"      /* Archivo de Encabezados StdIO */
+#include "system.h"      /* Archivo de Encabezados StdIO */  
 
 /*==================[definiciones y macros]==================================*/
 
