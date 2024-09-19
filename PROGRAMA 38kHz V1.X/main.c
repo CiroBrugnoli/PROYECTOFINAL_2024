@@ -19,11 +19,16 @@
 /*==================[definiciones y macros]==================================*/
 
 /*==================[definiciones de datos internos]=========================*/
-
+int BOTON=1;
+int Tiempo0=0;
+int Tiempo1=0;
+int Mostrar_Tiempo=0;
 /*==================[definiciones de datos externos]=========================*/
 
 /*==================[declaraciones de funciones internas]====================*/
-
+void func_interup_boton();
+int OBTENGO_VALOR_TIMER();
+void Imprime_tiempo_boton_apretado(int Resta_Tiempo);
 /*==================[funcion principal]======================================*/
  
     /* TODO: Agregar el Cod1iogo de la Aplicación aquí */
@@ -43,6 +48,23 @@ void main(void) {
             __delay_us(10);
         }
         __delay_ms(100);
-
+        while (Mostrar_Tiempo){
+            Imprime_tiempo_boton_apretado(Tiempo1-Tiempo0);
+            Mostrar_Tiempo=0;
+        }
 }
+}
+
+
+void func_interup_boton(){
+    //Acá ingresa el programa cuando cambia el estado un pin de entrada del microcontrolador
+    if (BOTON==0){
+        //El botón fue apretado
+        Tiempo0=OBTENGO_VALOR_TIMER();
+    }
+    else {
+        //significa que se dejó de apretar el botón
+        Tiempo1=OBTENGO_VALOR_TIMER();
+        Mostrar_Tiempo=1;
+    }
 }
