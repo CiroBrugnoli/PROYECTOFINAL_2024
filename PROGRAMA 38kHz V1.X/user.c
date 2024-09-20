@@ -37,7 +37,6 @@
  */
 void appInit(void) {
     /* TODO: Inicializar Ports/Periféricos/Interrupciones */
-
     /* Configura funciones analógicas y dirección de los Ports de I/O */
     ANSEL        = 0;
     ANSELH       = 0;  
@@ -46,8 +45,39 @@ void appInit(void) {
     TRIS_SOUNDER = 0; 
     __delay_ms(100); //Espera que se estabilice la fuente
     
+     //Configura Timer1
+    TMR1CS=0;
+    
+    T1CKPS1=0;
+    T1CKPS0=0;
+    
+    
+    TMR1ON=1;
+    //TODO ...
+
+    //Configura CCP1
+    //TODO ...
+//      CCP1M0=1;
+//      CCP1M1=1;            
+//      CCP1M2=0;
+//      CCP1M3=1;     
+    CCP1CON=0B00001011;
+    CCPR1=1000;
+    //Configura Timer0
+    //TODO ...
+            T0CS=0;
+            
+            PSA=0;
+    
+            PS0=1;
+            PS1=0;
+            PS2=0;
+                    
+    
     /* TODO: Habilita Interrupciones si es necesario*/
     //TMR2IE = 1;
     //PEIE = 1;
     //GIE = 1;  
 }
+
+

@@ -8,6 +8,6 @@
 
 #include <xc.h>
 
-void main(void) {
+void DFplayer(void) {
     return;
 }
