@@ -2794,6 +2794,7 @@ void main(void) {
         _delay((unsigned long)((100)*(4000000L/4000.0)));
         while (Mostrar_Tiempo) {
             Mostrar_Tiempo = 0;
+            Tiempo1;
         }
     }
 }

@@ -23,8 +23,8 @@
 #define	PIN_LED1        PORTEbits.RE2
 #define	TRIS_LED4       TRISAbits.TRISA5
 #define	PIN_LED4        PORTAbits.RA5
-
-
+#define TRIS_TEC1       TRISAbits.TRISA1
+#define PIN_TEC1        PORTAbits.RA1
 //Alias de los Leds
 #define	TRIS_VIDA1          TRIS_LED1 
 #define	PIN_VIDA1           PIN_LED1
@@ -35,6 +35,8 @@
 #define	TRIS_SOUNDER    TRISCbits.TRISC0
 #define	PIN_SOUNDER     PORTCbits.RC0
 
+#define TRIS_TMR0IF     INTCONbits
+#define PIN_TMR0IF     INTCONbits
 /*==================[tipos de datos declarados por el usuario]===============*/
 
 /*==================[declaraciones de datos externos]========================*/

@@ -2635,6 +2635,7 @@ extern __bank0 __bit __timeout;
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c90\\stdint.h" 1 3
 # 16 "user.c" 2
 
+
 # 1 "./system.h" 1
 # 26 "./system.h"
 #pragma config FOSC = XT
@@ -2650,7 +2651,7 @@ extern __bank0 __bit __timeout;
 
 #pragma config BOR4V = BOR21V
 #pragma config WRT = OFF
-# 17 "user.c" 2
+# 18 "user.c" 2
 
 # 1 "./user.h" 1
 # 15 "./user.h"
@@ -2658,17 +2659,38 @@ extern __bank0 __bit __timeout;
 # 15 "./user.h" 2
 # 45 "./user.h"
 void appInit(void);
-# 18 "user.c" 2
-# 38 "user.c"
+# 19 "user.c" 2
+
+# 1 "./uart.h" 1
+# 15 "./uart.h"
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c90\\stdint.h" 1 3
+# 15 "./uart.h" 2
+# 31 "./uart.h"
+void uartInit(void);
+void putch(char data);
+char getch(void);
+char getche(void);
+void uartWriteByte( uint8_t value );
+__bit uartReadByte( uint8_t* receivedByte );
+# 20 "user.c" 2
+
+# 1 "./display.h" 1
+# 15 "./display.h"
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c90\\stdint.h" 1 3
+# 15 "./display.h" 2
+# 27 "./display.h"
+void displaytInit( void );
+void displayWrite( uint8_t value );
+# 21 "user.c" 2
+# 88 "user.c"
 void appInit(void) {
 
 
     ANSEL = 0;
     ANSELH = 0;
-   TRISEbits.TRISE2 = 0;
-    TRISAbits.TRISA5 = 0;
-    TRISCbits.TRISC0 = 0;
-    _delay((unsigned long)((100)*(4000000L/4000.0)));
+    TRISAbits.TRISA1 = 1;
+       TRISCbits.TRISC0 = 0;
+    displaytInit();
 
 
     TMR1CS=0;
@@ -2678,7 +2700,7 @@ void appInit(void) {
 
 
     TMR1ON=1;
-# 64 "user.c"
+# 113 "user.c"
     CCP1CON=0B00001011;
     CCPR1=1000;
 
@@ -2690,10 +2712,23 @@ void appInit(void) {
             PS0=1;
             PS1=0;
             PS2=0;
+}
+
+void delayTMR0Seg(uint16_t tmseg) {
+
+    for (uint16_t cont = 0; cont < tmsegs; cont++){
+
+        TMR0 = 6;
+        TMROIF = 0;
+
+        while (TMROIF == 0) {
+
+        }
+    }
+}
 
 
 
-
-
+void speakerPlay(uint16_t semiper, uint16_t tmsegs){
 
 }

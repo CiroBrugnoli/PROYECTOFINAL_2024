@@ -50,6 +50,7 @@ void main(void) {
         __delay_ms(100);
         while (Mostrar_Tiempo) {
             Mostrar_Tiempo = 0;
+            Tiempo1;
         }
     }
 }
