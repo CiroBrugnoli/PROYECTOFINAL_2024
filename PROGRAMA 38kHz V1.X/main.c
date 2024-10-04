@@ -38,22 +38,25 @@ void main(void) {
     uint8_t i;
     appInit();
     PIN_VIDA1 = 1;
-    PIN_LED4 = 0;
+    PIN_LEDPRUEBA = 0;
     while (1) {
         for (i = 0; i < 190; i++) {
-            PIN_LED4 = 1;
+            PIN_LEDPRUEBA = 1;
             __delay_us(10);
-            PIN_LED4 = 0;
+            PIN_LEDPRUEBA = 0;
             __delay_us(10);
         }
         __delay_ms(100);
         func_interup_boton();
         while (Mostrar_Tiempo) {
             Mostrar_Tiempo = 0;
-            if (Tiempo1==10) 
-                PIN_VIDA1=1;
-            else PIN_VIDA1=0;
-                
+            if (Tiempo1>=10) 
+            {
+               PIN_VIDA1=1;
+            }                
+            else 
+                PIN_VIDA1=0;
+            Tiempo1=0;    
         }
     }
 }

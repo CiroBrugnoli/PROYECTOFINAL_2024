@@ -373,100 +373,103 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;user.c: 33:     TRISAbits.TRISA1 = 1;
 [e = . . _TRISAbits 0 1 -> -> 1 `i `uc ]
 "34
-[; ;user.c: 34:       TRISCbits.TRISC0 = 0;
-[e = . . _TRISCbits 0 0 -> -> 0 `i `uc ]
+[; ;user.c: 34:     TRISAbits.TRISA5 = 0;
+[e = . . _TRISAbits 0 5 -> -> 0 `i `uc ]
 "35
-[; ;user.c: 35:     uartInit();
-[e ( _uartInit ..  ]
+[; ;user.c: 35:       TRISCbits.TRISC0 = 0;
+[e = . . _TRISCbits 0 0 -> -> 0 `i `uc ]
 "36
-[; ;user.c: 36:     displaytInit();
+[; ;user.c: 36:     uartInit();
+[e ( _uartInit ..  ]
+"37
+[; ;user.c: 37:     displaytInit();
 [e ( _displaytInit ..  ]
-"40
-[; ;user.c: 40:     TMR1CS = 0;
-[e = _TMR1CS -> -> 0 `i `b ]
 "41
-[; ;user.c: 41:     T1CKPS1 = 0;
-[e = _T1CKPS1 -> -> 0 `i `b ]
+[; ;user.c: 41:     TMR1CS = 0;
+[e = _TMR1CS -> -> 0 `i `b ]
 "42
-[; ;user.c: 42:     T1CKPS0 = 0;
-[e = _T1CKPS0 -> -> 0 `i `b ]
+[; ;user.c: 42:     T1CKPS1 = 0;
+[e = _T1CKPS1 -> -> 0 `i `b ]
 "43
-[; ;user.c: 43:     TMR1ON = 1;
+[; ;user.c: 43:     T1CKPS0 = 0;
+[e = _T1CKPS0 -> -> 0 `i `b ]
+"44
+[; ;user.c: 44:     TMR1ON = 1;
 [e = _TMR1ON -> -> 1 `i `b ]
-"47
-[; ;user.c: 47:     CCP1CON = 0b00001011;
-[e = _CCP1CON -> -> 11 `i `uc ]
 "48
-[; ;user.c: 48:     CCPR1 = 1000;
+[; ;user.c: 48:     CCP1CON = 0b00001011;
+[e = _CCP1CON -> -> 11 `i `uc ]
+"49
+[; ;user.c: 49:     CCPR1 = 1000;
 [e = _CCPR1 -> -> 1000 `i `us ]
-"51
-[; ;user.c: 51:     T0CS = 0;
-[e = _T0CS -> -> 0 `i `b ]
 "52
-[; ;user.c: 52:     PSA = 0;
-[e = _PSA -> -> 0 `i `b ]
+[; ;user.c: 52:     T0CS = 0;
+[e = _T0CS -> -> 0 `i `b ]
 "53
-[; ;user.c: 53:     PS0 = 1;
-[e = _PS0 -> -> 1 `i `b ]
+[; ;user.c: 53:     PSA = 0;
+[e = _PSA -> -> 0 `i `b ]
 "54
-[; ;user.c: 54:     PS1 = 0;
-[e = _PS1 -> -> 0 `i `b ]
+[; ;user.c: 54:     PS0 = 1;
+[e = _PS0 -> -> 1 `i `b ]
 "55
-[; ;user.c: 55:     PS2 = 0;
+[; ;user.c: 55:     PS1 = 0;
+[e = _PS1 -> -> 0 `i `b ]
+"56
+[; ;user.c: 56:     PS2 = 0;
 [e = _PS2 -> -> 0 `i `b ]
-"58
-[; ;user.c: 58:     _delay((unsigned long)((100)*(4000000L/4000.0)));
+"59
+[; ;user.c: 59:     _delay((unsigned long)((100)*(4000000L/4000.0)));
 [e ( __delay (1 -> * -> -> 100 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"61
-[; ;user.c: 61:     CCP1IE = 1;
-[e = _CCP1IE -> -> 1 `i `b ]
 "62
-[; ;user.c: 62:     PEIE = 1;
-[e = _PEIE -> -> 1 `i `b ]
+[; ;user.c: 62:     CCP1IE = 1;
+[e = _CCP1IE -> -> 1 `i `b ]
 "63
-[; ;user.c: 63:     GIE = 1;
-[e = _GIE -> -> 1 `i `b ]
+[; ;user.c: 63:     PEIE = 1;
+[e = _PEIE -> -> 1 `i `b ]
 "64
-[; ;user.c: 64: }
+[; ;user.c: 64:     GIE = 1;
+[e = _GIE -> -> 1 `i `b ]
+"65
+[; ;user.c: 65: }
 [e :UE 138 ]
 }
-"73
-[; ;user.c: 73: void delayTMR0mSeg(uint16_t tmsegs) {
+"74
+[; ;user.c: 74: void delayTMR0mSeg(uint16_t tmsegs) {
 [v _delayTMR0mSeg `(v ~T0 @X0 1 ef1`ui ]
 {
 [e :U _delayTMR0mSeg ]
 [v _tmsegs `ui ~T0 @X0 1 r1 ]
 [f ]
-"74
-[; ;user.c: 74:     for (uint16_t cont = 0; cont < tmsegs; cont++) {
+"75
+[; ;user.c: 75:     for (uint16_t cont = 0; cont < tmsegs; cont++) {
 {
 [v _cont `ui ~T0 @X0 1 a ]
 [e = _cont -> -> 0 `i `ui ]
 [e $U 143  ]
 [e :U 140 ]
 {
-"75
-[; ;user.c: 75:         TMR0 = 6;
-[e = _TMR0 -> -> 6 `i `uc ]
 "76
-[; ;user.c: 76:         T0IF = 0;
-[e = _T0IF -> -> 0 `i `b ]
+[; ;user.c: 76:         TMR0 = 6;
+[e = _TMR0 -> -> 6 `i `uc ]
 "77
-[; ;user.c: 77:         while (T0IF == 0);
+[; ;user.c: 77:         T0IF = 0;
+[e = _T0IF -> -> 0 `i `b ]
+"78
+[; ;user.c: 78:         while (T0IF == 0);
 [e $U 144  ]
 [e :U 145 ]
 [e :U 144 ]
 [e $ == -> _T0IF `i -> 0 `i 145  ]
 [e :U 146 ]
-"78
-[; ;user.c: 78:     }
+"79
+[; ;user.c: 79:     }
 }
 [e ++ _cont -> -> 1 `i `ui ]
 [e :U 143 ]
 [e $ < _cont _tmsegs 140  ]
 [e :U 141 ]
 }
-"79
-[; ;user.c: 79: }
+"80
+[; ;user.c: 80: }
 [e :UE 139 ]
 }

@@ -2794,10 +2794,13 @@ void main(void) {
         func_interup_boton();
         while (Mostrar_Tiempo) {
             Mostrar_Tiempo = 0;
-            if (Tiempo1==10)
-                PORTEbits.RE2=1;
-            else PORTEbits.RE2=0;
-
+            if (Tiempo1>=10)
+            {
+               PORTEbits.RE2=1;
+            }
+            else
+                PORTEbits.RE2=0;
+            Tiempo1=0;
         }
     }
 }

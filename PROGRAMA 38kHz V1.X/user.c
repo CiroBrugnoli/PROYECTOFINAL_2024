@@ -31,6 +31,7 @@
     ANSELH = 0;
     TRIS_VIDA1 = 1;
     TRIS_TEC1 = 1;
+    TRIS_LEDPRUEBA = 0;
       TRIS_SOUNDER = 0;
     uartInit();
     displaytInit();

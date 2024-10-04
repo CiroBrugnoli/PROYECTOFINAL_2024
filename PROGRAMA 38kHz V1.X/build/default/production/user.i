@@ -2695,6 +2695,7 @@ void displayWrite( uint8_t value );
     ANSELH = 0;
     TRISEbits.TRISE2 = 1;
     TRISAbits.TRISA1 = 1;
+    TRISAbits.TRISA5 = 0;
       TRISCbits.TRISC0 = 0;
     uartInit();
     displaytInit();
@@ -2726,7 +2727,7 @@ void displayWrite( uint8_t value );
     PEIE = 1;
     GIE = 1;
 }
-# 73 "user.c"
+# 74 "user.c"
 void delayTMR0mSeg(uint16_t tmsegs) {
     for (uint16_t cont = 0; cont < tmsegs; cont++) {
         TMR0 = 6;

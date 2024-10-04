@@ -1,7 +1,7 @@
 _PS0 408 0 ABS 0
 _PS1 409 0 ABS 0
 _PS2 40A 0 ABS 0
-__S0 FE 0 ABS 0
+__S0 117 0 ABS 0
 __S1 7B 0 ABS 0
 __S2 0 0 ABS 0
 __S3 0 0 ABS 0
@@ -10,7 +10,7 @@ _PSA 40B 0 ABS 0
 __Hintentry C 0 CODE 0
 __Lintentry 4 0 CODE 0
 __pintentry 4 0 CODE 0
-_isr D3 0 CODE 0
+_isr E0 0 CODE 0
 _TMR0 1 0 ABS 0
 _T0IF 5A 0 ABS 0
 _PEIE 5E 0 ABS 0
@@ -38,7 +38,7 @@ wtemp0 7E 0 ABS 0
 interrupt_function 4 0 CODE 0
 __Hconfig 2009 0 CONFIG 4
 __Lconfig 0 0 CONFIG 4
-__end_of__stringtab ED 0 STRING 0
+__end_of__stringtab 106 0 STRING 0
 main@i 75 0 COMMON 1
 __Hram 0 0 ABS 0
 __Lram 0 0 ABS 0
@@ -49,7 +49,7 @@ _TRISC6 43E 0 ABS 0
 _TRISC7 43F 0 ABS 0
 __Hcommon 0 0 ABS 0
 __Lcommon 0 0 ABS 0
-_uartInit BF 0 CODE 0
+_uartInit CC 0 CODE 0
 __Heeprom_data 0 0 EEDATA 3
 __Leeprom_data 0 0 EEDATA 3
 _CCP1IE 462 0 ABS 0
@@ -69,7 +69,7 @@ __Hsfr2 0 0 ABS 0
 __Lsfr2 0 0 ABS 0
 __Hsfr3 0 0 ABS 0
 __Lsfr3 0 0 ABS 0
-__end_of_displaytInit FE 0 CODE 0
+__end_of_displaytInit 117 0 CODE 0
 ___stackhi 0 0 ABS 0
 __size_of_func_interup_boton 0 0 ABS 0
 __Hcode 0 0 ABS 0
@@ -80,14 +80,14 @@ __pcstackBANK0 28 0 BANK0 1
 saved_w 7E 0 ABS 0
 __Hinit C 0 CODE 0
 __Linit C 0 CODE 0
-__end_of_main 72 0 CODE 0
+__end_of_main 7E 0 CODE 0
 __Htext 0 0 ABS 0
 __Ltext 0 0 ABS 0
 __size_of_appInit 0 0 ABS 0
 end_of_initialization 1E 0 CODE 0
 ___stacklo 0 0 ABS 0
 _T1CKPS0 84 0 ABS 0
-__stringtab E7 0 STRING 0
+__stringtab 100 0 STRING 0
 _T1CKPS1 85 0 ABS 0
 _TRISAbits 85 0 ABS 0
 _TRISCbits 87 0 ABS 0
@@ -97,7 +97,7 @@ __Hstrings 0 0 ABS 0
 __Lstrings 0 0 ABS 0
 _PORTEbits 9 0 ABS 0
 __size_of_uartInit 0 0 ABS 0
-__pstrings E7 0 STRING 0
+__pstrings 100 0 STRING 0
 _CCP1CON 17 0 ABS 0
 __Hbank0 0 0 ABS 0
 __Lbank0 0 0 ABS 0
@@ -113,25 +113,25 @@ _Tiempo0 78 0 COMMON 1
 __Hpowerup 0 0 CODE 0
 __Lpowerup 0 0 CODE 0
 _Tiempo1 26 0 BANK0 1
-__ptext1 A7 0 CODE 0
-__ptext2 72 0 CODE 0
-__ptext3 BF 0 CODE 0
-__ptext4 F7 0 CODE 0
-__ptext5 D3 0 CODE 0
-__end_of_appInit A7 0 CODE 0
+__ptext1 B4 0 CODE 0
+__ptext2 7E 0 CODE 0
+__ptext3 CC 0 CODE 0
+__ptext4 110 0 CODE 0
+__ptext5 E0 0 CODE 0
+__end_of_appInit B4 0 CODE 0
 __Hclrtext 0 0 ABS 0
 __Lclrtext 0 0 ABS 0
 _tickCounter 76 0 COMMON 1
-displayWrite@tabla7seg ED 0 STRING 0
+displayWrite@tabla7seg 106 0 STRING 0
 __end_of__initialization 1E 0 CODE 0
 __Hstack 0 0 STACK 2
 __Lstack 0 0 STACK 2
-__Hspace_0 FE 0 ABS 0
+__Hspace_0 117 0 ABS 0
 __Lspace_0 0 0 ABS 0
-__end_of_isr E7 0 CODE 0
+__end_of_isr F4 0 CODE 0
 __Hspace_1 7B 0 ABS 0
 __Lspace_1 0 0 ABS 0
-_appInit 72 0 CODE 0
+_appInit 7E 0 CODE 0
 __Hspace_2 0 0 ABS 0
 __Lspace_2 0 0 ABS 0
 __Hcinit 22 0 CODE 0
@@ -141,7 +141,7 @@ __Lspace_3 0 0 ABS 0
 __size_of_main 0 0 ABS 0
 __Hspace_4 4010 0 ABS 0
 __Lspace_4 0 0 ABS 0
-__end_ofdisplayWrite@tabla7seg F7 0 STRING 0
+__end_ofdisplayWrite@tabla7seg 110 0 STRING 0
 __HbssBANK0 0 0 ABS 0
 __LbssBANK0 0 0 ABS 0
 __pbssBANK0 20 0 BANK0 1
@@ -152,37 +152,37 @@ __Hend_init F 0 CODE 0
 __Lend_init C 0 CODE 0
 __Hreset_vec 3 0 CODE 0
 __Lreset_vec 0 0 CODE 0
-__end_of_func_interup_boton BF 0 CODE 0
-_func_interup_boton A7 0 CODE 0
+__end_of_func_interup_boton CC 0 CODE 0
+_func_interup_boton B4 0 CODE 0
 intlevel0 0 0 ENTRY 0
 intlevel1 0 0 ENTRY 0
 intlevel2 0 0 ENTRY 0
 intlevel3 0 0 ENTRY 0
 intlevel4 0 0 ENTRY 0
 intlevel5 0 0 ENTRY 0
-_displaytInit F7 0 CODE 0
+_displaytInit 110 0 CODE 0
 __HcstackCOMMON 0 0 ABS 0
 __LcstackCOMMON 0 0 ABS 0
 __pcstackCOMMON 70 0 COMMON 1
 start_initialization F 0 CODE 0
 __Hmaintext 0 0 ABS 0
 __Lmaintext 0 0 ABS 0
-__end_of_uartInit D3 0 CODE 0
+__end_of_uartInit E0 0 CODE 0
 __pmaintext 22 0 CODE 0
 _OPTION_REGbits 81 0 ABS 0
 __initialization F 0 CODE 0
-__stringbase EC 0 STRING 0
+__stringbase 105 0 STRING 0
 __size_of_displaytInit 0 0 ABS 0
 %segments
 reset_vec 0 5 CODE 0 0
-intentry 8 1CD CODE 8 0
+intentry 8 1E7 CODE 8 0
 cstackCOMMON 70 7A COMMON 70 1
 bssBANK0 20 29 BANK0 20 1
-strings 1CE 1ED STRING 1CE 0
-text4 1EE 1FB CODE 1EE 0
+strings 200 21F STRING 200 0
+text4 220 22D CODE 220 0
 %locals
 dist/default/production\PROGRAMA_38kHz_V1.X.production.o
-C:\Users\Alumno\AppData\Local\Temp\xcAs25o.s
+C:\Users\Alumno\AppData\Local\Temp\xcAs3tc.s
 1487 F 0 CODE 0
 1490 F 0 CODE 0
 1522 F 0 CODE 0
@@ -220,63 +220,69 @@ main.c
 51 59 0 CODE 0
 52 5A 0 CODE 0
 53 5C 0 CODE 0
-54 63 0 CODE 0
-55 65 0 CODE 0
-51 66 0 CODE 0
-61 A7 0 CODE 0
-63 A7 0 CODE 0
-65 AD 0 CODE 0
-66 AF 0 CODE 0
-68 B0 0 CODE 0
-68 B6 0 CODE 0
-69 BA 0 CODE 0
-71 BE 0 CODE 0
+53 61 0 CODE 0
+53 65 0 CODE 0
+55 69 0 CODE 0
+56 6C 0 CODE 0
+57 6D 0 CODE 0
+58 6D 0 CODE 0
+59 70 0 CODE 0
+51 72 0 CODE 0
+64 B4 0 CODE 0
+66 B4 0 CODE 0
+68 BA 0 CODE 0
+69 BC 0 CODE 0
+71 BD 0 CODE 0
+71 C3 0 CODE 0
+72 C7 0 CODE 0
+74 CB 0 CODE 0
 user.c
-26 72 0 CODE 0
-30 72 0 CODE 0
-31 75 0 CODE 0
-32 76 0 CODE 0
-33 79 0 CODE 0
-34 7A 0 CODE 0
-35 7B 0 CODE 0
-36 80 0 CODE 0
-40 85 0 CODE 0
-41 88 0 CODE 0
-42 89 0 CODE 0
-43 8A 0 CODE 0
-47 8B 0 CODE 0
-48 8D 0 CODE 0
-51 91 0 CODE 0
-52 94 0 CODE 0
-53 95 0 CODE 0
-54 96 0 CODE 0
-55 97 0 CODE 0
-58 98 0 CODE 0
-61 A1 0 CODE 0
-62 A4 0 CODE 0
-63 A5 0 CODE 0
-64 A6 0 CODE 0
+26 7E 0 CODE 0
+30 7E 0 CODE 0
+31 81 0 CODE 0
+32 82 0 CODE 0
+33 85 0 CODE 0
+34 86 0 CODE 0
+35 87 0 CODE 0
+36 88 0 CODE 0
+37 8D 0 CODE 0
+41 92 0 CODE 0
+42 95 0 CODE 0
+43 96 0 CODE 0
+44 97 0 CODE 0
+48 98 0 CODE 0
+49 9A 0 CODE 0
+52 9E 0 CODE 0
+53 A1 0 CODE 0
+54 A2 0 CODE 0
+55 A3 0 CODE 0
+56 A4 0 CODE 0
+59 A5 0 CODE 0
+62 AE 0 CODE 0
+63 B1 0 CODE 0
+64 B2 0 CODE 0
+65 B3 0 CODE 0
 uart.c
-39 BF 0 CODE 0
-47 BF 0 CODE 0
-48 C3 0 CODE 0
-50 C4 0 CODE 0
-51 C5 0 CODE 0
-52 C8 0 CODE 0
-53 CB 0 CODE 0
-54 CC 0 CODE 0
-55 CF 0 CODE 0
-56 D2 0 CODE 0
+39 CC 0 CODE 0
+47 CC 0 CODE 0
+48 D0 0 CODE 0
+50 D1 0 CODE 0
+51 D2 0 CODE 0
+52 D5 0 CODE 0
+53 D8 0 CODE 0
+54 D9 0 CODE 0
+55 DC 0 CODE 0
+56 DF 0 CODE 0
 display.c
-39 F7 0 CODE 0
-40 F7 0 CODE 0
-41 FA 0 CODE 0
-42 FD 0 CODE 0
+39 110 0 CODE 0
+40 110 0 CODE 0
+41 113 0 CODE 0
+42 116 0 CODE 0
 interrupts.c
-30 D3 0 CODE 0
-38 D3 0 CODE 0
-39 D4 0 CODE 0
-40 DA 0 CODE 0
-40 DC 0 CODE 0
-48 E0 0 CODE 0
+30 E0 0 CODE 0
+38 E0 0 CODE 0
+39 E1 0 CODE 0
+40 E7 0 CODE 0
+40 E9 0 CODE 0
+48 ED 0 CODE 0
 30 4 0 CODE 0
