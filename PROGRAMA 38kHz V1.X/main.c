@@ -19,7 +19,6 @@
 /*==================[definiciones y macros]==================================*/
 
 /*==================[definiciones de datos internos]=========================*/
-int BOTON = 1;
 int Tiempo0 = 0;
 int Tiempo1 = 0;
 int Mostrar_Tiempo = 0;
@@ -38,7 +37,7 @@ uint8_t comando;
 void main(void) {
     uint8_t i;
     appInit();
-    PIN_LED1 = 1;
+    PIN_VIDA1 = 1;
     PIN_LED4 = 0;
     while (1) {
         for (i = 0; i < 190; i++) {
@@ -48,16 +47,20 @@ void main(void) {
             __delay_us(10);
         }
         __delay_ms(100);
+        func_interup_boton();
         while (Mostrar_Tiempo) {
             Mostrar_Tiempo = 0;
-            Tiempo1;
+            if (Tiempo1==10) 
+                PIN_VIDA1=1;
+            else PIN_VIDA1=0;
+                
         }
     }
 }
 
 void func_interup_boton() {
     //Acá ingresa el programa cuando cambia el estado un pin de entrada del microcontrolador
-    if (BOTON == 0) {
+    if (PIN_TEC1 == 0) {
         //El botón fue apretado
         Tiempo0 = VALOR_TIMER;
     } else {

@@ -1,37 +1,10 @@
 Version 4.0 HI-TECH Software Intermediate Code
-[p mainexit ]
-"47 ./user.h
-[; ;./user.h: 47: void appInit(void);
-[v _appInit `(v ~T0 @X0 0 ef ]
-"421 C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic16f887.h
-[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic16f887.h: 421:     struct {
-[s S14 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S14 . RE0 RE1 RE2 RE3 ]
-"420
-[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic16f887.h: 420: typedef union {
-[u S13 `S14 1 ]
-[n S13 . . ]
-"428
-[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic16f887.h: 428: extern volatile PORTEbits_t PORTEbits __attribute__((address(0x009)));
-[v _PORTEbits `VS13 ~T0 @X0 0 e@9 ]
-"173
-[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic16f887.h: 173:     struct {
-[s S6 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S6 . RA0 RA1 RA2 RA3 RA4 RA5 RA6 RA7 ]
-"172
-[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic16f887.h: 172: typedef union {
-[u S5 `S6 1 ]
-[n S5 . . ]
-"184
-[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic16f887.h: 184: extern volatile PORTAbits_t PORTAbits __attribute__((address(0x005)));
-[v _PORTAbits `VS5 ~T0 @X0 0 e@5 ]
-[v F36 `(v ~T0 @X0 1 tf1`ul ]
-"12 C:\Program Files\Microchip\xc8\v2.32\pic\include\builtins.h
-[v __delay `JF36 ~T0 @X0 0 e ]
-[p i __delay ]
-"29 main.c
-[; ;main.c: 29: void func_interup_boton();
-[v _func_interup_boton `(v ~T0 @X0 0 e? ]
+"1603 C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic16f887.h
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic16f887.h: 1603: extern volatile unsigned char TRISD __attribute__((address(0x088)));
+[v _TRISD `Vuc ~T0 @X0 0 e@136 ]
+"353
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic16f887.h: 353: extern volatile unsigned char PORTD __attribute__((address(0x008)));
+[v _PORTD `Vuc ~T0 @X0 0 e@8 ]
 "55 C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic16f887.h
 [; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic16f887.h: 55: __asm("INDF equ 00h");
 [; <" INDF equ 00h ;# ">
@@ -290,157 +263,69 @@ Version 4.0 HI-TECH Software Intermediate Code
 [p x BOR4V  =  BOR21V    ]
 "38
 [p x WRT  =  OFF         ]
-"22 main.c
-[; ;main.c: 22: int Tiempo0 = 0;
-[v _Tiempo0 `i ~T0 @X0 1 e ]
-[i _Tiempo0
--> 0 `i
-]
-"23
-[; ;main.c: 23: int Tiempo1 = 0;
-[v _Tiempo1 `i ~T0 @X0 1 e ]
-[i _Tiempo1
--> 0 `i
-]
-"24
-[; ;main.c: 24: int Mostrar_Tiempo = 0;
-[v _Mostrar_Tiempo `i ~T0 @X0 1 e ]
-[i _Mostrar_Tiempo
--> 0 `i
-]
-"25
-[; ;main.c: 25: int Resta_Tiempo;
-[v _Resta_Tiempo `i ~T0 @X0 1 e ]
-"30
-[; ;main.c: 30: int VALOR_TIMER;
-[v _VALOR_TIMER `i ~T0 @X0 1 e ]
-"35
-[; ;main.c: 35: uint8_t comando;
-[v _comando `uc ~T0 @X0 1 e ]
-[v $root$_main `(v ~T0 @X0 0 e ]
-"37
-[; ;main.c: 37: void main(void) {
-[v _main `(v ~T0 @X0 1 ef ]
+"39 display.c
+[; ;display.c: 39: void displaytInit(void) {
+[v _displaytInit `(v ~T0 @X0 1 ef ]
 {
-[e :U _main ]
+[e :U _displaytInit ]
 [f ]
-"38
-[; ;main.c: 38:     uint8_t i;
-[v _i `uc ~T0 @X0 1 a ]
-"39
-[; ;main.c: 39:     appInit();
-[e ( _appInit ..  ]
 "40
-[; ;main.c: 40:     PORTEbits.RE2 = 1;
-[e = . . _PORTEbits 0 2 -> -> 1 `i `uc ]
+[; ;display.c: 40:     TRISD = 0;
+[e = _TRISD -> -> 0 `i `uc ]
 "41
-[; ;main.c: 41:     PORTAbits.RA5 = 0;
-[e = . . _PORTAbits 0 5 -> -> 0 `i `uc ]
+[; ;display.c: 41:     PORTD = 0;
+[e = _PORTD -> -> 0 `i `uc ]
 "42
-[; ;main.c: 42:     while (1) {
-[e :U 141 ]
-{
-"43
-[; ;main.c: 43:         for (i = 0; i < 190; i++) {
-{
-[e = _i -> -> 0 `i `uc ]
-[e $ < -> _i `i -> 190 `i 143  ]
-[e $U 144  ]
-[e :U 143 ]
-{
-"44
-[; ;main.c: 44:             PORTAbits.RA5 = 1;
-[e = . . _PORTAbits 0 5 -> -> 1 `i `uc ]
-"45
-[; ;main.c: 45:             _delay((unsigned long)((10)*(4000000L/4000000.0)));
-[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 4000000 `l `d .4000000.0 `ul ]
-"46
-[; ;main.c: 46:             PORTAbits.RA5 = 0;
-[e = . . _PORTAbits 0 5 -> -> 0 `i `uc ]
-"47
-[; ;main.c: 47:             _delay((unsigned long)((10)*(4000000L/4000000.0)));
-[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 4000000 `l `d .4000000.0 `ul ]
-"48
-[; ;main.c: 48:         }
+[; ;display.c: 42: }
+[e :UE 138 ]
 }
-[e ++ _i -> -> 1 `i `uc ]
-[e $ < -> _i `i -> 190 `i 143  ]
-[e :U 144 ]
-}
-"49
-[; ;main.c: 49:         _delay((unsigned long)((100)*(4000000L/4000.0)));
-[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
 "50
-[; ;main.c: 50:         func_interup_boton();
-[e ( _func_interup_boton ..  ]
-"51
-[; ;main.c: 51:         while (Mostrar_Tiempo) {
-[e $U 146  ]
-[e :U 147 ]
+[; ;display.c: 50:  void displayWrite( uint8_t value ){
+[v _displayWrite `(v ~T0 @X0 1 ef1`uc ]
 {
-"52
-[; ;main.c: 52:             Mostrar_Tiempo = 0;
-[e = _Mostrar_Tiempo -> 0 `i ]
-"53
-[; ;main.c: 53:             if (Tiempo1==10)
-[e $ ! == _Tiempo1 -> 10 `i 149  ]
-"54
-[; ;main.c: 54:                 PORTEbits.RE2=1;
-[e = . . _PORTEbits 0 2 -> -> 1 `i `uc ]
-[e $U 150  ]
-"55
-[; ;main.c: 55:             else PORTEbits.RE2=0;
-[e :U 149 ]
-[e = . . _PORTEbits 0 2 -> -> 0 `i `uc ]
-[e :U 150 ]
-"57
-[; ;main.c: 57:         }
-}
-[e :U 146 ]
-"51
-[; ;main.c: 51:         while (Mostrar_Tiempo) {
-[e $ != _Mostrar_Tiempo -> 0 `i 147  ]
-[e :U 148 ]
-"58
-[; ;main.c: 58:     }
-}
-[e :U 140 ]
-[e $U 141  ]
-[e :U 142 ]
-"59
-[; ;main.c: 59: }
-[e :UE 139 ]
-}
-"61
-[; ;main.c: 61: void func_interup_boton() {
-[v _func_interup_boton `(v ~T0 @X0 1 ef ]
-{
-[e :U _func_interup_boton ]
+[e :U _displayWrite ]
+[v _value `uc ~T0 @X0 1 r1 ]
 [f ]
+"51
+[; ;display.c: 51:     const uint8_t tabla7seg[] = {
+[v F1298 `Cuc ~T0 @X0 -> 10 `i s tabla7seg ]
+[i F1298
+:U ..
+-> -> 63 `i `uc
+-> -> 6 `i `uc
+-> -> 91 `i `uc
+-> -> 79 `i `uc
+-> -> 102 `i `uc
+-> -> 109 `i `uc
+-> -> 125 `i `uc
+-> -> 7 `i `uc
+-> -> 127 `i `uc
+-> -> 103 `i `uc
+..
+]
 "63
-[; ;main.c: 63:     if (PORTAbits.RA1 == 0) {
-[e $ ! == -> . . _PORTAbits 0 1 `i -> 0 `i 152  ]
+[; ;display.c: 63:     if(value < sizeof (tabla7seg)){
+[e $ ! < -> _value `ui -> # F1298 `ui 140  ]
 {
+"64
+[; ;display.c: 64:         PORTD = tabla7seg[value] ;
+[e = _PORTD *U + &U F1298 * -> _value `ux -> -> # *U &U F1298 `ui `ux ]
 "65
-[; ;main.c: 65:         Tiempo0 = VALOR_TIMER;
-[e = _Tiempo0 _VALOR_TIMER ]
+[; ;display.c: 65:     }
+}
+[e $U 141  ]
 "66
-[; ;main.c: 66:     } else {
-}
-[e $U 153  ]
-[e :U 152 ]
+[; ;display.c: 66:     else{
+[e :U 140 ]
 {
+"67
+[; ;display.c: 67:         PORTD = 0 ;
+[e = _PORTD -> -> 0 `i `uc ]
 "68
-[; ;main.c: 68:         Tiempo1 = VALOR_TIMER - Tiempo0;
-[e = _Tiempo1 - _VALOR_TIMER _Tiempo0 ]
-"69
-[; ;main.c: 69:         Mostrar_Tiempo = 1;
-[e = _Mostrar_Tiempo -> 1 `i ]
-"70
-[; ;main.c: 70:     }
+[; ;display.c: 68:     }
 }
-[e :U 153 ]
-"71
-[; ;main.c: 71: }
-[e :UE 151 ]
+[e :U 141 ]
+"69
+[; ;display.c: 69: }
+[e :UE 139 ]
 }

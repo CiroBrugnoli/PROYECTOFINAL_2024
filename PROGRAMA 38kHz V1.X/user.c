@@ -21,127 +21,72 @@
 #include "display.h"    /* Funciones/Parametros Display */
 /*==================[definiciones y macros]==================================*/
 
-/*==================[definiciones de datos internos]=========================*/
 
-/*==================[definiciones de datos externos]=========================*/
-//char datoUser; //Ejemplo
 
-/*==================[declaraciones de funciones internas]====================*/
-//static void funcUser(void); //Ejemplo
-
-/*==================[definiciones de funciones internas]=====================*/
-//static void funcUser(void){ //Ejemplo
-//}; 
-
-/*==================[definiciones de funciones externas]=====================*/
-/**
- * @brief	Inicializa Ports, Periféricos e Interrupciones
- * @return	Nada
- */
-//void appInit(void) {
+ void appInit(void) {
     /* TODO: Inicializar Ports/Periféricos/Interrupciones */
-    /* Configura funciones analógicas y dirección de los Ports de I/O */
-   // ANSEL        = 0;
-   // ANSELH       = 0;  
-  	//// TRIS_LED4    = 0;  //sALIDA LED 1, TITILA A 38KhZ A 5ms
-   // TRIS_SOUNDER = 0; 
-    //__delay_ms(100); //Espera que se estabilice la fuente
-    
-     //Configura Timer1
-    //TMR1CS=0;
-    
-    ////T1CKPS0=0;
-    
-    
-   // TMR1ON=1;
-    //TODO ...
 
-    //Configura CCP1
-    //TODO ...
-//      CCP1M0=1;
-//      CCP1M1=1;            
-//      CCP1M2=0;
-//      CCP1M3=1;     
-   // CCP1CON=0B00001011;
-    //CCPR1=1000;
-    //Configura Timer0
-    //TODO ...
-           // T0CS=0;
-            
-          //  PSA=0;
-    
-           //PS1=0;
-            //PS2=0;
-                    
-    
-    /* TODO: Habilita Interrupciones si es necesario*/
-    //TMR2IE = 1;
-    //PEIE = 1;
-    //GIE = 1;  
-
-
-/*==================[definiciones de funciones externas]=====================*/
-/**
- * @brief	Inicializa Ports, Periféricos e Interrupciones
- * @return	Nada
- */
-void appInit(void) {
-    /* TODO: Inicializar Ports/Periféricos/Interrupciones */
     /* Configura funciones analógicas y dirección de los Ports de I/O */
     ANSEL = 0;
     ANSELH = 0;
+    TRIS_VIDA1 = 1;
     TRIS_TEC1 = 1;
-       TRIS_SOUNDER = 0;    
+      TRIS_SOUNDER = 0;
+    uartInit();
     displaytInit();
-    
+
     //Configura Timer1
-    TMR1CS=0;
-    
-    T1CKPS1=0;
-    T1CKPS0=0;
-    
-    
-    TMR1ON=1;
-    //TODO ...
+
+    TMR1CS = 0; //CLOCK INTERNO
+    T1CKPS1 = 0; //PRESSCALER
+    T1CKPS0 = 0;
+    TMR1ON = 1;
+
 
     //Configura CCP1
-    //TODO ...
-//      CCP1M0=1;
-//      CCP1M1=1;            
-//      CCP1M2=0;
-//      CCP1M3=1;     
-    CCP1CON=0B00001011;
-    CCPR1=1000;
+    CCP1CON = 0b00001011; // esto lo pone como comparador
+    CCPR1 = 1000; //PARA INTERRUMPIR CADA 1000us da la frecuencia
+
     //Configura Timer0
-    //TODO ...
-            T0CS=0;
-            
-            PSA=0;
-    
-            PS0=1;
-            PS1=0;
-            PS2=0;
+    T0CS = 0;
+    PSA = 0;
+    PS0 = 1;
+    PS1 = 0;
+    PS2 = 0;
+
+
+    __delay_ms(100); //Espera que se estabilice la fuente
+
+    /* TODO: Habilita Interrupciones si es necesario*/
+    CCP1IE = 1; //EL ENEBLE 
+    PEIE = 1; //PERIFERICOS
+    GIE = 1; //ACTIVA LAS INTERRUCIONES 
 }
 
-void delayTMR0Seg(uint16_t tmseg) {
-            
-    for (uint16_t cont = 0; cont < tmseg; cont++){ 
-        
-        TMR0 = 6;
-        TMR0IF = 0;
-        
-        while (TMR0IF == 0) ;
-        TMR0IF = 0;
+/**
+ * @brief	Demora una cantidad de mSegs basado en desbordes de TMR0
+ * @param[in] tmsegs Cantidad ed milisegundos de la demora
+ * @return  nada
+ * @note    Debe estar previamente configurado el TMR0
+ */
 
+void delayTMR0mSeg(uint16_t tmsegs) {
+    for (uint16_t cont = 0; cont < tmsegs; cont++) {
+        TMR0 = 6;
+        T0IF = 0;
+        while (T0IF == 0);
     }
 }
 
-
-
-void speakerPlay(uint16_t semiper, uint16_t tmsegs){
-    
-}
-    
+//void speakerPlay(uint16_t semiper, uint16_t tmsegs) {
+    //if (semiper == Silencio) {//es silencio
+     ////} else {//es nota
+     //   TMR1 = 0; //QUE EL TIMER1 EMPIECE DE 0
+     //   CCPR1 = semiper; //igualo al ccp1 al semiperiodo
+     //   TMR1ON = 1; //ENCIENDE EL TIMER1
+    //}
+   // delayTMR0mSeg(tmsegs);
+//}   
  
      
     

@@ -2657,7 +2657,7 @@ extern __bank0 __bit __timeout;
 # 15 "./user.h"
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c90\\stdint.h" 1 3
 # 15 "./user.h" 2
-# 45 "./user.h"
+# 47 "./user.h"
 void appInit(void);
 # 19 "user.c" 2
 
@@ -2682,53 +2682,55 @@ __bit uartReadByte( uint8_t* receivedByte );
 void displaytInit( void );
 void displayWrite( uint8_t value );
 # 21 "user.c" 2
-# 88 "user.c"
-void appInit(void) {
+
+
+
+
+
+ void appInit(void) {
+
 
 
     ANSEL = 0;
     ANSELH = 0;
+    TRISEbits.TRISE2 = 1;
     TRISAbits.TRISA1 = 1;
-       TRISCbits.TRISC0 = 0;
+      TRISCbits.TRISC0 = 0;
+    uartInit();
     displaytInit();
 
 
-    TMR1CS=0;
 
-    T1CKPS1=0;
-    T1CKPS0=0;
-
-
-    TMR1ON=1;
-# 113 "user.c"
-    CCP1CON=0B00001011;
-    CCPR1=1000;
+    TMR1CS = 0;
+    T1CKPS1 = 0;
+    T1CKPS0 = 0;
+    TMR1ON = 1;
 
 
-            T0CS=0;
 
-            PSA=0;
+    CCP1CON = 0b00001011;
+    CCPR1 = 1000;
 
-            PS0=1;
-            PS1=0;
-            PS2=0;
+
+    T0CS = 0;
+    PSA = 0;
+    PS0 = 1;
+    PS1 = 0;
+    PS2 = 0;
+
+
+    _delay((unsigned long)((100)*(4000000L/4000.0)));
+
+
+    CCP1IE = 1;
+    PEIE = 1;
+    GIE = 1;
 }
-
-void delayTMR0Seg(uint16_t tmseg) {
-
-    for (uint16_t cont = 0; cont < tmsegs; cont++){
-
+# 73 "user.c"
+void delayTMR0mSeg(uint16_t tmsegs) {
+    for (uint16_t cont = 0; cont < tmsegs; cont++) {
         TMR0 = 6;
-        TMROIF = 0;
-
-        while (TMROIF == 0) {
-
-        }
+        T0IF = 0;
+        while (T0IF == 0);
     }
-}
-
-
-
-void speakerPlay(uint16_t semiper, uint16_t tmsegs){
-
 }
