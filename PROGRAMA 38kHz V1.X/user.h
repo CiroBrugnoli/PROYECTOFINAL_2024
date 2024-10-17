@@ -23,13 +23,17 @@
 #define	PIN_LED1        PORTEbits.RE2
 #define	TRIS_LED4       TRISAbits.TRISA5
 #define	PIN_LED4        PORTAbits.RA5
-#define TRIS_TEC1       TRISAbits.TRISA1
+#define TRIS_TEC1       TRISAbits.TRISA1 //Boton de generada
 #define PIN_TEC1        PORTAbits.RA1
+#define TRIS_TEC2       TRISAbits.TRISA2 //Sensor laser
+#define PIN_TEC2        PORTAbits.RA2
 //Alias de los Leds
 #define	TRIS_VIDA1          TRIS_LED1 
 #define	PIN_VIDA1           PIN_LED1
 #define	TRIS_LEDPRUEBA      TRIS_LED4
 #define	PIN_LEDPRUEBA       PIN_LED4 
+
+
 
 //Buzzer
 #define	TRIS_SOUNDER    TRISCbits.TRISC0

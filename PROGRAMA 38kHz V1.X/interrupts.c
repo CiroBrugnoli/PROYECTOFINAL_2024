@@ -20,6 +20,7 @@
 
 /*==================[declaraciones de funciones internas]====================*/
 void isr(void);
+//void isw (void); // Función para habilitar los pines que interrumpen
 
 /*==================[definiciones de funciones internas]=====================*/
 /**
@@ -47,6 +48,14 @@ void __interrupt() isr(void) {
     //}
 }
 
+
+/* void __interrupt_pines() isw{
+ PIN_TEC1
+ PIN_TEC2
+ Control_Led_Rojo();
+ }
+ 
+ */
 /*==================[definiciones de funciones externas]=====================*/
 
 /*==================[fin del archivo]========================================*/
