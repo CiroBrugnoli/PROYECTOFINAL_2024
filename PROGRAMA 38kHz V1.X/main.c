@@ -28,6 +28,8 @@ int Resta_Tiempo;
 /*==================[declaraciones de funciones internas]====================*/
 void func_interup_boton();
 int VALOR_TIMER;
+void Control_Led_Rojo(); //Función para que se ingrese cuando cambian los estados de los
+                         //pines del sensor o boton de generación
 
 /*==================[funcion principal]======================================*/
 
@@ -73,3 +75,9 @@ void func_interup_boton() {
     }
 }
 
+void Control_Led_Rojo(){
+    if (TRIS_TEC1==TRIS_TEC2)
+        TRIS_VIDA1=1;
+    else
+        TRIS_VIDA1=0;
+}
