@@ -29,8 +29,9 @@
     /* Configura funciones analógicas y dirección de los Ports de I/O */
     ANSEL = 0;
     ANSELH = 0;
-    TRIS_VIDA1 = 1;
-    TRIS_TEC1 = 1;
+    TRIS_VIDA1 = 0;
+    TRIS_GATILLO = 1;
+    TRIS_VIDA = 1;
     TRIS_LEDPRUEBA = 0;
       TRIS_SOUNDER = 0;
     uartInit();

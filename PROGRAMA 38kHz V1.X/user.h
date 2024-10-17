@@ -33,6 +33,12 @@
 #define	TRIS_LEDPRUEBA      TRIS_LED4
 #define	PIN_LEDPRUEBA       PIN_LED4 
 
+//alias botones/entradas
+
+#define PIN_GATILLO     PIN_TEC1  //entrada
+#define TRIS_GATILLO    TRIS_TEC1
+#define PIN_VIDA        PIN_TEC2    //entrada
+#define TRIS_VIDA       TRIS_TEC2
 
 
 //Buzzer
