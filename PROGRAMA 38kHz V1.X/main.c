@@ -18,7 +18,7 @@
 /*==================[definiciones y macros]==================================*/
 
 typedef enum {
-    E_SUELTO, E_BAJANDO, E_PRESIONADO, E_SUBIENDO, E_MANTENIDO
+ //   E_, , E_, E_, E_
 } estadoMEF_t;
 
 /*==================[definiciones de datos internos]=========================*/
@@ -26,9 +26,12 @@ int Tiempo0 = 0;
 int Tiempo1 = 0;
 int Mostrar_Tiempo = 0;
 int Resta_Tiempo;
-estadoMEF_t estadoActual1, estadoActual2; // Variable de estado (global)
+int VIDAS=CANTIDAD_MAX;
+ //estadoActual1, estadoActual2; // Variable de estado (global)
 tick_t tInicio1, tInicio2;
-
+char gatilloAP(void);
+char rx_LSR(void);
+char sumar_vida(void);
 /*==================[definiciones de datos externos]=========================*/
 
 
@@ -47,12 +50,7 @@ void ActualizarMEF2(void);
 /* TODO: Agregar el Cod1iogo de la Aplicación aquí */
 uint8_t comando;
 
-void InicializarMEF(void) {
-    estadoActual1 = E_SUELTO; // Establece estado inicial 
-    estadoActual2 = E_SUELTO; // Establece estado inicial 
-}
-
-
+void InicializarMEF(void) {}
 
 void main(void) {
     uint8_t i;
@@ -64,7 +62,7 @@ void main(void) {
 
     while (1) {
         ActualizarMEF1();
-        if(estadoActual1 == E_PRESIONADO)
+        if( == )
         {
             PIN_VIDA1 = 1;
             
@@ -93,9 +91,15 @@ void main(void) {
                 //PIN_VIDA1=0;
             Tiempo1=0;    
         }
+         gatilloAP();
+         rx_LSR();
+         if(VIDAS==0)
+             sumar_vida();
     }
 }
 
+
+/*
 void func_interup_boton() {
     //Acá ingresa el programa cuando cambia el estado un pin de entrada del microcontrolador
     if (PIN_TEC1 == 0) {
@@ -106,32 +110,50 @@ void func_interup_boton() {
         Tiempo1 = VALOR_TIMER - Tiempo0;
         Mostrar_Tiempo = 1;
     }
+}*/
+char gatilloAP(void){
+    __delay_ms(300);
+    if(TRIS_GATILLO==1)
+        TRIS_VIDA=0;
+    else            
+        TRIS_VIDA=1;     
+
 }
 
-void ActualizarMEF1(void) {
+char rx_LSR(void){
+        __delay_ms(300);
+    if( !TRIS_TEC2)
+        VIDAS--;
+           
+    
+    
+    
+    
+}
+/*void ActualizarMEF1(void) {
     switch (estadoActual1) {
-        case E_SUELTO:
+        case :
             if (PIN_TEC1 == 0) {// Chequear condiciones de transición de estado
-                estadoActual1 = E_BAJANDO; // Cambiar a otro estado
+                estadoActual1 = ; // Cambiar a otro estado
                 tInicio1 = tickRead(); // También inicia temporizacion
             }
             break;
-        case E_BAJANDO:
+        case :
             if (PIN_TEC1 == 1) {
-                estadoActual1 = E_SUELTO;
+                estadoActual1 = ;
             } else if (tickRead() - tInicio1 > 800&&PIN_TEC1 == 0) {// Chequear condiciones de transición de estado
-                estadoActual1 = E_PRESIONADO; // Cambiar a otro estado
+                estadoActual1 = ; // Cambiar a otro estado
                 //incrementaDisplay();
                 tInicio1 = tickRead();
             }
             break;
-        case E_PRESIONADO:
+        case :
             if (PIN_TEC1 == 1) {// Chequear condiciones de transición de estado
-                estadoActual1 = E_SUBIENDO; // Cambiar a otro estado
+                estadoActual1 = ; // Cambiar a otro estado
                 tInicio1 = tickRead(); // También inicia temporizacion
             }
             if (PIN_TEC1 == 0&&tickRead() - tInicio1 > 400) {// Chequear condiciones de transición de estado
-                estadoActual1 = E_MANTENIDO; // Cambiar a otro estado
+                estadoActual1 = ; // Cambiar a otro estado
                 //incrementaDisplay();
                 tInicio1 = tickRead(); // También inicia temporizacion
             }
@@ -160,6 +182,4 @@ void ActualizarMEF1(void) {
             // a un estado no válido llevo la MEF a un 
             // lugar seguro, por ejemplo, la reinicio:
             InicializarMEF();
-    }
-}
-
+    }*/
