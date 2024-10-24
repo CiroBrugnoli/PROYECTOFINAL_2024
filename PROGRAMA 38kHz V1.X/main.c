@@ -33,7 +33,7 @@ char gatilloAP(void);
 char rx_LSR(void);
 char sumar_vida(void);
 /*==================[definiciones de datos externos]=========================*/
-
+  
 
 
 /*==================[declaraciones de funciones internas]====================*/

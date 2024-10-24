@@ -32,6 +32,7 @@
 #define	PIN_VIDA1           PIN_LED1
 #define	TRIS_LEDPRUEBA      TRIS_LED4
 #define	PIN_LEDPRUEBA       PIN_LED4 
+#define CANTIDAD_MAX    3
 
 //alias botones/entradas
 

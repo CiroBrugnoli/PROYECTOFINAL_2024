@@ -14,16 +14,16 @@
 /*==================[inlcusiones]============================================*/
 #include <xc.h>         /* Archivo de Encabezados General XC8 */
 #include <stdint.h>     /* para las definiciones de uint8_t por ej.*/
-
 #include "system.h"     /* Funciones/Parametros System, como conf de osc/perif */
 #include "user.h"       /* Funciones/Parametros User, como InitApp */
 #include "uart.h"       /* Funciones/Parametros Uart */
 #include "display.h"    /* Funciones/Parametros Display */
+
 /*==================[definiciones y macros]==================================*/
 
 
 
- void appInit(void) {
+void appInit(void) {
     /* TODO: Inicializar Ports/Periféricos/Interrupciones */
 
     /* Configura funciones analógicas y dirección de los Ports de I/O */
@@ -33,7 +33,7 @@
     TRIS_GATILLO = 1;
     TRIS_VIDA = 1;
     TRIS_LEDPRUEBA = 0;
-      TRIS_SOUNDER = 0;
+    TRIS_SOUNDER = 0;
     uartInit();
     displaytInit();
 
@@ -81,14 +81,14 @@ void delayTMR0mSeg(uint16_t tmsegs) {
 }
 
 //void speakerPlay(uint16_t semiper, uint16_t tmsegs) {
-    //if (semiper == Silencio) {//es silencio
-     ////} else {//es nota
-     //   TMR1 = 0; //QUE EL TIMER1 EMPIECE DE 0
-     //   CCPR1 = semiper; //igualo al ccp1 al semiperiodo
-     //   TMR1ON = 1; //ENCIENDE EL TIMER1
-    //}
-   // delayTMR0mSeg(tmsegs);
+//if (semiper == Silencio) {//es silencio
+////} else {//es nota
+//   TMR1 = 0; //QUE EL TIMER1 EMPIECE DE 0
+//   CCPR1 = semiper; //igualo al ccp1 al semiperiodo
+//   TMR1ON = 1; //ENCIENDE EL TIMER1
+//}
+// delayTMR0mSeg(tmsegs);
 //}   
- 
+
      
     
