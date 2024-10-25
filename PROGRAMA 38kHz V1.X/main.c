@@ -210,7 +210,7 @@ void ActualizarMEF1(void)
         
             
         case MUERTE: 
-            if()        //APAGO TODO Y PARPADEAN LOS LEDS ROJOS
+            if      //APAGO TODO Y PARPADEAN LOS LEDS ROJOS
                     
                 estadoActual1 = RESUCITACION; // Cambiar a otro estado
                 tInicio1 = tickRead(); // También inicia temporizacion
