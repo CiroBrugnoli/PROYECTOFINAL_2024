@@ -21,8 +21,13 @@
 //Leds
 #define	TRIS_LED1       TRISEbits.TRISE2
 #define	PIN_LED1        PORTEbits.RE2
+#define	TRIS_LED2       TRISBbits.TRISB0
+#define	PIN_LED2        PORTBbits.RB0
+#define	TRIS_LED3        TRISBbits.TRISB1
+#define	PIN_LED3        PORTEBbits.RE2
 #define	TRIS_LED4       TRISAbits.TRISA5
 #define	PIN_LED4        PORTAbits.RA5
+
 #define TRIS_TEC1       TRISAbits.TRISA1 //Boton de generada
 #define PIN_TEC1        PORTAbits.RA1
 #define TRIS_TEC2       TRISAbits.TRISA2 //Sensor laser
@@ -32,7 +37,7 @@
 #define	PIN_VIDA1           PIN_LED1
 #define	TRIS_LEDPRUEBA      TRIS_LED4
 #define	PIN_LEDPRUEBA       PIN_LED4 
-#define CANTIDAD_MAX    3
+#define CANTIDAD_MAX    30
 
 //alias botones/entradas
 
