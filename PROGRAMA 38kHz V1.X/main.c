@@ -160,7 +160,7 @@ void ActualizarGAT(void)
             }
             if (PIN_TEC1 == 0 && tickRead() - tInicio1 > 40) {// Chequear condiciones de transición de estado
                 estadoActual1 = E_MANTENIDO; // Cambiar a otro estado
-                cont_balas++;
+                cont_balas--;
                 tInicio1 = tickRead(); // También inicia temporizacion
             }
             break;
@@ -194,20 +194,20 @@ void ActualizarMEF1(void)
 { 
     {
     switch (estadoActual1) {
-        case VIDA: 
-            if(VIDAS==1)        //PERMITE DISPARAR Y A MEDIDA QUE DISPARAS CAMBIAN LOS LEDS
-                BALAS==30
-                        
-                estadoActual1 = MUERTE; // Cambiar a otro estado
-                tInicio1 = tickRead(); // También inicia temporizacion
-            
-       }
+        case VIDA:
+            ActualizarGAT();
+
+            if(PIN_VIDA==0){        //PERMITE DISPARAR Y A MEDIDA QUE DISPARAS CAMBIAN LOS LEDS
+                
+              estadoActual1 = MUERTE; // Cambiar a otro estado
+
+            }    
+                // Cambiar a otro estado
+                //tInicio1 = tickRead(); // También inicia temporizacion
+       
     
             break;
-        case BALAS    
-        if(cont_balas >= 30){
-            PIN_LED
-        }
+        
             
         case MUERTE: 
             if()        //APAGO TODO Y PARPADEAN LOS LEDS ROJOS
