@@ -1,4 +1,4 @@
-# 1 "main.c"
+# 1 "uart.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,8 +6,8 @@
 # 1 "<built-in>" 2
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "main.c" 2
-# 12 "main.c"
+# 1 "uart.c" 2
+# 15 "uart.c"
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\xc.h" 1 3
 # 18 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -2671,165 +2671,9 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 28 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\xc.h" 2 3
-# 13 "main.c" 2
-
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\c99\\stdio.h" 1 3
-# 24 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\c99\\stdio.h" 3
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\c99\\bits/alltypes.h" 1 3
-# 12 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\c99\\bits/alltypes.h" 3
-typedef void * va_list[1];
+# 16 "uart.c" 2
 
 
-
-
-typedef void * __isoc_va_list[1];
-# 143 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\c99\\bits/alltypes.h" 3
-typedef short ssize_t;
-# 253 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\c99\\bits/alltypes.h" 3
-typedef long off_t;
-# 409 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\c99\\bits/alltypes.h" 3
-typedef struct _IO_FILE FILE;
-# 25 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\c99\\stdio.h" 2 3
-# 52 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\c99\\stdio.h" 3
-typedef union _G_fpos64_t {
- char __opaque[16];
- double __align;
-} fpos_t;
-
-extern FILE *const stdin;
-extern FILE *const stdout;
-extern FILE *const stderr;
-
-
-
-
-
-FILE *fopen(const char *restrict, const char *restrict);
-FILE *freopen(const char *restrict, const char *restrict, FILE *restrict);
-int fclose(FILE *);
-
-int remove(const char *);
-int rename(const char *, const char *);
-
-int feof(FILE *);
-int ferror(FILE *);
-int fflush(FILE *);
-void clearerr(FILE *);
-
-int fseek(FILE *, long, int);
-long ftell(FILE *);
-void rewind(FILE *);
-
-int fgetpos(FILE *restrict, fpos_t *restrict);
-int fsetpos(FILE *, const fpos_t *);
-
-size_t fread(void *restrict, size_t, size_t, FILE *restrict);
-size_t fwrite(const void *restrict, size_t, size_t, FILE *restrict);
-
-int fgetc(FILE *);
-int getc(FILE *);
-int getchar(void);
-
-
-
-
-
-int ungetc(int, FILE *);
-int getch(void);
-
-int fputc(int, FILE *);
-int putc(int, FILE *);
-int putchar(int);
-
-
-
-
-
-void putch(char);
-
-char *fgets(char *restrict, int, FILE *restrict);
-
-char *gets(char *);
-
-
-int fputs(const char *restrict, FILE *restrict);
-int puts(const char *);
-
-__attribute__((__format__(__printf__, 1, 2)))
-int printf(const char *restrict, ...);
-__attribute__((__format__(__printf__, 2, 3)))
-int fprintf(FILE *restrict, const char *restrict, ...);
-__attribute__((__format__(__printf__, 2, 3)))
-int sprintf(char *restrict, const char *restrict, ...);
-__attribute__((__format__(__printf__, 3, 4)))
-int snprintf(char *restrict, size_t, const char *restrict, ...);
-
-__attribute__((__format__(__printf__, 1, 0)))
-int vprintf(const char *restrict, __isoc_va_list);
-int vfprintf(FILE *restrict, const char *restrict, __isoc_va_list);
-__attribute__((__format__(__printf__, 2, 0)))
-int vsprintf(char *restrict, const char *restrict, __isoc_va_list);
-__attribute__((__format__(__printf__, 3, 0)))
-int vsnprintf(char *restrict, size_t, const char *restrict, __isoc_va_list);
-
-__attribute__((__format__(__scanf__, 1, 2)))
-int scanf(const char *restrict, ...);
-__attribute__((__format__(__scanf__, 2, 3)))
-int fscanf(FILE *restrict, const char *restrict, ...);
-__attribute__((__format__(__scanf__, 2, 3)))
-int sscanf(const char *restrict, const char *restrict, ...);
-
-__attribute__((__format__(__scanf__, 1, 0)))
-int vscanf(const char *restrict, __isoc_va_list);
-int vfscanf(FILE *restrict, const char *restrict, __isoc_va_list);
-__attribute__((__format__(__scanf__, 2, 0)))
-int vsscanf(const char *restrict, const char *restrict, __isoc_va_list);
-
-void perror(const char *);
-
-int setvbuf(FILE *restrict, char *restrict, int, size_t);
-void setbuf(FILE *restrict, char *restrict);
-
-char *tmpnam(char *);
-FILE *tmpfile(void);
-
-
-
-
-FILE *fmemopen(void *restrict, size_t, const char *restrict);
-FILE *open_memstream(char **, size_t *);
-FILE *fdopen(int, const char *);
-FILE *popen(const char *, const char *);
-int pclose(FILE *);
-int fileno(FILE *);
-int fseeko(FILE *, off_t, int);
-off_t ftello(FILE *);
-int dprintf(int, const char *restrict, ...);
-int vdprintf(int, const char *restrict, __isoc_va_list);
-void flockfile(FILE *);
-int ftrylockfile(FILE *);
-void funlockfile(FILE *);
-int getc_unlocked(FILE *);
-int getchar_unlocked(void);
-int putc_unlocked(int, FILE *);
-int putchar_unlocked(int);
-ssize_t getdelim(char **restrict, size_t *restrict, int, FILE *restrict);
-ssize_t getline(char **restrict, size_t *restrict, FILE *restrict);
-int renameat(int, const char *, int, const char *);
-char *ctermid(char *);
-
-
-
-
-
-
-
-char *tempnam(const char *, const char *);
-# 15 "main.c" 2
-# 1 "./user.h" 1
-# 63 "./user.h"
-void appInit(void);
-# 16 "main.c" 2
 # 1 "./system.h" 1
 # 26 "./system.h"
 #pragma config FOSC = XT
@@ -2845,219 +2689,95 @@ void appInit(void);
 
 #pragma config BOR4V = BOR21V
 #pragma config WRT = OFF
-# 17 "main.c" 2
-# 1 "./tick.h" 1
-# 20 "./tick.h"
-typedef uint16_t tick_t;
-
-
-extern volatile tick_t tickCounter;
-
-
-void tickInit(void);
-tick_t tickRead( void );
-void tickWrite( tick_t ticks );
-# 18 "main.c" 2
-
-
-typedef enum {
-    E_SUELTO, E_BAJANDO, E_PRESIONADO, E_SUBIENDO, E_MANTENIDO
-} estadoMEF_t;
-typedef enum {
-    VIDA,BALAS, MUERTE, RESUCITACION
-} estadoGAT_t;
-
-
-int Tiempo0 = 0;
-int Tiempo1 = 0;
-int Mostrar_Tiempo = 0;
-int Resta_Tiempo;
-int VIDAS;
-int BALAS=30;
-int cont_balas = 30;
-estadoMEF_t estadoActual1, estadoActual2;
-tick_t tInicio1, tInicio2;tick_t tInicio1, tInicio2;
-char gatilloAP(void);
-char rx_LSR(void);
-char sumar_vida(void);
+# 19 "uart.c" 2
+# 1 "./uart.h" 1
+# 31 "./uart.h"
+void uartInit(void);
+void putch(char data);
+char getch(void);
+char getche(void);
+void uartWriteByte( uint8_t value );
+__bit uartReadByte( uint8_t* receivedByte );
+# 20 "uart.c" 2
+# 39 "uart.c"
+void uartInit(void) {
 
 
 
 
 
-void func_interup_boton();
-int VALOR_TIMER;
-void Control_Led_Rojo();
-
-void InicializarMEF(void);
-void ActualizarMEF1(void);
-void ActualizarGAT(void);
 
 
+    SPBRG = (4000000L - 9600 * 16L) / (9600 * 16L);
+    BRGH = 1;
 
-
-uint8_t comando;
-
-void InicializarMEF(void) {}
-
-void main(void) {
-    uint8_t i;
-    appInit();
-
-    InicializarMEF();
-    PORTEbits.RE2 = 1;
-    PORTAbits.RA5 = 0;
-
-    while (1) {
-        ActualizarMEF1();
-
-        if( estadoActual1 == E_PRESIONADO )
-        {
-            PORTEbits.RE2 = 1;
-        }
-        else
-        {
-           PORTEbits.RE2 = 0;
-        }
-
-        for (i = 0; i < 190; i++) {
-            PORTAbits.RA5 = 1;
-            _delay((unsigned long)((10)*(4000000L/4000000.0)));
-            PORTAbits.RA5 = 0;
-            _delay((unsigned long)((10)*(4000000L/4000000.0)));
-        }
-        _delay((unsigned long)((100)*(4000000L/4000.0)));
-        func_interup_boton();
-        while (Mostrar_Tiempo) {
-            Mostrar_Tiempo = 0;
-            if (Tiempo1>=10)
-            {
-
-            }
-            else
-
-            Tiempo1=0;
-        }
-         gatilloAP();
-         rx_LSR();
-         if(VIDAS==0)
-             sumar_vida();
-    }
-}
-# 118 "main.c"
-char gatilloAP(void){
-    _delay((unsigned long)((300)*(4000000L/4000.0)));
-    if(PORTAbits.RA1==1)
-        PORTAbits.RA2=0;
-    else
-        PORTAbits.RA2=1;
-
+    SYNC = 0;
+    SPEN = 1;
+    TRISC7 = 1;
+    TRISC6 = 1;
+    CREN = 1;
+    TXEN = 1;
 }
 
-char rx_LSR(void){
-        _delay((unsigned long)((300)*(4000000L/4000.0)));
-    if( !TRISAbits.TRISA2)
-        VIDAS--;
 
 
 
 
 
+
+void putch(char data) {
+    while (!TXIF)
+        continue;
+    TXREG = data;
 }
-void ActualizarGAT(void)
-
-{
-    switch (estadoActual1) {
-        case E_SUELTO:
-            if (PORTAbits.RA1 == 0) {
-                estadoActual1 = E_BAJANDO;
-                tInicio1 = tickRead();
-            }
-            break;
-        case E_BAJANDO:
-            if (PORTAbits.RA1 == 1) {
-                estadoActual1 = E_SUELTO;
-            } else if (tickRead() - tInicio1 > 20 && PORTAbits.RA1 == 0) {
-                estadoActual1 = E_PRESIONADO;
-
-                tInicio1 = tickRead();
-            }
-            break;
-        case E_PRESIONADO:
-            if (PORTAbits.RA1 == 1) {
-                estadoActual1 = E_SUBIENDO;
-                tInicio1 = tickRead();
-            }
-            if (PORTAbits.RA1 == 0 && tickRead() - tInicio1 > 40) {
-                estadoActual1 = E_MANTENIDO;
-                cont_balas--;
-                tInicio1 = tickRead();
-            }
-            break;
-        case E_MANTENIDO:
-            if (PORTAbits.RA1 == 1) {
-
-                estadoActual1 = E_SUBIENDO;
-                tInicio1 = tickRead();
-            }
-            if(PORTAbits.RA1==0){
-                estadoActual1 = E_PRESIONADO;
-                tInicio1 = tickRead();
-            }
-            break;
-        case E_SUBIENDO:
-            if (PORTAbits.RA1 == 0) {
-                estadoActual1 = E_PRESIONADO;
-            }
-            if (tickRead() - tInicio1 > 40) {
-                estadoActual1 = E_SUELTO;
-            }
-            break;
-        default:
-
-
-
-            InicializarMEF();
-    }
-void ActualizarMEF1(void)
-
-{
-    {
-    switch (estadoActual1) {
-        case VIDA:
-            ActualizarGAT();
-
-            if(PORTAbits.RA2==0){
-
-              estadoActual1 = MUERTE;
-
-            }
 
 
 
 
-            break;
 
 
-        case MUERTE:
-            if()
-
-                estadoActual1 = RESUCITACION;
-                tInicio1 = tickRead();
-            }
-            break;
-
-        case RESUCITACION:
-            if(VIDAS==0)
-             sumar_vida() {
-                estadoActual1 = VIDA;
-                tInicio1 = tickRead();
-            }
-             break;
-        default:
+void uartWriteByte( uint8_t value ){
+    while (!TXIF)
+        continue;
+    TXREG = value;
+}
 
 
 
-            InicializarMEF();
-    }
+
+
+
+char getch(void) {
+    while (!RCIF)
+        continue;
+    return RCREG;
+}
+
+
+
+
+
+
+__bit uartReadByte( uint8_t* receivedByte ){
+   if ( RCIF ){
+      *receivedByte = RCREG;
+      return 1;
+   }
+   return 0;
+}
+
+
+
+
+
+
+char getche(void) {
+    char data;
+    while (!RCIF)
+        continue;
+    data = RCREG;
+    while (!TXIF)
+        continue;
+    TXREG = data;
+    return data;
 }
