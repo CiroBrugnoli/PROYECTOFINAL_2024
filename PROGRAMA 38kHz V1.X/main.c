@@ -15,25 +15,27 @@
 #include "user.h"        /* Archivo de Encabezados StdIO */
 #include "system.h"      /* Archivo de Encabezados StdIO */  
 #include "tick.h"       /* Funciones/Parametros Tick */
+#include "mfrc522.h"
 /*==================[definiciones y macros]==================================*/
 
 typedef enum {
-    E_SUELTO, E_BAJANDO, E_PRESIONADO, E_SUBIENDO, E_MANTENIDO
+    E_SUELTO, E_BAJANDO, E_PRESIONADO, E_SUBIENDO, E_MANTENIDO ,
+    VIVO , MUERTO ,REVIVIENDO, BALAS_INF , VIDA_INF 
 } estadoMEF_t;
-typedef enum {
-    VIDA,BALAS, MUERTE, RESUCITACION
-} estadoGAT_t;
 
 /*==================[definiciones de datos internos]=========================*/
-int Tiempo0 = 0;
-int Tiempo1 = 0;
-int Mostrar_Tiempo = 0;
-int Resta_Tiempo;
-int VIDAS;
-int BALAS=CANTIDAD_MAX;
-int cont_balas = 30;
-estadoMEF_t estadoActual1, estadoActual2; // Variable de estado (global)
-tick_t tInicio1, tInicio2;tick_t tInicio1, tInicio2;
+uint8_t Tiempo0 = 0;
+uint8_t Tiempo1 = 0;
+uint8_t RFID;
+uint8_t tInicioRonda;        
+uint8_t Mostrar_Tiempo = 0;
+uint8_t Resta_Tiempo;
+uint8_t DISPAROS = CANTIDAD_MAX;
+uint8_t INMORTAL;
+uint8_t cont_balas = 30;
+uint8_t VIDAS;
+estadoMEF_t estadoActualGAT, estadoActualRONDA; // Variable de estado (global)
+tick_t tInicioGAT, tInicioBALAS;
 char gatilloAP(void);
 char rx_LSR(void);
 char sumar_vida(void);
@@ -43,11 +45,10 @@ char sumar_vida(void);
 
 /*==================[declaraciones de funciones internas]====================*/
 void func_interup_boton();
-int VALOR_TIMER;
-void Control_Led_Rojo(); //Función para que se ingrese cuando cambian los estados de los
-                         //pines del sensor o boton de generación
+uint8_t VALOR_TIMER;
+void Control_Led_Rojo(); //Función para que se ingrese cuando cambian los estados de los                         //pines del sensor o boton de generación
 void InicializarMEF(void);
-void ActualizarMEF1(void);
+void ActualizarRONDA(void);
 void ActualizarGAT(void);
 
 /*==================[funcion principal]======================================*/
@@ -66,9 +67,9 @@ void main(void) {
     PIN_LEDPRUEBA = 0;
 
     while (1) {
-        ActualizarMEF1();
+        ActualizarRONDA();
         // prenmdo led rojko para saber en que estado estoy
-        if( estadoActual1 == E_PRESIONADO )
+        if( estadoActualGAT == E_PRESIONADO )
         {
             PIN_VIDA1 = 1;
         }
@@ -115,7 +116,7 @@ void func_interup_boton() {
         Mostrar_Tiempo = 1;
     }
 }*/
-char gatilloAP(void){
+/*char gatilloAP(void){
     __delay_ms(300);
     if(PIN_GATILLO==1)
         PIN_VIDA=0;
@@ -129,101 +130,106 @@ char rx_LSR(void){
     if( !TRIS_TEC2)
         VIDAS--;
            
-    
-    
-    
-    
 }
+ */    
+void ActualizarRONDA(void) {
+    switch (estadoActualRONDA) {
+        case VIVO:
+            if (PIN_VIDA1 == 0) {// Chequear condiciones de transición de estado
+                if (INMORTAL ==0)estadoActualRONDA=MUERTO;
+                //prendeled verde
+            }
+           
+            if (BALAS_INF == 1){
+                tInicioBALAS=tickRead();
+                PIN_LED4=!PIN_LED4;
+                PIN_LED5=!PIN_LED5;
+                PIN_LED6=!PIN_LED6;
+                estadoActualRONDA = BALAS_INF; 
+            }
+            break;
+        /*case BALAS_INF://seva
+            if (tInicioBALAS)
+            if (tickRead() - tInicioBALAS) {
+                estadoActualRONDA = E_SUELTO;
+            } else if (tickRead() - tInicioGAT > 800 && PIN_TEC1 == 0) {// Chequear condiciones de transición de estado
+                estadoActualRONDA = E_PRESIONADO; // Cambiar a otro estado
+                //incrementaDisplay();
+                tInicioGAT = tickRead();
+            }
+            break;*/
+        case MUERTO:
+            if (RFID == 1) {// Chequear condiciones de transición de estado
+                estadoActualRONDA = REVIVIENDO; // Cambiar a otro estado
+                tInicioRonda = tickRead(); // También inicia temporizacion
+                //Sonido
+            }
+            break;
+        case REVIVIENDO:
+            if(tickRead()-tInicioRonda>5000)
+             estadoActualRONDA = VIVO; 
+                     
+            
+            
+            break;
+        default:
+            //Si algo modificó la variable estadoActual 
+            // a un estado no válido llevo la MEF a un 
+            // lugar seguro, por ejemplo, la reinicio:
+            InicializarMEF();
+        }    
+    }
+
 void ActualizarGAT(void)
 //void ActualizarMEF1(void) 
 {
-    switch (estadoActual1) {
+    switch (estadoActualGAT) {
         case E_SUELTO:
             if (PIN_TEC1 == 0) {// Chequear condiciones de transición de estado
-                estadoActual1 = E_BAJANDO; // Cambiar a otro estado
-                tInicio1 = tickRead(); // También inicia temporizacion
+                estadoActualGAT = E_BAJANDO; // Cambiar a otro estado
+                tInicioGAT = tickRead(); // También inicia temporizacion
             }
             break;
         case E_BAJANDO:
             if (PIN_TEC1 == 1) {
-                estadoActual1 = E_SUELTO;
-            } else if (tickRead() - tInicio1 > 20   && PIN_TEC1 == 0) {// Chequear condiciones de transición de estado
-                estadoActual1 = E_PRESIONADO; // Cambiar a otro estado
+                estadoActualGAT = E_SUELTO;
+            } else if (tickRead() - tInicioGAT > 20   && PIN_TEC1 == 0) {// Chequear condiciones de transición de estado
+                estadoActualGAT = E_PRESIONADO; // Cambiar a otro estado
                 //incrementaDisplay();
-                tInicio1 = tickRead();
+                tInicioGAT = tickRead();
             }
             break;
         case E_PRESIONADO:
             if (PIN_TEC1 == 1) {// Chequear condiciones de transición de estado
-                estadoActual1 = E_SUBIENDO; // Cambiar a otro estado
-                tInicio1 = tickRead(); // También inicia temporizacion
+                estadoActualGAT = E_SUBIENDO; // Cambiar a otro estado
+                tInicioGAT = tickRead(); // También inicia temporizacion
             }
-            if (PIN_TEC1 == 0 && tickRead() - tInicio1 > 40) {// Chequear condiciones de transición de estado
-                estadoActual1 = E_MANTENIDO; // Cambiar a otro estado
-                cont_balas--;
-                tInicio1 = tickRead(); // También inicia temporizacion
+            if (PIN_TEC1 == 0 && tickRead() - tInicioGAT > 40) {// Chequear condiciones de transición de estado
+                estadoActualGAT = E_MANTENIDO; // Cambiar a otro estado
+                if( == 0)
+                  cont_balas--;
+                tInicioGAT = tickRead(); // También inicia temporizacion
             }
             break;
         case E_MANTENIDO:
             if (PIN_TEC1 == 1) {
                 
-                estadoActual1 = E_SUBIENDO;
-                tInicio1 = tickRead();
+                estadoActualGAT = E_SUBIENDO;
+                tInicioGAT = tickRead();
             }
             if(PIN_TEC1==0){
-                estadoActual1 = E_PRESIONADO;
-                tInicio1 = tickRead();
+                estadoActualGAT = E_PRESIONADO;
+                tInicioGAT = tickRead();
             }
             break;
         case E_SUBIENDO:
             if (PIN_TEC1 == 0) {
-                estadoActual1 = E_PRESIONADO;
+                estadoActualGAT = E_PRESIONADO;
             }
-            if (tickRead() - tInicio1 > 40) {// Chequear condiciones de transición de estado
-                estadoActual1 = E_SUELTO; // Cambiar a otro estado
-            }
-            break;
-        default:
-            //Si algo modificó la variable estadoActual 
-            // a un estado no válido llevo la MEF a un 
-            // lugar seguro, por ejemplo, la reinicio:
-            InicializarMEF();
-    }
-void ActualizarMEF1(void)
-//void ActualizarMEF1(void) 
-{ 
-    {
-    switch (estadoActual1) {
-        case VIDA:
-            ActualizarGAT();
-
-            if(PIN_VIDA==0){        //PERMITE DISPARAR Y A MEDIDA QUE DISPARAS CAMBIAN LOS LEDS
-                
-              estadoActual1 = MUERTE; // Cambiar a otro estado
-
-            }    
-                // Cambiar a otro estado
-                //tInicio1 = tickRead(); // También inicia temporizacion
-       
-    
-            break;
-        
-            
-        case MUERTE: 
-            if      //APAGO TODO Y PARPADEAN LOS LEDS ROJOS
-                     
-                estadoActual1 = RESUCITACION; // Cambiar a otro estado
-                tInicio1 = tickRead(); // También inicia temporizacion
+            else if (tickRead() - tInicioGAT > 40) {// Chequear condiciones de transición de estado
+                estadoActualGAT = E_SUELTO; // Cambiar a otro estado
             }
             break;
-            
-        case RESUCITACION:
-            if(VIDAS==0)        //APAGO TODO Y PARPADEAN LOS LEDS ROJOS
-             sumar_vida() {// Chequear condiciones de transición de estado
-                estadoActual1 = VIDA; // Cambiar a otro estado
-                tInicio1 = tickRead(); // También inicia temporizacion
-            }
-             break;
         default:
             //Si algo modificó la variable estadoActual 
             // a un estado no válido llevo la MEF a un 
@@ -231,4 +237,3 @@ void ActualizarMEF1(void)
             InicializarMEF();
     }
 }
-
