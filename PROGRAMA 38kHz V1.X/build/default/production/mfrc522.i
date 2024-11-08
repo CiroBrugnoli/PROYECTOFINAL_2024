@@ -1,4 +1,4 @@
-# 1 "display.c"
+# 1 "mfrc522.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,8 +6,8 @@
 # 1 "<built-in>" 2
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "display.c" 2
-# 15 "display.c"
+# 1 "mfrc522.c" 2
+# 1 "./mfrc522.h" 1
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\xc.h" 1 3
 # 18 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -2630,65 +2630,343 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 28 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\xc.h" 2 3
-# 15 "display.c" 2
+# 1 "./mfrc522.h" 2
+# 112 "./mfrc522.h"
+unsigned char MFRC522_Rd(unsigned char address);
+void MFRC522_Wr(unsigned char address, unsigned char value);
+static void MFRC522_Clear_Bit(char addr, char mask);
+static void MFRC522_Set_Bit(char addr, char mask);
+void MFRC522_Reset(void);
+void MFRC522_AntennaOn(void);
+void MFRC522_AntennaOff(void);
+void MFRC522_Init(void);
+char MFRC522_ToCard(char command, char *sendData, char sendLen, char *backData, unsigned *backLen);
+char MFRC522_Request(char reqMode, char *TagType);
+void MFRC522_CRC(char *dataIn, char length, char *dataOut);
+char MFRC522_SelectTag(char *serNum);
+void MFRC522_Halt(void);
+char MFRC522_AntiColl(char *serNum);
+char MFRC522_IsCard(char *TagType);
+char MFRC522_ReadCardSerial(char *str);
+char MFRC522_Compare_UID(char *l, char *u);
+# 1 "mfrc522.c" 2
 
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c90\\stdint.h" 1 3
-# 16 "display.c" 2
 
-# 1 "./system.h" 1
-# 26 "./system.h"
-#pragma config FOSC = XT
-#pragma config WDTE = OFF
-#pragma config PWRTE = OFF
-#pragma config MCLRE = ON
-#pragma config CP = OFF
-#pragma config CPD = OFF
-#pragma config BOREN = OFF
-#pragma config IESO = ON
-#pragma config FCMEN = ON
-#pragma config LVP = OFF
+unsigned char MFRC522_Rd(unsigned char address)
+{
+    unsigned int i, ucAddr;
+    unsigned int ucResult = 0;
+    PORTCbits.RC3 = 0;
+    PORTCbits.RC4 = 0;
+    ucAddr = ((address << 1) & 0x7E) | 0x80;
 
-#pragma config BOR4V = BOR21V
-#pragma config WRT = OFF
-# 17 "display.c" 2
+    for(i=8; i>0; i--)
+    {
+        PORTCbits.RC5 = ((ucAddr & 0x80) == 0x80);
+        PORTCbits.RC3 = 1;
+        ucAddr <<= 1;
+        PORTCbits.RC3 = 0;
+    }
+    for(i=8; i>0; i--)
+    {
+        PORTCbits.RC3 = 1;
+        ucResult <<= 1;
+        ucResult |= (short)PORTDbits.RD2;
+        PORTCbits.RC3 = 0;
+    }
+    PORTCbits.RC4 = 1;
+    PORTCbits.RC3 = 1;
+    return ucResult;
+}
 
-# 1 "./display.h" 1
-# 15 "./display.h"
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c90\\stdint.h" 1 3
-# 15 "./display.h" 2
-# 27 "./display.h"
-void displaytInit( void );
-void displayWrite( uint8_t value );
-# 18 "display.c" 2
-# 39 "display.c"
-void displaytInit(void) {
-    TRISD = 0;
-    PORTD = 0;
+void MFRC522_Wr(unsigned char address, unsigned char value)
+{
+    unsigned char i, ucAddr;
+    PORTCbits.RC3 = 0;
+    PORTCbits.RC4 = 0;
+    ucAddr = ((address << 1) & 0x7E);
+
+    for(i=8; i>0; i--)
+    {
+        PORTCbits.RC5 = ((ucAddr&0x80) == 0x80);
+        PORTCbits.RC3 = 1;
+        ucAddr <<= 1;
+        PORTCbits.RC3 = 0;
+    }
+    for(i=8; i>0; i--)
+    {
+        PORTCbits.RC5 = ((value&0x80) == 0x80);
+        PORTCbits.RC3 = 1;
+        value <<= 1;
+        PORTCbits.RC3 = 0;
+    }
+    PORTCbits.RC4 = 1;
+    PORTCbits.RC3 = 1;
+}
+
+static void MFRC522_Clear_Bit(char addr, char mask)
+{
+    unsigned char tmp = 0;
+    tmp = MFRC522_Rd(addr) ;
+    MFRC522_Wr(addr, tmp&~mask);
+}
+
+static void MFRC522_Set_Bit(char addr, char mask)
+{
+    unsigned char tmp = 0;
+    tmp = MFRC522_Rd(addr);
+    MFRC522_Wr(addr, tmp | mask);
 }
 
 
+void MFRC522_AntennaOn(void)
+{
+    unsigned char stt;
+    stt = MFRC522_Rd(0x14);
+    MFRC522_Set_Bit(0x14, 0x03);
+}
 
+void MFRC522_AntennaOff(void)
+{
+    MFRC522_Clear_Bit(0x14, 0x03);
+}
 
+void MFRC522_Init(void)
+{
+    TRISCbits.TRISC5 = 0;
+    TRISCbits.TRISC3 = 0;
+    TRISCbits.TRISC4 = 0;
+    TRISDbits.TRISD2 = 1;
+    PORTCbits.RC3 = 0;
+    PORTCbits.RC5 = 0;
+    PORTCbits.RC4 = 1;
+    MFRC522_Reset();
+    MFRC522_Wr(0x2A, 0x8D);
+    MFRC522_Wr(0x2B, 0x3E);
+    MFRC522_Wr(0x2D, 30);
+    MFRC522_Wr(0x2C, 0);
+    MFRC522_Wr(0x15, 0x40);
+    MFRC522_Wr(0x11, 0x3D);
+    MFRC522_AntennaOff();
+    MFRC522_AntennaOn();
+}
 
+char MFRC522_ToCard(char command, char *sendData, char sendLen, char *backData, unsigned *backLen)
+{
+    char _status = 2;
+    char irqEn = 0x00;
+    char waitIRq = 0x00;
+    char lastBits;
+    char n;
+    unsigned i;
 
+    switch(command)
+    {
+        case 0x0E:
+            irqEn = 0x12;
+            waitIRq = 0x10;
+            break;
 
- void displayWrite( uint8_t value ){
-    const uint8_t tabla7seg[] = {
-        0b00111111,
-        0b00000110,
-        0b01011011,
-        0b01001111,
-        0b01100110,
-        0b01101101,
-        0b01111101,
-        0b00000111,
-        0b01111111,
-        0b01100111
-    };
-    if(value < sizeof (tabla7seg)){
-        PORTD = tabla7seg[value] ;
+        case 0x0C:
+            irqEn = 0x77;
+            waitIRq = 0x30;
+            break;
+
+        default:
+            break;
     }
-    else{
-        PORTD = 0 ;
+    MFRC522_Wr(0x02, irqEn | 0x80);
+    MFRC522_Clear_Bit(0x04, 0x80);
+    MFRC522_Set_Bit(0x0A, 0x80);
+    MFRC522_Wr(0x01, 0x00);
+
+    for(i=0; i<sendLen; i++)
+    {
+        MFRC522_Wr(0x09, sendData[i]);
     }
+    MFRC522_Wr(0x01, command);
+    if(command == 0x0C)
+    {
+        MFRC522_Set_Bit(0x0D, 0x80);
+    }
+    i = 0xFFFF;
+    do
+    {
+        n = MFRC522_Rd(0x04);
+        i--;
+    }while(i && !(n & 0x01) && !(n & waitIRq));
+
+    MFRC522_Clear_Bit(0x0D, 0x80);
+    if(i != 0)
+    {
+        if(!(MFRC522_Rd(0x06) & 0x1B))
+        {
+            _status = 0;
+            if(n & irqEn & 0x01)
+            {
+                _status = 1;
+            }
+            if(command == 0x0C)
+            {
+                n = MFRC522_Rd(0x0A);
+                lastBits = MFRC522_Rd(0x0C) & 0x07;
+                if(lastBits)
+                {
+                    *backLen = (n-1) * 8 + lastBits;
+                }
+                else
+                {
+                    *backLen = n * 8;
+                }
+                if(n == 0)
+                {
+                    n = 1;
+                }
+                if(n > 16)
+                {
+                    n = 16;
+                }
+                for(i=0; i<n; i++)
+                {
+                    backData[i] = MFRC522_Rd(0x09);
+                }
+                backData[i] = 0;
+            }
+        }
+        else
+        {
+            _status = 2;
+        }
+    }
+    return _status;
+}
+
+char MFRC522_Request(char reqMode, char *TagType)
+{
+    char _status;
+    unsigned backBits;
+    MFRC522_Wr(0x0D, 0x07);
+    TagType[0] = reqMode;
+    _status = MFRC522_ToCard(0x0C, TagType, 1, TagType, &backBits);
+    if((_status != 0) || (backBits != 0x10))
+    {
+        _status = 2;
+    }
+    return _status;
+}
+
+void MFRC522_CRC(char *dataIn, char length, char *dataOut)
+{
+    char i, n;
+    MFRC522_Clear_Bit(0x05, 0x04);
+    MFRC522_Set_Bit(0x0A, 0x80);
+    for(i=0; i<length; i++)
+    {
+        MFRC522_Wr(0x09, *dataIn++);
+    }
+    MFRC522_Wr(0x01, 0x03);
+    i = 0xFF;
+    do
+    {
+        n = MFRC522_Rd( 0x05 );
+        i--;
+    }
+    while(i && !(n & 0x04));
+    dataOut[0] = MFRC522_Rd(0x22);
+    dataOut[1] = MFRC522_Rd(0x21);
+}
+
+char MFRC522_SelectTag(char *serNum)
+{
+    char i;
+    char _status;
+    char size;
+    unsigned recvBits;
+    char buffer[9];
+    buffer[0] = 0x93;
+    buffer[1] = 0x70;
+
+    for(i=2; i<7; i++)
+    {
+        buffer[i] = *serNum++;
+    }
+    MFRC522_CRC(buffer, 7, &buffer[7]);
+    _status = MFRC522_ToCard(0x0C, buffer, 9, buffer, &recvBits);
+    if((_status == 0) && (recvBits == 0x18))
+    {
+        size = buffer[0];
+    }
+    else
+    {
+        size = 0;
+    }
+    return size;
+}
+
+void MFRC522_Halt(void)
+{
+    unsigned unLen;
+    char buff[4];
+    buff[0] = 0x50;
+    buff[1] = 0;
+    MFRC522_CRC(buff, 2, &buff[2]);
+    MFRC522_Clear_Bit(0x08, 0x80);
+    MFRC522_ToCard(0x0C, buff, 4, buff, &unLen);
+    MFRC522_Clear_Bit(0x08, 0x08);
+}
+
+char MFRC522_AntiColl(char *serNum)
+{
+    char _status;
+    char i;
+    char serNumCheck = 0;
+    unsigned unLen;
+    MFRC522_Wr(0x0D, 0x00);
+    serNum[0] = 0x93;
+    serNum[1] = 0x20;
+    MFRC522_Clear_Bit(0x08, 0x08);
+    _status = MFRC522_ToCard(0x0C, serNum, 2, serNum, &unLen);
+    if(_status == 0)
+    {
+        for(i=0; i<4; i++)
+        {
+            serNumCheck ^= serNum[i];
+        }
+        if(serNumCheck != serNum[4])
+        {
+            _status = 2;
+        }
+    }
+    return _status;
+}
+
+char MFRC522_IsCard(char *TagType)
+{
+    if(MFRC522_Request(0x26, TagType) == 0)
+        return 1;
+    else
+        return 0;
+}
+
+char MFRC522_ReadCardSerial(char *str)
+{
+    char _status;
+    _status = MFRC522_AntiColl(str);
+    str[4] = 0;
+    if(_status == 0)
+        return 1;
+    else
+        return 0;
+}
+
+char MFRC522_Compare_UID(char *l, char *u)
+{
+    for(char i=0; i<4; i++)
+    {
+        if(l[i] != u[i])
+        {
+            return 0;
+        }
+    }
+    return 1;
 }

@@ -1,4 +1,4 @@
-# 1 "display.c"
+# 1 "RFID_Access.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,8 +6,8 @@
 # 1 "<built-in>" 2
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "display.c" 2
-# 15 "display.c"
+# 1 "RFID_Access.c" 2
+# 18 "RFID_Access.c"
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\xc.h" 1 3
 # 18 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -2630,65 +2630,157 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 28 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\xc.h" 2 3
-# 15 "display.c" 2
+# 18 "RFID_Access.c" 2
 
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c90\\stdio.h" 1 3
+
+
+
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\__size_t.h" 1 3
+
+
+
+typedef unsigned size_t;
+# 4 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c90\\stdio.h" 2 3
+
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\__null.h" 1 3
+# 5 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c90\\stdio.h" 2 3
+
+
+
+
+
+
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c90\\stdarg.h" 1 3
+
+
+
+
+
+
+typedef void * va_list[1];
+
+#pragma intrinsic(__va_start)
+extern void * __va_start(void);
+
+#pragma intrinsic(__va_arg)
+extern void * __va_arg(void *, ...);
+# 11 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c90\\stdio.h" 2 3
+# 43 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c90\\stdio.h" 3
+struct __prbuf
+{
+ char * ptr;
+ void (* func)(char);
+};
+# 85 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c90\\stdio.h" 3
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c90\\conio.h" 1 3
+
+
+
+
+
+
+
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c90\\errno.h" 1 3
+# 29 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c90\\errno.h" 3
+extern int errno;
+# 8 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c90\\conio.h" 2 3
+
+
+
+
+extern void init_uart(void);
+
+extern char getch(void);
+extern char getche(void);
+extern void putch(char);
+extern void ungetch(char);
+
+extern __bit kbhit(void);
+
+
+
+extern char * cgets(char *);
+extern void cputs(const char *);
+# 85 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c90\\stdio.h" 2 3
+
+
+
+extern int cprintf(char *, ...);
+#pragma printf_check(cprintf)
+
+
+
+extern int _doprnt(struct __prbuf *, const register char *, register va_list);
+# 180 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c90\\stdio.h" 3
+#pragma printf_check(vprintf) const
+#pragma printf_check(vsprintf) const
+
+extern char * gets(char *);
+extern int puts(const char *);
+extern int scanf(const char *, ...) __attribute__((unsupported("scanf() is not supported by this compiler")));
+extern int sscanf(const char *, const char *, ...) __attribute__((unsupported("sscanf() is not supported by this compiler")));
+extern int vprintf(const char *, va_list) __attribute__((unsupported("vprintf() is not supported by this compiler")));
+extern int vsprintf(char *, const char *, va_list) __attribute__((unsupported("vsprintf() is not supported by this compiler")));
+extern int vscanf(const char *, va_list ap) __attribute__((unsupported("vscanf() is not supported by this compiler")));
+extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupported("vsscanf() is not supported by this compiler")));
+
+#pragma printf_check(printf) const
+#pragma printf_check(sprintf) const
+extern int sprintf(char *, const char *, ...);
+extern int printf(const char *, ...);
+# 19 "RFID_Access.c" 2
+
+
+
+# 1 "./lcd.h" 1
+# 20 "./lcd.h"
+void Lcd_Port(char a);
+void Lcd_Cmd(char a);
+void Lcd_Clear(void);
+void Lcd_Set_Cursor(char a, char b);
+void Lcd_Init(void);
+void Lcd_Write_Char(char a);
+void Lcd_Write_String(const char *a);
+void Lcd_Shift_Right(void);
+void Lcd_Shift_Left(void);
+void Lcd_Blink(void);
+void Lcd_NoBlink(void);
+# 22 "RFID_Access.c" 2
+
+# 1 "./mfrc522.h" 1
+# 112 "./mfrc522.h"
+unsigned char MFRC522_Rd(unsigned char address);
+void MFRC522_Wr(unsigned char address, unsigned char value);
+static void MFRC522_Clear_Bit(char addr, char mask);
+static void MFRC522_Set_Bit(char addr, char mask);
+void MFRC522_Reset(void);
+void MFRC522_AntennaOn(void);
+void MFRC522_AntennaOff(void);
+void MFRC522_Init(void);
+char MFRC522_ToCard(char command, char *sendData, char sendLen, char *backData, unsigned *backLen);
+char MFRC522_Request(char reqMode, char *TagType);
+void MFRC522_CRC(char *dataIn, char length, char *dataOut);
+char MFRC522_SelectTag(char *serNum);
+void MFRC522_Halt(void);
+char MFRC522_AntiColl(char *serNum);
+char MFRC522_IsCard(char *TagType);
+char MFRC522_ReadCardSerial(char *str);
+char MFRC522_Compare_UID(char *l, char *u);
+# 23 "RFID_Access.c" 2
+
+# 1 "./user.h" 1
+# 15 "./user.h"
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c90\\stdint.h" 1 3
-# 16 "display.c" 2
-
-# 1 "./system.h" 1
-# 26 "./system.h"
-#pragma config FOSC = XT
-#pragma config WDTE = OFF
-#pragma config PWRTE = OFF
-#pragma config MCLRE = ON
-#pragma config CP = OFF
-#pragma config CPD = OFF
-#pragma config BOREN = OFF
-#pragma config IESO = ON
-#pragma config FCMEN = ON
-#pragma config LVP = OFF
-
-#pragma config BOR4V = BOR21V
-#pragma config WRT = OFF
-# 17 "display.c" 2
-
-# 1 "./display.h" 1
-# 15 "./display.h"
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c90\\stdint.h" 1 3
-# 15 "./display.h" 2
-# 27 "./display.h"
-void displaytInit( void );
-void displayWrite( uint8_t value );
-# 18 "display.c" 2
-# 39 "display.c"
-void displaytInit(void) {
-    TRISD = 0;
-    PORTD = 0;
-}
+# 15 "./user.h" 2
+# 67 "./user.h"
+void appInit(void);
+# 24 "RFID_Access.c" 2
 
 
+char UID[8];
+char buf[4];
+unsigned char TagType;
 
-
-
-
-
- void displayWrite( uint8_t value ){
-    const uint8_t tabla7seg[] = {
-        0b00111111,
-        0b00000110,
-        0b01011011,
-        0b01001111,
-        0b01100110,
-        0b01101101,
-        0b01111101,
-        0b00000111,
-        0b01111111,
-        0b01100111
-    };
-    if(value < sizeof (tabla7seg)){
-        PORTD = tabla7seg[value] ;
-    }
-    else{
-        PORTD = 0 ;
-    }
-}
+const char usuario_1[4] = {0xF6,0x1E,0x86,0xBB};
+const char usuario_2[4] = {0x24,0x1D,0x4C,0xFF};

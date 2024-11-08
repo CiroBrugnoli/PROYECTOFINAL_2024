@@ -1,0 +1,498 @@
+%CMF
+# %PSECTS Section
+# For each object file, details of its psects are enumerated here.
+# The begining of the section is indicated by %PSECTS.  The first
+# line indicates the name of the first object file, e.g.
+#    $foo.obj
+# Each line that follows describes a psect in that object file, until
+# the next object file.  The lines that describe a psect have the
+# format:
+#    <psect name> <class name> <space> <link address> <load addresses> <length> <delta>
+# All addresses and the length are given in unqualified hexadecimal
+# in delta units.  Any other numeric values are decimal.
+%PSECTS
+$C:\Users\Alumno\AppData\Local\Temp\xcAs368.o
+reset_vec CODE 0 0 0 3 2
+end_init CODE 0 C C 3 2
+config CONFIG 4 2007 2007 2 2
+$dist/default/production\PROGRAMA_38kHz_V1.X.production.o
+cinit CODE 0 F F 1C 2
+text1 CODE 0 1A5 1A5 1 2
+text2 CODE 0 132 132 17 2
+text3 CODE 0 149 149 16 2
+text4 CODE 0 DF DF 37 2
+text5 CODE 0 15F 15F 14 2
+text6 CODE 0 19C 19C 7 2
+text7 CODE 0 9D 9D 42 2
+text8 CODE 0 187 187 D 2
+text9 CODE 0 1A6 1A6 1 2
+text10 CODE 0 173 173 14 2
+maintext CODE 0 2B 2B 72 2
+cstackCOMMON COMMON 1 70 70 8 1
+cstackBANK0 BANK0 1 46 46 4 1
+intentry CODE 0 4 4 8 2
+bssBANK0 BANK0 1 20 20 26 1
+idataBANK0 CODE 0 1A3 1A3 2 2
+strings STRING 0 116 116 1C 2
+dataBANK0 BANK0 1 4A 4A 2 1
+clrtext CODE 0 194 194 8 2
+bssCOMMON COMMON 1 78 78 3 1
+config CONFIG 4 2007 2007 2 2
+# %UNUSED Section
+# This section enumerates the unused ranges of each CLASS. Each entry
+# is described on a single line as follows:
+#    <class name> <range> <delta>
+# Addresses given in the range are in hexadecimal and units of delta.
+%UNUSED
+RAM 4C-6F 1
+RAM A0-EF 1
+RAM 110-16F 1
+RAM 190-1EF 1
+BANK0 4C-6F 1
+BANK1 A0-EF 1
+BANK2 110-16F 1
+BANK3 190-1EF 1
+CONST 3-3 2
+CONST 1A7-1FFF 2
+ENTRY 3-3 2
+ENTRY 1A7-1FFF 2
+IDLOC 2000-2003 2
+STACK 110-16F 1
+CODE 3-3 2
+CODE 1A7-1FFF 2
+SFR0 0-1F 1
+SFR1 80-9F 1
+SFR2 100-10F 1
+SFR3 180-18F 1
+COMMON 7B-7D 1
+EEDATA 2100-21FF 2
+STRCODE 3-3 2
+STRCODE 1A7-1FFF 2
+STRING 3-3 2
+STRING 1A7-1FFF 2
+# %LINETAB Section
+# This section enumerates the file/line to address mappings.
+# The beginning of the section is indicated by %LINETAB.
+# The first line indicates the name of the first object file, e.g.
+#   $foo.obj
+# Each line that follows describes a single mapping until the next
+# object file.  Mappings have the following format:
+#    <address> <psect name> <class name> ><line number>:<file name>
+# The address is absolute and given given in unqualified hex 
+# in delta units of the psect. All mappings within an object file
+# are in ascending order of addresses.
+# All other numeric values are in decimal.
+%LINETAB
+$dist/default/production\PROGRAMA_38kHz_V1.X.production.o
+F cinit CODE >1864:C:\Users\Alumno\AppData\Local\Temp\xcAs368.s
+F cinit CODE >1867:C:\Users\Alumno\AppData\Local\Temp\xcAs368.s
+F cinit CODE >1950:C:\Users\Alumno\AppData\Local\Temp\xcAs368.s
+14 cinit CODE >1951:C:\Users\Alumno\AppData\Local\Temp\xcAs368.s
+15 cinit CODE >1952:C:\Users\Alumno\AppData\Local\Temp\xcAs368.s
+1A cinit CODE >1953:C:\Users\Alumno\AppData\Local\Temp\xcAs368.s
+1B cinit CODE >1972:C:\Users\Alumno\AppData\Local\Temp\xcAs368.s
+1C cinit CODE >1973:C:\Users\Alumno\AppData\Local\Temp\xcAs368.s
+1D cinit CODE >1974:C:\Users\Alumno\AppData\Local\Temp\xcAs368.s
+1E cinit CODE >1975:C:\Users\Alumno\AppData\Local\Temp\xcAs368.s
+1F cinit CODE >1976:C:\Users\Alumno\AppData\Local\Temp\xcAs368.s
+24 cinit CODE >1979:C:\Users\Alumno\AppData\Local\Temp\xcAs368.s
+25 cinit CODE >1980:C:\Users\Alumno\AppData\Local\Temp\xcAs368.s
+26 cinit CODE >1981:C:\Users\Alumno\AppData\Local\Temp\xcAs368.s
+27 cinit CODE >1987:C:\Users\Alumno\AppData\Local\Temp\xcAs368.s
+27 cinit CODE >1989:C:\Users\Alumno\AppData\Local\Temp\xcAs368.s
+28 cinit CODE >1990:C:\Users\Alumno\AppData\Local\Temp\xcAs368.s
+4 intentry CODE >31:D:\LaserTag\PROYECTOFINAL_2024\PROGRAMA 38kHz V1.X\interrupts.c
+173 text10 CODE >31:D:\LaserTag\PROYECTOFINAL_2024\PROGRAMA 38kHz V1.X\interrupts.c
+173 text10 CODE >39:D:\LaserTag\PROYECTOFINAL_2024\PROGRAMA 38kHz V1.X\interrupts.c
+174 text10 CODE >40:D:\LaserTag\PROYECTOFINAL_2024\PROGRAMA 38kHz V1.X\interrupts.c
+17A text10 CODE >41:D:\LaserTag\PROYECTOFINAL_2024\PROGRAMA 38kHz V1.X\interrupts.c
+17C text10 CODE >41:D:\LaserTag\PROYECTOFINAL_2024\PROGRAMA 38kHz V1.X\interrupts.c
+180 text10 CODE >49:D:\LaserTag\PROYECTOFINAL_2024\PROGRAMA 38kHz V1.X\interrupts.c
+1A6 text9 CODE >59:D:\LaserTag\PROYECTOFINAL_2024\PROGRAMA 38kHz V1.X\main.c
+187 text8 CODE >62:D:\LaserTag\PROYECTOFINAL_2024\PROGRAMA 38kHz V1.X\tick.c
+187 text8 CODE >64:D:\LaserTag\PROYECTOFINAL_2024\PROGRAMA 38kHz V1.X\tick.c
+188 text8 CODE >65:D:\LaserTag\PROYECTOFINAL_2024\PROGRAMA 38kHz V1.X\tick.c
+18E text8 CODE >66:D:\LaserTag\PROYECTOFINAL_2024\PROGRAMA 38kHz V1.X\tick.c
+18F text8 CODE >67:D:\LaserTag\PROYECTOFINAL_2024\PROGRAMA 38kHz V1.X\tick.c
+193 text8 CODE >68:D:\LaserTag\PROYECTOFINAL_2024\PROGRAMA 38kHz V1.X\tick.c
+9D text7 CODE >136:D:\LaserTag\PROYECTOFINAL_2024\PROGRAMA 38kHz V1.X\main.c
+9D text7 CODE >137:D:\LaserTag\PROYECTOFINAL_2024\PROGRAMA 38kHz V1.X\main.c
+9E text7 CODE >138:D:\LaserTag\PROYECTOFINAL_2024\PROGRAMA 38kHz V1.X\main.c
+9E text7 CODE >139:D:\LaserTag\PROYECTOFINAL_2024\PROGRAMA 38kHz V1.X\main.c
+A2 text7 CODE >140:D:\LaserTag\PROYECTOFINAL_2024\PROGRAMA 38kHz V1.X\main.c
+A7 text7 CODE >170:D:\LaserTag\PROYECTOFINAL_2024\PROGRAMA 38kHz V1.X\main.c
+B3 text7 CODE >170:D:\LaserTag\PROYECTOFINAL_2024\PROGRAMA 38kHz V1.X\main.c
+B8 text7 CODE >170:D:\LaserTag\PROYECTOFINAL_2024\PROGRAMA 38kHz V1.X\main.c
+BA text7 CODE >170:D:\LaserTag\PROYECTOFINAL_2024\PROGRAMA 38kHz V1.X\main.c
+BE text7 CODE >171:D:\LaserTag\PROYECTOFINAL_2024\PROGRAMA 38kHz V1.X\main.c
+C3 text7 CODE >177:D:\LaserTag\PROYECTOFINAL_2024\PROGRAMA 38kHz V1.X\main.c
+C8 text7 CODE >178:D:\LaserTag\PROYECTOFINAL_2024\PROGRAMA 38kHz V1.X\main.c
+D0 text7 CODE >178:D:\LaserTag\PROYECTOFINAL_2024\PROGRAMA 38kHz V1.X\main.c
+D5 text7 CODE >178:D:\LaserTag\PROYECTOFINAL_2024\PROGRAMA 38kHz V1.X\main.c
+D8 text7 CODE >178:D:\LaserTag\PROYECTOFINAL_2024\PROGRAMA 38kHz V1.X\main.c
+DB text7 CODE >178:D:\LaserTag\PROYECTOFINAL_2024\PROGRAMA 38kHz V1.X\main.c
+DE text7 CODE >179:D:\LaserTag\PROYECTOFINAL_2024\PROGRAMA 38kHz V1.X\main.c
+19C text6 CODE >39:D:\LaserTag\PROYECTOFINAL_2024\PROGRAMA 38kHz V1.X\display.c
+19C text6 CODE >40:D:\LaserTag\PROYECTOFINAL_2024\PROGRAMA 38kHz V1.X\display.c
+19F text6 CODE >41:D:\LaserTag\PROYECTOFINAL_2024\PROGRAMA 38kHz V1.X\display.c
+1A2 text6 CODE >42:D:\LaserTag\PROYECTOFINAL_2024\PROGRAMA 38kHz V1.X\display.c
+15F text5 CODE >39:D:\LaserTag\PROYECTOFINAL_2024\PROGRAMA 38kHz V1.X\uart.c
+15F text5 CODE >47:D:\LaserTag\PROYECTOFINAL_2024\PROGRAMA 38kHz V1.X\uart.c
+163 text5 CODE >48:D:\LaserTag\PROYECTOFINAL_2024\PROGRAMA 38kHz V1.X\uart.c
+164 text5 CODE >50:D:\LaserTag\PROYECTOFINAL_2024\PROGRAMA 38kHz V1.X\uart.c
+165 text5 CODE >51:D:\LaserTag\PROYECTOFINAL_2024\PROGRAMA 38kHz V1.X\uart.c
+168 text5 CODE >52:D:\LaserTag\PROYECTOFINAL_2024\PROGRAMA 38kHz V1.X\uart.c
+16B text5 CODE >53:D:\LaserTag\PROYECTOFINAL_2024\PROGRAMA 38kHz V1.X\uart.c
+16C text5 CODE >54:D:\LaserTag\PROYECTOFINAL_2024\PROGRAMA 38kHz V1.X\uart.c
+16F text5 CODE >55:D:\LaserTag\PROYECTOFINAL_2024\PROGRAMA 38kHz V1.X\uart.c
+172 text5 CODE >56:D:\LaserTag\PROYECTOFINAL_2024\PROGRAMA 38kHz V1.X\uart.c
+DF text4 CODE >26:D:\LaserTag\PROYECTOFINAL_2024\PROGRAMA 38kHz V1.X\user.c
+DF text4 CODE >30:D:\LaserTag\PROYECTOFINAL_2024\PROGRAMA 38kHz V1.X\user.c
+E2 text4 CODE >31:D:\LaserTag\PROYECTOFINAL_2024\PROGRAMA 38kHz V1.X\user.c
+E3 text4 CODE >32:D:\LaserTag\PROYECTOFINAL_2024\PROGRAMA 38kHz V1.X\user.c
+E6 text4 CODE >33:D:\LaserTag\PROYECTOFINAL_2024\PROGRAMA 38kHz V1.X\user.c
+E7 text4 CODE >34:D:\LaserTag\PROYECTOFINAL_2024\PROGRAMA 38kHz V1.X\user.c
+E8 text4 CODE >35:D:\LaserTag\PROYECTOFINAL_2024\PROGRAMA 38kHz V1.X\user.c
+E9 text4 CODE >36:D:\LaserTag\PROYECTOFINAL_2024\PROGRAMA 38kHz V1.X\user.c
+EA text4 CODE >37:D:\LaserTag\PROYECTOFINAL_2024\PROGRAMA 38kHz V1.X\user.c
+EF text4 CODE >38:D:\LaserTag\PROYECTOFINAL_2024\PROGRAMA 38kHz V1.X\user.c
+F4 text4 CODE >42:D:\LaserTag\PROYECTOFINAL_2024\PROGRAMA 38kHz V1.X\user.c
+F7 text4 CODE >43:D:\LaserTag\PROYECTOFINAL_2024\PROGRAMA 38kHz V1.X\user.c
+F8 text4 CODE >44:D:\LaserTag\PROYECTOFINAL_2024\PROGRAMA 38kHz V1.X\user.c
+F9 text4 CODE >45:D:\LaserTag\PROYECTOFINAL_2024\PROGRAMA 38kHz V1.X\user.c
+FA text4 CODE >49:D:\LaserTag\PROYECTOFINAL_2024\PROGRAMA 38kHz V1.X\user.c
+FC text4 CODE >50:D:\LaserTag\PROYECTOFINAL_2024\PROGRAMA 38kHz V1.X\user.c
+100 text4 CODE >53:D:\LaserTag\PROYECTOFINAL_2024\PROGRAMA 38kHz V1.X\user.c
+103 text4 CODE >54:D:\LaserTag\PROYECTOFINAL_2024\PROGRAMA 38kHz V1.X\user.c
+104 text4 CODE >55:D:\LaserTag\PROYECTOFINAL_2024\PROGRAMA 38kHz V1.X\user.c
+105 text4 CODE >56:D:\LaserTag\PROYECTOFINAL_2024\PROGRAMA 38kHz V1.X\user.c
+106 text4 CODE >57:D:\LaserTag\PROYECTOFINAL_2024\PROGRAMA 38kHz V1.X\user.c
+107 text4 CODE >60:D:\LaserTag\PROYECTOFINAL_2024\PROGRAMA 38kHz V1.X\user.c
+110 text4 CODE >63:D:\LaserTag\PROYECTOFINAL_2024\PROGRAMA 38kHz V1.X\user.c
+113 text4 CODE >64:D:\LaserTag\PROYECTOFINAL_2024\PROGRAMA 38kHz V1.X\user.c
+114 text4 CODE >65:D:\LaserTag\PROYECTOFINAL_2024\PROGRAMA 38kHz V1.X\user.c
+115 text4 CODE >66:D:\LaserTag\PROYECTOFINAL_2024\PROGRAMA 38kHz V1.X\user.c
+149 text3 CODE >120:D:\LaserTag\PROYECTOFINAL_2024\PROGRAMA 38kHz V1.X\main.c
+149 text3 CODE >121:D:\LaserTag\PROYECTOFINAL_2024\PROGRAMA 38kHz V1.X\main.c
+155 text3 CODE >122:D:\LaserTag\PROYECTOFINAL_2024\PROGRAMA 38kHz V1.X\main.c
+15B text3 CODE >123:D:\LaserTag\PROYECTOFINAL_2024\PROGRAMA 38kHz V1.X\main.c
+15D text3 CODE >124:D:\LaserTag\PROYECTOFINAL_2024\PROGRAMA 38kHz V1.X\main.c
+15D text3 CODE >125:D:\LaserTag\PROYECTOFINAL_2024\PROGRAMA 38kHz V1.X\main.c
+15E text3 CODE >127:D:\LaserTag\PROYECTOFINAL_2024\PROGRAMA 38kHz V1.X\main.c
+132 text2 CODE >129:D:\LaserTag\PROYECTOFINAL_2024\PROGRAMA 38kHz V1.X\main.c
+132 text2 CODE >130:D:\LaserTag\PROYECTOFINAL_2024\PROGRAMA 38kHz V1.X\main.c
+13E text2 CODE >131:D:\LaserTag\PROYECTOFINAL_2024\PROGRAMA 38kHz V1.X\main.c
+144 text2 CODE >132:D:\LaserTag\PROYECTOFINAL_2024\PROGRAMA 38kHz V1.X\main.c
+148 text2 CODE >134:D:\LaserTag\PROYECTOFINAL_2024\PROGRAMA 38kHz V1.X\main.c
+1A5 text1 CODE >242:D:\LaserTag\PROYECTOFINAL_2024\PROGRAMA 38kHz V1.X\main.c
+1A5 text1 CODE >243:D:\LaserTag\PROYECTOFINAL_2024\PROGRAMA 38kHz V1.X\main.c
+1A5 text1 CODE >244:D:\LaserTag\PROYECTOFINAL_2024\PROGRAMA 38kHz V1.X\main.c
+2B maintext CODE >61:D:\LaserTag\PROYECTOFINAL_2024\PROGRAMA 38kHz V1.X\main.c
+2B maintext CODE >63:D:\LaserTag\PROYECTOFINAL_2024\PROGRAMA 38kHz V1.X\main.c
+30 maintext CODE >65:D:\LaserTag\PROYECTOFINAL_2024\PROGRAMA 38kHz V1.X\main.c
+35 maintext CODE >66:D:\LaserTag\PROYECTOFINAL_2024\PROGRAMA 38kHz V1.X\main.c
+38 maintext CODE >67:D:\LaserTag\PROYECTOFINAL_2024\PROGRAMA 38kHz V1.X\main.c
+39 maintext CODE >70:D:\LaserTag\PROYECTOFINAL_2024\PROGRAMA 38kHz V1.X\main.c
+3E maintext CODE >72:D:\LaserTag\PROYECTOFINAL_2024\PROGRAMA 38kHz V1.X\main.c
+46 maintext CODE >74:D:\LaserTag\PROYECTOFINAL_2024\PROGRAMA 38kHz V1.X\main.c
+47 maintext CODE >75:D:\LaserTag\PROYECTOFINAL_2024\PROGRAMA 38kHz V1.X\main.c
+48 maintext CODE >76:D:\LaserTag\PROYECTOFINAL_2024\PROGRAMA 38kHz V1.X\main.c
+48 maintext CODE >78:D:\LaserTag\PROYECTOFINAL_2024\PROGRAMA 38kHz V1.X\main.c
+49 maintext CODE >81:D:\LaserTag\PROYECTOFINAL_2024\PROGRAMA 38kHz V1.X\main.c
+4A maintext CODE >82:D:\LaserTag\PROYECTOFINAL_2024\PROGRAMA 38kHz V1.X\main.c
+4B maintext CODE >83:D:\LaserTag\PROYECTOFINAL_2024\PROGRAMA 38kHz V1.X\main.c
+52 maintext CODE >84:D:\LaserTag\PROYECTOFINAL_2024\PROGRAMA 38kHz V1.X\main.c
+55 maintext CODE >85:D:\LaserTag\PROYECTOFINAL_2024\PROGRAMA 38kHz V1.X\main.c
+5C maintext CODE >86:D:\LaserTag\PROYECTOFINAL_2024\PROGRAMA 38kHz V1.X\main.c
+64 maintext CODE >86:D:\LaserTag\PROYECTOFINAL_2024\PROGRAMA 38kHz V1.X\main.c
+68 maintext CODE >87:D:\LaserTag\PROYECTOFINAL_2024\PROGRAMA 38kHz V1.X\main.c
+72 maintext CODE >89:D:\LaserTag\PROYECTOFINAL_2024\PROGRAMA 38kHz V1.X\main.c
+73 maintext CODE >90:D:\LaserTag\PROYECTOFINAL_2024\PROGRAMA 38kHz V1.X\main.c
+74 maintext CODE >91:D:\LaserTag\PROYECTOFINAL_2024\PROGRAMA 38kHz V1.X\main.c
+76 maintext CODE >91:D:\LaserTag\PROYECTOFINAL_2024\PROGRAMA 38kHz V1.X\main.c
+7B maintext CODE >97:D:\LaserTag\PROYECTOFINAL_2024\PROGRAMA 38kHz V1.X\main.c
+7C maintext CODE >89:D:\LaserTag\PROYECTOFINAL_2024\PROGRAMA 38kHz V1.X\main.c
+83 maintext CODE >99:D:\LaserTag\PROYECTOFINAL_2024\PROGRAMA 38kHz V1.X\main.c
+88 maintext CODE >100:D:\LaserTag\PROYECTOFINAL_2024\PROGRAMA 38kHz V1.X\main.c
+8D maintext CODE >101:D:\LaserTag\PROYECTOFINAL_2024\PROGRAMA 38kHz V1.X\main.c
+94 maintext CODE >102:D:\LaserTag\PROYECTOFINAL_2024\PROGRAMA 38kHz V1.X\main.c
+194 clrtext CODE >1959:C:\Users\Alumno\AppData\Local\Temp\xcAs368.s
+194 clrtext CODE >1960:C:\Users\Alumno\AppData\Local\Temp\xcAs368.s
+195 clrtext CODE >1961:C:\Users\Alumno\AppData\Local\Temp\xcAs368.s
+195 clrtext CODE >1962:C:\Users\Alumno\AppData\Local\Temp\xcAs368.s
+196 clrtext CODE >1963:C:\Users\Alumno\AppData\Local\Temp\xcAs368.s
+197 clrtext CODE >1964:C:\Users\Alumno\AppData\Local\Temp\xcAs368.s
+198 clrtext CODE >1965:C:\Users\Alumno\AppData\Local\Temp\xcAs368.s
+199 clrtext CODE >1966:C:\Users\Alumno\AppData\Local\Temp\xcAs368.s
+19A clrtext CODE >1967:C:\Users\Alumno\AppData\Local\Temp\xcAs368.s
+19B clrtext CODE >1968:C:\Users\Alumno\AppData\Local\Temp\xcAs368.s
+# %SYMTAB Section
+# An enumeration of all symbols in the program.
+# The beginning of the section is indicated by %SYMTAB.
+# Each line describes a single symbol as follows:
+#    <label> <value> [-]<load-adj> <class> <space> <psect> <file-name>
+# The value and load-adj are both in unqualified hexadecimal.
+# All other numeric values are in decimal.  The load-adj is the
+# quantity one needs to add to the symbol value in order to obtain the load
+# address of the symbol.  This value may be signed. If the symbol
+# was defined in a psect then <psect> will be "-". File-name
+# is the name of the object file in which the symbol was defined.
+%SYMTAB
+___latbits 2 0 ABS 0 - dist/default/production\PROGRAMA_38kHz_V1.X.production.o
+__size_of_ActualizarRONDA 0 0 ABS 0 - dist/default/production\PROGRAMA_38kHz_V1.X.production.o
+__LdataBANK0 0 0 ABS 0 dataBANK0 -
+__Hspace_0 1A7 0 ABS 0 - -
+__Hspace_1 7B 0 ABS 0 - -
+__Hspace_2 0 0 ABS 0 - -
+__Hspace_3 0 0 ABS 0 - -
+__Hspace_4 4010 0 ABS 0 - -
+__end_of_appInit 22C 0 CODE 0 text4 dist/default/production\PROGRAMA_38kHz_V1.X.production.o
+__HidataBANK0 0 0 ABS 0 idataBANK0 -
+_InicializarMEF 34C 0 CODE 0 text9 dist/default/production\PROGRAMA_38kHz_V1.X.production.o
+__Heeprom_data 0 0 EEDATA 3 eeprom_data -
+main@i 77 0 COMMON 1 cstackCOMMON dist/default/production\PROGRAMA_38kHz_V1.X.production.o
+__Hstrings 0 0 ABS 0 strings -
+_BRGH 4C2 0 ABS 0 - dist/default/production\PROGRAMA_38kHz_V1.X.production.o
+_CREN C4 0 ABS 0 - dist/default/production\PROGRAMA_38kHz_V1.X.production.o
+_PEIE 5E 0 ABS 0 - dist/default/production\PROGRAMA_38kHz_V1.X.production.o
+_RCIF 65 0 ABS 0 - dist/default/production\PROGRAMA_38kHz_V1.X.production.o
+_SPEN C7 0 ABS 0 - dist/default/production\PROGRAMA_38kHz_V1.X.production.o
+_T0CS 40D 0 ABS 0 - dist/default/production\PROGRAMA_38kHz_V1.X.production.o
+_T0IF 5A 0 ABS 0 - dist/default/production\PROGRAMA_38kHz_V1.X.production.o
+_SYNC 4C4 0 ABS 0 - dist/default/production\PROGRAMA_38kHz_V1.X.production.o
+_TMR0 1 0 ABS 0 - dist/default/production\PROGRAMA_38kHz_V1.X.production.o
+_TXEN 4C5 0 ABS 0 - dist/default/production\PROGRAMA_38kHz_V1.X.production.o
+_TXIF 64 0 ABS 0 - dist/default/production\PROGRAMA_38kHz_V1.X.production.o
+___sp 0 0 STACK 2 stack C:\Users\Alumno\AppData\Local\Temp\xcAs368.o
+_main 56 0 CODE 0 maintext dist/default/production\PROGRAMA_38kHz_V1.X.production.o
+btemp 7E 0 ABS 0 - dist/default/production\PROGRAMA_38kHz_V1.X.production.o
+start 18 0 CODE 0 init C:\Users\Alumno\AppData\Local\Temp\xcAs368.o
+__size_of_main 0 0 ABS 0 - dist/default/production\PROGRAMA_38kHz_V1.X.production.o
+__HbssCOMMON 0 0 ABS 0 bssCOMMON -
+_OPTION_REGbits 81 0 ABS 0 - dist/default/production\PROGRAMA_38kHz_V1.X.production.o
+__LidataBANK0 0 0 ABS 0 idataBANK0 -
+__Hpowerup 0 0 CODE 0 powerup -
+__end_of_usuario_1 25C 0 STRING 0 strings dist/default/production\PROGRAMA_38kHz_V1.X.production.o
+__end_of_usuario_2 254 0 STRING 0 strings dist/default/production\PROGRAMA_38kHz_V1.X.production.o
+intlevel0 0 0 ENTRY 0 functab C:\Users\Alumno\AppData\Local\Temp\xcAs368.o
+intlevel1 0 0 ENTRY 0 functab C:\Users\Alumno\AppData\Local\Temp\xcAs368.o
+intlevel2 0 0 ENTRY 0 functab C:\Users\Alumno\AppData\Local\Temp\xcAs368.o
+intlevel3 0 0 ENTRY 0 functab C:\Users\Alumno\AppData\Local\Temp\xcAs368.o
+intlevel4 0 0 ENTRY 0 functab C:\Users\Alumno\AppData\Local\Temp\xcAs368.o
+intlevel5 0 0 ENTRY 0 functab C:\Users\Alumno\AppData\Local\Temp\xcAs368.o
+__LbssCOMMON 0 0 ABS 0 bssCOMMON -
+__end_of_InicializarMEF 34E 0 CODE 0 text9 dist/default/production\PROGRAMA_38kHz_V1.X.production.o
+wtemp0 7E 0 ABS 0 - dist/default/production\PROGRAMA_38kHz_V1.X.production.o
+__Hfunctab 0 0 ENTRY 0 functab -
+_estadoActualRONDA 78 0 COMMON 1 bssCOMMON dist/default/production\PROGRAMA_38kHz_V1.X.production.o
+__Hclrtext 0 0 ABS 0 clrtext -
+_Send_buf 3C 0 BANK0 1 bssBANK0 dist/default/production\PROGRAMA_38kHz_V1.X.production.o
+_ANSELH 189 0 ABS 0 - dist/default/production\PROGRAMA_38kHz_V1.X.production.o
+_CCP1IE 462 0 ABS 0 - dist/default/production\PROGRAMA_38kHz_V1.X.production.o
+__Lmaintext 0 0 ABS 0 maintext -
+__end_ofdisplayWrite@tabla7seg 24C 0 STRING 0 strings dist/default/production\PROGRAMA_38kHz_V1.X.production.o
+__size_of_uartInit 0 0 ABS 0 - dist/default/production\PROGRAMA_38kHz_V1.X.production.o
+___stackhi 0 0 ABS 0 - C:\Users\Alumno\AppData\Local\Temp\xcAs368.o
+___stacklo 0 0 ABS 0 - C:\Users\Alumno\AppData\Local\Temp\xcAs368.o
+_sumar_vida 34A 0 CODE 0 text1 dist/default/production\PROGRAMA_38kHz_V1.X.production.o
+displayWrite@tabla7seg 238 0 STRING 0 strings dist/default/production\PROGRAMA_38kHz_V1.X.production.o
+start_initialization 1E 0 CODE 0 cinit dist/default/production\PROGRAMA_38kHz_V1.X.production.o
+_TRISAbits 85 0 ABS 0 - dist/default/production\PROGRAMA_38kHz_V1.X.production.o
+_TRISBbits 86 0 ABS 0 - dist/default/production\PROGRAMA_38kHz_V1.X.production.o
+_TRISCbits 87 0 ABS 0 - dist/default/production\PROGRAMA_38kHz_V1.X.production.o
+_TRISDbits 88 0 ABS 0 - dist/default/production\PROGRAMA_38kHz_V1.X.production.o
+_TRISEbits 89 0 ABS 0 - dist/default/production\PROGRAMA_38kHz_V1.X.production.o
+_Mostrar_Tiempo 39 0 BANK0 1 bssBANK0 dist/default/production\PROGRAMA_38kHz_V1.X.production.o
+clear_ram0 328 0 CODE 0 clrtext dist/default/production\PROGRAMA_38kHz_V1.X.production.o
+__pcstackBANK0 46 0 BANK0 1 cstackBANK0 dist/default/production\PROGRAMA_38kHz_V1.X.production.o
+_TMR0IE 5D 0 ABS 0 - dist/default/production\PROGRAMA_38kHz_V1.X.production.o
+_TMR0IF 5A 0 ABS 0 - dist/default/production\PROGRAMA_38kHz_V1.X.production.o
+_TMR1CS 81 0 ABS 0 - dist/default/production\PROGRAMA_38kHz_V1.X.production.o
+_TMR1ON 80 0 ABS 0 - dist/default/production\PROGRAMA_38kHz_V1.X.production.o
+_TRISC6 43E 0 ABS 0 - dist/default/production\PROGRAMA_38kHz_V1.X.production.o
+_TRISC7 43F 0 ABS 0 - dist/default/production\PROGRAMA_38kHz_V1.X.production.o
+_appInit 1BE 0 CODE 0 text4 dist/default/production\PROGRAMA_38kHz_V1.X.production.o
+_uartInit 2BE 0 CODE 0 text5 dist/default/production\PROGRAMA_38kHz_V1.X.production.o
+__end_of_rx_LSR 292 0 CODE 0 text2 dist/default/production\PROGRAMA_38kHz_V1.X.production.o
+___int_sp 0 0 STACK 2 stack C:\Users\Alumno\AppData\Local\Temp\xcAs368.o
+_Tiempo1 3B 0 BANK0 1 bssBANK0 dist/default/production\PROGRAMA_38kHz_V1.X.production.o
+__Hbank0 0 0 ABS 0 bank0 -
+__Hbank1 0 0 ABS 0 bank1 -
+__Hbank2 0 0 ABS 0 bank2 -
+__Hbank3 0 0 ABS 0 bank3 -
+__Hcinit 56 0 CODE 0 cinit -
+__Hstack 0 0 STACK 2 stack -
+__stringbase 236 0 STRING 0 strings dist/default/production\PROGRAMA_38kHz_V1.X.production.o
+__end_of_uartInit 2E6 0 CODE 0 text5 dist/default/production\PROGRAMA_38kHz_V1.X.production.o
+__Hmaintext 0 0 ABS 0 maintext -
+__end_of_sumar_vida 34C 0 CODE 0 text1 dist/default/production\PROGRAMA_38kHz_V1.X.production.o
+__Hcommon 0 0 ABS 0 common -
+__Hconfig 4012 0 CONFIG 4 config -
+tickRead@aux 75 0 COMMON 1 cstackCOMMON dist/default/production\PROGRAMA_38kHz_V1.X.production.o
+__Lbank0 0 0 ABS 0 bank0 -
+__Lbank1 0 0 ABS 0 bank1 -
+__Lbank2 0 0 ABS 0 bank2 -
+__Lbank3 0 0 ABS 0 bank3 -
+__Lcinit 1E 0 CODE 0 cinit -
+__Lstack 0 0 STACK 2 stack -
+_displaytInit 338 0 CODE 0 text6 dist/default/production\PROGRAMA_38kHz_V1.X.production.o
+_PORTAbits 5 0 ABS 0 - dist/default/production\PROGRAMA_38kHz_V1.X.production.o
+_PORTBbits 6 0 ABS 0 - dist/default/production\PROGRAMA_38kHz_V1.X.production.o
+_PORTCbits 7 0 ABS 0 - dist/default/production\PROGRAMA_38kHz_V1.X.production.o
+_PORTDbits 8 0 ABS 0 - dist/default/production\PROGRAMA_38kHz_V1.X.production.o
+_PORTEbits 9 0 ABS 0 - dist/default/production\PROGRAMA_38kHz_V1.X.production.o
+__Habs1 0 0 ABS 0 abs1 -
+__Hcode 0 0 ABS 0 code -
+__Hinit 18 0 CODE 0 init -
+__Hsfr0 0 0 ABS 0 sfr0 -
+__Hsfr1 0 0 ABS 0 sfr1 -
+__Hsfr2 0 0 ABS 0 sfr2 -
+__Hsfr3 0 0 ABS 0 sfr3 -
+__Htext 0 0 ABS 0 text -
+__Labs1 0 0 ABS 0 abs1 -
+__Lcode 0 0 ABS 0 code -
+__Linit 18 0 CODE 0 init -
+__Lsfr0 0 0 ABS 0 sfr0 -
+__Lsfr1 0 0 ABS 0 sfr1 -
+__Lsfr2 0 0 ABS 0 sfr2 -
+__Lsfr3 0 0 ABS 0 sfr3 -
+__Ltext 0 0 ABS 0 text -
+__LcstackBANK0 0 0 ABS 0 cstackBANK0 -
+_tInicioGAT 30 0 BANK0 1 bssBANK0 dist/default/production\PROGRAMA_38kHz_V1.X.production.o
+__HcstackCOMMON 0 0 ABS 0 cstackCOMMON -
+_GIE 5F 0 ABS 0 - dist/default/production\PROGRAMA_38kHz_V1.X.production.o
+_PS0 408 0 ABS 0 - dist/default/production\PROGRAMA_38kHz_V1.X.production.o
+_PS1 409 0 ABS 0 - dist/default/production\PROGRAMA_38kHz_V1.X.production.o
+_PS2 40A 0 ABS 0 - dist/default/production\PROGRAMA_38kHz_V1.X.production.o
+_PSA 40B 0 ABS 0 - dist/default/production\PROGRAMA_38kHz_V1.X.production.o
+__S0 1A7 0 ABS 0 - -
+__S1 7B 0 ABS 0 - -
+__S2 0 0 ABS 0 - -
+__S3 0 0 ABS 0 - -
+_isr 2E6 0 CODE 0 text10 dist/default/production\PROGRAMA_38kHz_V1.X.production.o
+saved_w 7E 0 ABS 0 - dist/default/production\PROGRAMA_38kHz_V1.X.production.o
+__end_of_isr 30E 0 CODE 0 text10 dist/default/production\PROGRAMA_38kHz_V1.X.production.o
+__size_of_displaytInit 0 0 ABS 0 - dist/default/production\PROGRAMA_38kHz_V1.X.production.o
+__Lintentry 8 0 CODE 0 intentry -
+__stringtab 22C 0 STRING 0 strings dist/default/production\PROGRAMA_38kHz_V1.X.production.o
+reset_vec 0 0 CODE 0 reset_vec C:\Users\Alumno\AppData\Local\Temp\xcAs368.o
+__size_of_InicializarMEF 0 0 ABS 0 - dist/default/production\PROGRAMA_38kHz_V1.X.production.o
+_tInicioBALAS 2E 0 BANK0 1 bssBANK0 dist/default/production\PROGRAMA_38kHz_V1.X.production.o
+__pdataBANK0 4A 0 BANK0 1 dataBANK0 dist/default/production\PROGRAMA_38kHz_V1.X.production.o
+_tInicioRonda 79 0 COMMON 1 bssCOMMON dist/default/production\PROGRAMA_38kHz_V1.X.production.o
+__LbssBANK0 0 0 ABS 0 bssBANK0 -
+_estadoActualGAT 35 0 BANK0 1 bssBANK0 dist/default/production\PROGRAMA_38kHz_V1.X.production.o
+_tickCounter 2C 0 BANK0 1 bssBANK0 dist/default/production\PROGRAMA_38kHz_V1.X.production.o
+__size_of_tickRead 0 0 ABS 0 - dist/default/production\PROGRAMA_38kHz_V1.X.production.o
+__ptext10 2E6 0 CODE 0 text10 dist/default/production\PROGRAMA_38kHz_V1.X.production.o
+__end_of_displaytInit 346 0 CODE 0 text6 dist/default/production\PROGRAMA_38kHz_V1.X.production.o
+__pmaintext 56 0 CODE 0 maintext dist/default/production\PROGRAMA_38kHz_V1.X.production.o
+__Lcommon 0 0 ABS 0 common -
+__Lconfig 0 0 CONFIG 4 config -
+_rx_LSR 264 0 CODE 0 text2 dist/default/production\PROGRAMA_38kHz_V1.X.production.o
+__end_of__stringtab 238 0 STRING 0 strings dist/default/production\PROGRAMA_38kHz_V1.X.production.o
+__end_of_ActualizarRONDA 1BE 0 CODE 0 text7 dist/default/production\PROGRAMA_38kHz_V1.X.production.o
+__Lspace_0 0 0 ABS 0 - -
+__Lspace_1 0 0 ABS 0 - -
+__Lspace_2 0 0 ABS 0 - -
+__Lspace_3 0 0 ABS 0 - -
+__Lspace_4 0 0 ABS 0 - -
+__pbssCOMMON 78 0 COMMON 1 bssCOMMON dist/default/production\PROGRAMA_38kHz_V1.X.production.o
+__HcstackBANK0 0 0 ABS 0 cstackBANK0 -
+__Lend_init 18 0 CODE 0 end_init -
+__LcstackCOMMON 0 0 ABS 0 cstackCOMMON -
+end_of_initialization 4E 0 CODE 0 cinit dist/default/production\PROGRAMA_38kHz_V1.X.production.o
+_tickRead 30E 0 CODE 0 text8 dist/default/production\PROGRAMA_38kHz_V1.X.production.o
+__size_of_sumar_vida 0 0 ABS 0 - dist/default/production\PROGRAMA_38kHz_V1.X.production.o
+__Hintentry 18 0 CODE 0 intentry -
+__Lstrings 0 0 ABS 0 strings -
+__Hreset_vec 6 0 CODE 0 reset_vec -
+__size_of_rx_LSR 0 0 ABS 0 - dist/default/production\PROGRAMA_38kHz_V1.X.production.o
+__HbssBANK0 0 0 ABS 0 bssBANK0 -
+__end_of_tickRead 328 0 CODE 0 text8 dist/default/production\PROGRAMA_38kHz_V1.X.production.o
+_cont_balas 4A 0 BANK0 1 dataBANK0 dist/default/production\PROGRAMA_38kHz_V1.X.production.o
+__ptext1 34A 0 CODE 0 text1 dist/default/production\PROGRAMA_38kHz_V1.X.production.o
+__ptext2 264 0 CODE 0 text2 dist/default/production\PROGRAMA_38kHz_V1.X.production.o
+__ptext3 292 0 CODE 0 text3 dist/default/production\PROGRAMA_38kHz_V1.X.production.o
+__ptext4 1BE 0 CODE 0 text4 dist/default/production\PROGRAMA_38kHz_V1.X.production.o
+__ptext5 2BE 0 CODE 0 text5 dist/default/production\PROGRAMA_38kHz_V1.X.production.o
+__ptext6 338 0 CODE 0 text6 dist/default/production\PROGRAMA_38kHz_V1.X.production.o
+__ptext7 13A 0 CODE 0 text7 dist/default/production\PROGRAMA_38kHz_V1.X.production.o
+__ptext8 30E 0 CODE 0 text8 dist/default/production\PROGRAMA_38kHz_V1.X.production.o
+__ptext9 34C 0 CODE 0 text9 dist/default/production\PROGRAMA_38kHz_V1.X.production.o
+__Lpowerup 0 0 CODE 0 powerup -
+__Leeprom_data 0 0 EEDATA 3 eeprom_data -
+_ActualizarRONDA 13A 0 CODE 0 text7 dist/default/production\PROGRAMA_38kHz_V1.X.production.o
+__Lreset_vec 0 0 CODE 0 reset_vec -
+__size_of_appInit 0 0 ABS 0 - dist/default/production\PROGRAMA_38kHz_V1.X.production.o
+__end_of__initialization 4E 0 CODE 0 cinit dist/default/production\PROGRAMA_38kHz_V1.X.production.o
+__Lfunctab 0 0 ENTRY 0 functab -
+__pidataBANK0 346 0 CODE 0 idataBANK0 dist/default/production\PROGRAMA_38kHz_V1.X.production.o
+__Lclrtext 0 0 ABS 0 clrtext -
+_T1CKPS0 84 0 ABS 0 - dist/default/production\PROGRAMA_38kHz_V1.X.production.o
+_T1CKPS1 85 0 ABS 0 - dist/default/production\PROGRAMA_38kHz_V1.X.production.o
+__pcstackCOMMON 70 0 COMMON 1 cstackCOMMON dist/default/production\PROGRAMA_38kHz_V1.X.production.o
+__Hend_init 1E 0 CODE 0 end_init -
+__end_of_main 13A 0 CODE 0 maintext dist/default/production\PROGRAMA_38kHz_V1.X.production.o
+__end_of_gatilloAP 2BE 0 CODE 0 text3 dist/default/production\PROGRAMA_38kHz_V1.X.production.o
+_ANSEL 188 0 ABS 0 - dist/default/production\PROGRAMA_38kHz_V1.X.production.o
+_CCPR1 15 0 ABS 0 - dist/default/production\PROGRAMA_38kHz_V1.X.production.o
+__size_of_gatilloAP 0 0 ABS 0 - dist/default/production\PROGRAMA_38kHz_V1.X.production.o
+_PORTD 8 0 ABS 0 - dist/default/production\PROGRAMA_38kHz_V1.X.production.o
+_RCREG 1A 0 ABS 0 - dist/default/production\PROGRAMA_38kHz_V1.X.production.o
+_SPBRG 99 0 ABS 0 - dist/default/production\PROGRAMA_38kHz_V1.X.production.o
+_TRISD 88 0 ABS 0 - dist/default/production\PROGRAMA_38kHz_V1.X.production.o
+_TXREG 19 0 ABS 0 - dist/default/production\PROGRAMA_38kHz_V1.X.production.o
+_VIDAS 36 0 BANK0 1 bssBANK0 dist/default/production\PROGRAMA_38kHz_V1.X.production.o
+__Hram 0 0 ABS 0 ram -
+__Lram 0 0 ABS 0 ram -
+interrupt_function 8 0 CODE 0 intentry dist/default/production\PROGRAMA_38kHz_V1.X.production.o
+_putch 0 0 ABS 0 - dist/default/production\PROGRAMA_38kHz_V1.X.production.o
+_CCP1CON 17 0 ABS 0 - dist/default/production\PROGRAMA_38kHz_V1.X.production.o
+__pintentry 8 0 CODE 0 intentry dist/default/production\PROGRAMA_38kHz_V1.X.production.o
+__size_of_isr 0 0 ABS 0 - dist/default/production\PROGRAMA_38kHz_V1.X.production.o
+__HdataBANK0 0 0 ABS 0 dataBANK0 -
+__initialization 1E 0 CODE 0 cinit dist/default/production\PROGRAMA_38kHz_V1.X.production.o
+__pbssBANK0 20 0 BANK0 1 bssBANK0 dist/default/production\PROGRAMA_38kHz_V1.X.production.o
+_gatilloAP 292 0 CODE 0 text3 dist/default/production\PROGRAMA_38kHz_V1.X.production.o
+__pstrings 22C 0 STRING 0 strings dist/default/production\PROGRAMA_38kHz_V1.X.production.o
+?_tickRead 73 0 COMMON 1 cstackCOMMON dist/default/production\PROGRAMA_38kHz_V1.X.production.o
+# %SPLITSTAB Section
+# This section enumerates all the psect splits performed by the assembler.
+# The beginning of the section is indicated by %SPLITSTAB.
+# Each line is a record a particular split, where the parent psect is on
+# the left and the child on the right.  Note that a child psect is always
+# split form the top of the parent psect. All splits from a given parent
+# are listed in the order in which they occurred.
+%SPLITSTAB
+# %DABS Section
+# This section contains a table of all usuage of the assember
+# directive DABS in the program. Each line has the following format:
+#   <name> <space> <address> <size>
+# If the DABS was originally labelled then that shall be <name>,
+# otherwise name will be "-".  The <space> number is in decimal.
+# <address> and <size> are in byte units as unqaulified hexadecimal
+%DABS
+- 1 7E 2
+# %SEGMENTS Section
+# This sections enumerates the segments of the program.  Each segment
+# is described on a single line as follows:
+#    <name> <space> <link address> <file address> <size> <delta>
+# Addresses and size are in unqualified hexadecimal.  The link address
+# and size are in units of delta. The file address is in units of bytes.
+# All other numeric quantities are in decimal.
+%SEGMENTS
+text2 0 132 264 75 2
+cstackCOMMON 1 70 70 B 1
+intentry 0 4 8 112 2
+reset_vec 0 0 0 3 2
+bssBANK0 1 20 20 2C 1
+strings 0 116 22C 1C 2
+# %NOTES Section
+# This section contains data of all the note-psects.  The beginning of the section
+# is indicated by %NOTES. The first line indicates the name and decimal
+# byte-length of the first note-psect, e.g.
+#   $codecov_info_hdr 16
+# Each line that follows contains the byte-data of the psect in hexadecimal as a
+# space-separated list. These lines are limited to 16 bytes of data.
+%NOTES

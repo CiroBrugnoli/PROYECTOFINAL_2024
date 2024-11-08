@@ -1,4 +1,4 @@
-#pragma config PLLDIV = 2, CPUDIV = OSC1_PLL2, USBDIV = 2
+/*#pragma config PLLDIV = 2, CPUDIV = OSC1_PLL2, USBDIV = 2
 #pragma config FOSC = HSPLL_HS, FCMEN = OFF, IESO = OFF
 #pragma config PWRT = OFF, BOR = OFF, BORV = 3, VREGEN = OFF
 #pragma config WDT = OFF
@@ -10,7 +10,7 @@
 #pragma config WRT0 = OFF, WRT1 = OFF, WRT2 = OFF, WRT3 = OFF
 #pragma config WRTC = OFF, WRTB = OFF, WRTD = OFF
 #pragma config EBTR0 = OFF, EBTR1 = OFF, EBTR2 = OFF, EBTR3 = OFF
-#pragma config EBTRB = OFF
+#pragma config EBTRB = OFF*/
 
 #define _XTAL_FREQ 48000000
 #include <xc.h>
@@ -23,7 +23,7 @@ char UID[8];                                        // Almacena el codigo del UI
 char buf[4];                                        // Almacena el UID en formato de cadena
 unsigned char TagType;
 
-void main()
+/*void main()
 {
     ANSEL=0;
     ANSELH=0;// Coloca todos los pines como digitales
@@ -50,4 +50,4 @@ void main()
         __delay_ms(1000);
         MFRC522_Halt();                             // Apaga la antena
     }
-}
+}*/ 

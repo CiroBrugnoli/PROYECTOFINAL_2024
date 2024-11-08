@@ -85,7 +85,7 @@ void main(void) {
             __delay_us(10);
         }
         __delay_ms(100);
-        func_interup_boton();
+//        func_interup_boton();
         while (Mostrar_Tiempo) {
             Mostrar_Tiempo = 0;
             if (Tiempo1>=10) 
@@ -115,8 +115,9 @@ void func_interup_boton() {
         Tiempo1 = VALOR_TIMER - Tiempo0;
         Mostrar_Tiempo = 1;
     }
-}*/
-/*char gatilloAP(void){
+}
+*/
+char gatilloAP(void){
     __delay_ms(300);
     if(PIN_GATILLO==1)
         PIN_VIDA=0;
@@ -131,7 +132,7 @@ char rx_LSR(void){
         VIDAS--;
            
 }
- */    
+    
 void ActualizarRONDA(void) {
     switch (estadoActualRONDA) {
         case VIVO:
@@ -167,10 +168,7 @@ void ActualizarRONDA(void) {
             break;
         case REVIVIENDO:
             if(tickRead()-tInicioRonda>5000)
-             estadoActualRONDA = VIVO; 
-                     
-            
-            
+             estadoActualRONDA = VIVO;
             break;
         default:
             //Si algo modificó la variable estadoActual 
@@ -206,8 +204,12 @@ void ActualizarGAT(void)
             }
             if (PIN_TEC1 == 0 && tickRead() - tInicioGAT > 40) {// Chequear condiciones de transición de estado
                 estadoActualGAT = E_MANTENIDO; // Cambiar a otro estado
-                if( == 0)
+                if( BALAS_INF == 0)
                   cont_balas--;
+                tInicioGAT = tickRead(); // También inicia temporizacion
+            }
+            if( BALAS_INF == 0){
+                cont_balas--;
                 tInicioGAT = tickRead(); // También inicia temporizacion
             }
             break;
@@ -236,4 +238,7 @@ void ActualizarGAT(void)
             // lugar seguro, por ejemplo, la reinicio:
             InicializarMEF();
     }
+}
+char sumar_vida(void){
+    return 1;
 }

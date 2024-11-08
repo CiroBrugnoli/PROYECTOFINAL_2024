@@ -57,17 +57,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=user.c main.c "DFPlayer Mini.c" interrupts.c tick.c display.c uart.c
+SOURCEFILES_QUOTED_IF_SPACED=user.c main.c "DFPlayer Mini.c" interrupts.c tick.c display.c uart.c RFID_Access.c RFID_Read.c mfrc522.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/user.p1 ${OBJECTDIR}/main.p1 "${OBJECTDIR}/DFPlayer Mini.p1" ${OBJECTDIR}/interrupts.p1 ${OBJECTDIR}/tick.p1 ${OBJECTDIR}/display.p1 ${OBJECTDIR}/uart.p1
-POSSIBLE_DEPFILES=${OBJECTDIR}/user.p1.d ${OBJECTDIR}/main.p1.d "${OBJECTDIR}/DFPlayer Mini.p1.d" ${OBJECTDIR}/interrupts.p1.d ${OBJECTDIR}/tick.p1.d ${OBJECTDIR}/display.p1.d ${OBJECTDIR}/uart.p1.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/user.p1 ${OBJECTDIR}/main.p1 "${OBJECTDIR}/DFPlayer Mini.p1" ${OBJECTDIR}/interrupts.p1 ${OBJECTDIR}/tick.p1 ${OBJECTDIR}/display.p1 ${OBJECTDIR}/uart.p1 ${OBJECTDIR}/RFID_Access.p1 ${OBJECTDIR}/RFID_Read.p1 ${OBJECTDIR}/mfrc522.p1
+POSSIBLE_DEPFILES=${OBJECTDIR}/user.p1.d ${OBJECTDIR}/main.p1.d "${OBJECTDIR}/DFPlayer Mini.p1.d" ${OBJECTDIR}/interrupts.p1.d ${OBJECTDIR}/tick.p1.d ${OBJECTDIR}/display.p1.d ${OBJECTDIR}/uart.p1.d ${OBJECTDIR}/RFID_Access.p1.d ${OBJECTDIR}/RFID_Read.p1.d ${OBJECTDIR}/mfrc522.p1.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/user.p1 ${OBJECTDIR}/main.p1 ${OBJECTDIR}/DFPlayer\ Mini.p1 ${OBJECTDIR}/interrupts.p1 ${OBJECTDIR}/tick.p1 ${OBJECTDIR}/display.p1 ${OBJECTDIR}/uart.p1
+OBJECTFILES=${OBJECTDIR}/user.p1 ${OBJECTDIR}/main.p1 ${OBJECTDIR}/DFPlayer\ Mini.p1 ${OBJECTDIR}/interrupts.p1 ${OBJECTDIR}/tick.p1 ${OBJECTDIR}/display.p1 ${OBJECTDIR}/uart.p1 ${OBJECTDIR}/RFID_Access.p1 ${OBJECTDIR}/RFID_Read.p1 ${OBJECTDIR}/mfrc522.p1
 
 # Source Files
-SOURCEFILES=user.c main.c DFPlayer Mini.c interrupts.c tick.c display.c uart.c
+SOURCEFILES=user.c main.c DFPlayer Mini.c interrupts.c tick.c display.c uart.c RFID_Access.c RFID_Read.c mfrc522.c
 
 
 
@@ -150,6 +150,30 @@ ${OBJECTDIR}/uart.p1: uart.c  nbproject/Makefile-${CND_CONF}.mk
 	@-${MV} ${OBJECTDIR}/uart.d ${OBJECTDIR}/uart.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/uart.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
+${OBJECTDIR}/RFID_Access.p1: RFID_Access.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/RFID_Access.p1.d 
+	@${RM} ${OBJECTDIR}/RFID_Access.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1    -fno-short-double -fno-short-float -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/RFID_Access.p1 RFID_Access.c 
+	@-${MV} ${OBJECTDIR}/RFID_Access.d ${OBJECTDIR}/RFID_Access.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/RFID_Access.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/RFID_Read.p1: RFID_Read.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/RFID_Read.p1.d 
+	@${RM} ${OBJECTDIR}/RFID_Read.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1    -fno-short-double -fno-short-float -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/RFID_Read.p1 RFID_Read.c 
+	@-${MV} ${OBJECTDIR}/RFID_Read.d ${OBJECTDIR}/RFID_Read.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/RFID_Read.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/mfrc522.p1: mfrc522.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/mfrc522.p1.d 
+	@${RM} ${OBJECTDIR}/mfrc522.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1    -fno-short-double -fno-short-float -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/mfrc522.p1 mfrc522.c 
+	@-${MV} ${OBJECTDIR}/mfrc522.d ${OBJECTDIR}/mfrc522.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/mfrc522.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
 else
 ${OBJECTDIR}/user.p1: user.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
@@ -206,6 +230,30 @@ ${OBJECTDIR}/uart.p1: uart.c  nbproject/Makefile-${CND_CONF}.mk
 	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c    -fno-short-double -fno-short-float -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/uart.p1 uart.c 
 	@-${MV} ${OBJECTDIR}/uart.d ${OBJECTDIR}/uart.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/uart.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/RFID_Access.p1: RFID_Access.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/RFID_Access.p1.d 
+	@${RM} ${OBJECTDIR}/RFID_Access.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c    -fno-short-double -fno-short-float -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/RFID_Access.p1 RFID_Access.c 
+	@-${MV} ${OBJECTDIR}/RFID_Access.d ${OBJECTDIR}/RFID_Access.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/RFID_Access.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/RFID_Read.p1: RFID_Read.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/RFID_Read.p1.d 
+	@${RM} ${OBJECTDIR}/RFID_Read.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c    -fno-short-double -fno-short-float -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/RFID_Read.p1 RFID_Read.c 
+	@-${MV} ${OBJECTDIR}/RFID_Read.d ${OBJECTDIR}/RFID_Read.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/RFID_Read.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/mfrc522.p1: mfrc522.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/mfrc522.p1.d 
+	@${RM} ${OBJECTDIR}/mfrc522.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c    -fno-short-double -fno-short-float -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/mfrc522.p1 mfrc522.c 
+	@-${MV} ${OBJECTDIR}/mfrc522.d ${OBJECTDIR}/mfrc522.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/mfrc522.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
 endif
 

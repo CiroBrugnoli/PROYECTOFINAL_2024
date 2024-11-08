@@ -21,12 +21,16 @@
 //Leds
 #define	TRIS_LED1       TRISEbits.TRISE2
 #define	PIN_LED1        PORTEbits.RE2
-#define	TRIS_LED2       TRISBbits.TRISB0
-#define	PIN_LED2        PORTBbits.RB0
-#define	TRIS_LED3        TRISBbits.TRISB1
-#define	PIN_LED3        PORTEBbits.RE2
-#define	TRIS_LED4       TRISAbits.TRISA5
-#define	PIN_LED4        PORTAbits.RA5
+#define	TRIS_LED2       TRISEbits.TRISE1
+#define	PIN_LED2        PORTEbits.RE1
+#define	TRIS_LED3       TRISEbits.TRISE0
+#define	PIN_LED3        PORTEbits.RE0
+#define	TRIS_LED4       TRISBbits.TRISB1
+#define	PIN_LED4        PORTBbits.RB1
+#define	TRIS_LED5       TRISBbits.TRISB2
+#define	PIN_LED5        PORTBbits.RB2
+#define	TRIS_LED6       TRISBbits.TRISB3
+#define	PIN_LED6        PORTBbits.RB3
 
 #define TRIS_TEC1       TRISAbits.TRISA1 //Boton de generada
 #define PIN_TEC1        PORTAbits.RA1
