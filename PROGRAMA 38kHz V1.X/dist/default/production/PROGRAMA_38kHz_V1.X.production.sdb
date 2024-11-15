@@ -3,8 +3,8 @@
 [d edition pro ]
 [d chip 16F887 ]
 [d frameptr 0 ]
-"37 D:\LaserTag\PROYECTOFINAL_2024\PROGRAMA 38kHz V1.X\main.c
-[e E1396 . `uc
+"37 Z:\PROYECTOFINAL_2024v2\PROYECTOFINAL_2024v\PROGRAMA 38kHz V1.X\main.c
+[e E1397 . `uc
 E_SUELTO 0
 E_BAJANDO 1
 E_PRESIONADO 2
@@ -16,6 +16,10 @@ REVIVIENDO 7
 BALAS_INF 8
 VIDA_INF 9
 ]
+"505 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c90\common\doprnt.c
+[v _sprintf sprintf `(i  1 e 2 0 ]
+"5 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c90\common\lwdiv.c
+[v ___lwdiv __lwdiv `(ui  1 e 2 0 ]
 "13 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c90\common\printf.c
 [v _printf printf `(i  1 e 2 0 ]
 "10 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c90\common\sprcadd.c
@@ -26,29 +30,21 @@ VIDA_INF 9
 [v ___eecpymem __eecpymem `(v  1 e 1 0 ]
 "39
 [v ___memcpyee __memcpyee `(v  1 e 1 0 ]
-"48 D:\LaserTag\PROYECTOFINAL_2024\PROGRAMA 38kHz V1.X\DFPlayer Mini.c
+"49 Z:\PROYECTOFINAL_2024v2\PROYECTOFINAL_2024v\PROGRAMA 38kHz V1.X\DFPlayer Mini.c
 [v _Uart_PutByte Uart_PutByte `(v  1 e 1 0 ]
-"69
+"70
 [v _SendCmd SendCmd `(v  1 e 1 0 ]
-"91
+"92
 [v _DoSum DoSum `(v  1 e 1 0 ]
-"39 D:\LaserTag\PROYECTOFINAL_2024\PROGRAMA 38kHz V1.X\display.c
+"39 Z:\PROYECTOFINAL_2024v2\PROYECTOFINAL_2024v\PROGRAMA 38kHz V1.X\display.c
 [v _displaytInit displaytInit `(v  1 e 1 0 ]
-"31 D:\LaserTag\PROYECTOFINAL_2024\PROGRAMA 38kHz V1.X\interrupts.c
+"31 Z:\PROYECTOFINAL_2024v2\PROYECTOFINAL_2024v\PROGRAMA 38kHz V1.X\interrupts.c
 [v _isr isr `II(v  1 e 1 0 ]
-"59 D:\LaserTag\PROYECTOFINAL_2024\PROGRAMA 38kHz V1.X\main.c
+"60 Z:\PROYECTOFINAL_2024v2\PROYECTOFINAL_2024v\PROGRAMA 38kHz V1.X\main.c
 [v _InicializarMEF InicializarMEF `(v  1 e 1 0 ]
-"61
+"62
 [v _main main `(v  1 e 1 0 ]
-"120
-[v _gatilloAP gatilloAP `(uc  1 e 1 0 ]
-"129
-[v _rx_LSR rx_LSR `(uc  1 e 1 0 ]
-"136
-[v _ActualizarRONDA ActualizarRONDA `(v  1 e 1 0 ]
-"242
-[v _sumar_vida sumar_vida `(uc  1 e 1 0 ]
-"3 D:\LaserTag\PROYECTOFINAL_2024\PROGRAMA 38kHz V1.X\mfrc522.c
+"3 Z:\PROYECTOFINAL_2024v2\PROYECTOFINAL_2024v\PROGRAMA 38kHz V1.X\mfrc522.c
 [v _MFRC522_Rd MFRC522_Rd `(uc  1 e 1 0 ]
 "30
 [v _MFRC522_Wr MFRC522_Wr `(v  1 e 1 0 ]
@@ -60,25 +56,39 @@ VIDA_INF 9
 [v _MFRC522_AntennaOn MFRC522_AntennaOn `(v  1 e 1 0 ]
 "77
 [v _MFRC522_AntennaOff MFRC522_AntennaOff `(v  1 e 1 0 ]
+"82
+[v _MFRC522_Init MFRC522_Init `(v  1 e 1 0 ]
 "102
 [v _MFRC522_ToCard MFRC522_ToCard `(uc  1 e 1 0 ]
 "192
 [v _MFRC522_Request MFRC522_Request `(uc  1 e 1 0 ]
 "206
 [v _MFRC522_CRC MFRC522_CRC `(v  1 e 1 0 ]
+"254
+[v _MFRC522_Halt MFRC522_Halt `(v  1 e 1 0 ]
 "266
 [v _MFRC522_AntiColl MFRC522_AntiColl `(uc  1 e 1 0 ]
-"62 D:\LaserTag\PROYECTOFINAL_2024\PROGRAMA 38kHz V1.X\tick.c
+"291
+[v _MFRC522_IsCard MFRC522_IsCard `(uc  1 e 1 0 ]
+"299
+[v _MFRC522_ReadCardSerial MFRC522_ReadCardSerial `(uc  1 e 1 0 ]
+"36 Z:\PROYECTOFINAL_2024v2\PROYECTOFINAL_2024v\PROGRAMA 38kHz V1.X\RFID_Read.c
+[v _main_RFID_Reader main_RFID_Reader `(v  1 e 1 0 ]
+"62 Z:\PROYECTOFINAL_2024v2\PROYECTOFINAL_2024v\PROGRAMA 38kHz V1.X\tick.c
 [v _tickRead tickRead `(ui  1 e 2 0 ]
-"39 D:\LaserTag\PROYECTOFINAL_2024\PROGRAMA 38kHz V1.X\uart.c
+"39 Z:\PROYECTOFINAL_2024v2\PROYECTOFINAL_2024v\PROGRAMA 38kHz V1.X\uart.c
 [v _uartInit uartInit `(v  1 e 1 0 ]
 "64
 [v _putch putch `(v  1 e 1 0 ]
-"26 D:\LaserTag\PROYECTOFINAL_2024\PROGRAMA 38kHz V1.X\user.c
+"97
+[v _uartReadByte uartReadByte `(b  1 e 0 0 ]
+"120
+[v _SendBuff SendBuff `(v  1 e 1 0 ]
+"26 Z:\PROYECTOFINAL_2024v2\PROYECTOFINAL_2024v\PROGRAMA 38kHz V1.X\user.c
 [v _appInit appInit `(v  1 e 1 0 ]
 "60 C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic16f887.h
 [v _TMR0 TMR0 `VEuc  1 e 1 @1 ]
-[s S226 . 1 `uc 1 RA0 1 0 :1:0 
+[s S218 . 1 `uc 1 RA0 1 0 :1:0 
 `uc 1 RA1 1 0 :1:1 
 `uc 1 RA2 1 0 :1:2 
 `uc 1 RA3 1 0 :1:3 
@@ -88,8 +98,8 @@ VIDA_INF 9
 `uc 1 RA7 1 0 :1:7 
 ]
 "184
-[u S235 . 1 `S226 1 . 1 0 ]
-[v _PORTAbits PORTAbits `VES235  1 e 1 @5 ]
+[u S227 . 1 `S218 1 . 1 0 ]
+[v _PORTAbits PORTAbits `VES227  1 e 1 @5 ]
 [s S187 . 1 `uc 1 RB0 1 0 :1:0 
 `uc 1 RB1 1 0 :1:1 
 `uc 1 RB2 1 0 :1:2 
@@ -102,7 +112,7 @@ VIDA_INF 9
 "246
 [u S196 . 1 `S187 1 . 1 0 ]
 [v _PORTBbits PORTBbits `VES196  1 e 1 @6 ]
-[s S428 . 1 `uc 1 RC0 1 0 :1:0 
+[s S460 . 1 `uc 1 RC0 1 0 :1:0 
 `uc 1 RC1 1 0 :1:1 
 `uc 1 RC2 1 0 :1:2 
 `uc 1 RC3 1 0 :1:3 
@@ -112,11 +122,11 @@ VIDA_INF 9
 `uc 1 RC7 1 0 :1:7 
 ]
 "308
-[u S437 . 1 `S428 1 . 1 0 ]
-[v _PORTCbits PORTCbits `VES437  1 e 1 @7 ]
+[u S469 . 1 `S460 1 . 1 0 ]
+[v _PORTCbits PORTCbits `VES469  1 e 1 @7 ]
 "353
 [v _PORTD PORTD `VEuc  1 e 1 @8 ]
-[s S449 . 1 `uc 1 RD0 1 0 :1:0 
+[s S481 . 1 `uc 1 RD0 1 0 :1:0 
 `uc 1 RD1 1 0 :1:1 
 `uc 1 RD2 1 0 :1:2 
 `uc 1 RD3 1 0 :1:3 
@@ -126,8 +136,8 @@ VIDA_INF 9
 `uc 1 RD7 1 0 :1:7 
 ]
 "370
-[u S458 . 1 `S449 1 . 1 0 ]
-[v _PORTDbits PORTDbits `VES458  1 e 1 @8 ]
+[u S490 . 1 `S481 1 . 1 0 ]
+[v _PORTDbits PORTDbits `VES490  1 e 1 @8 ]
 [s S174 . 1 `uc 1 RE0 1 0 :1:0 
 `uc 1 RE1 1 0 :1:1 
 `uc 1 RE2 1 0 :1:2 
@@ -144,7 +154,7 @@ VIDA_INF 9
 [v _TXREG TXREG `VEuc  1 e 1 @25 ]
 "1141
 [v _RCREG RCREG `VEuc  1 e 1 @26 ]
-[s S352 . 1 `uc 1 PS 1 0 :3:0 
+[s S341 . 1 `uc 1 PS 1 0 :3:0 
 `uc 1 PSA 1 0 :1:3 
 `uc 1 T0SE 1 0 :1:4 
 `uc 1 T0CS 1 0 :1:5 
@@ -152,12 +162,12 @@ VIDA_INF 9
 `uc 1 nRBPU 1 0 :1:7 
 ]
 "1367
-[s S359 . 1 `uc 1 PS0 1 0 :1:0 
+[s S348 . 1 `uc 1 PS0 1 0 :1:0 
 `uc 1 PS1 1 0 :1:1 
 `uc 1 PS2 1 0 :1:2 
 ]
-[u S363 . 1 `S352 1 . 1 0 `S359 1 . 1 0 ]
-[v _OPTION_REGbits OPTION_REGbits `VES363  1 e 1 @129 ]
+[u S352 . 1 `S341 1 . 1 0 `S348 1 . 1 0 ]
+[v _OPTION_REGbits OPTION_REGbits `VES352  1 e 1 @129 ]
 [s S37 . 1 `uc 1 TRISA0 1 0 :1:0 
 `uc 1 TRISA1 1 0 :1:1 
 `uc 1 TRISA2 1 0 :1:2 
@@ -196,7 +206,7 @@ VIDA_INF 9
 [v _TRISCbits TRISCbits `VES88  1 e 1 @135 ]
 "1603
 [v _TRISD TRISD `VEuc  1 e 1 @136 ]
-[s S482 . 1 `uc 1 TRISD0 1 0 :1:0 
+[s S514 . 1 `uc 1 TRISD0 1 0 :1:0 
 `uc 1 TRISD1 1 0 :1:1 
 `uc 1 TRISD2 1 0 :1:2 
 `uc 1 TRISD3 1 0 :1:3 
@@ -206,8 +216,8 @@ VIDA_INF 9
 `uc 1 TRISD7 1 0 :1:7 
 ]
 "1620
-[u S491 . 1 `S482 1 . 1 0 ]
-[v _TRISDbits TRISDbits `VES491  1 e 1 @136 ]
+[u S523 . 1 `S514 1 . 1 0 ]
+[v _TRISDbits TRISDbits `VES523  1 e 1 @136 ]
 [s S24 . 1 `uc 1 TRISE0 1 0 :1:0 
 `uc 1 TRISE1 1 0 :1:1 
 `uc 1 TRISE2 1 0 :1:2 
@@ -270,80 +280,280 @@ VIDA_INF 9
 [v _TXEN TXEN `VEb  1 e 0 @1221 ]
 "4545
 [v _TXIF TXIF `VEb  1 e 0 @100 ]
-"21 D:\LaserTag\PROYECTOFINAL_2024\PROGRAMA 38kHz V1.X\DFPlayer Mini.c
+"366 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c90\common\doprnt.c
+[v _hexpowers hexpowers `DC[4]ui  1 s 8 hexpowers ]
+"22 Z:\PROYECTOFINAL_2024v2\PROYECTOFINAL_2024v\PROGRAMA 38kHz V1.X\DFPlayer Mini.c
 [v _Send_buf Send_buf `[10]uc  1 s 10 Send_buf ]
-"28 D:\LaserTag\PROYECTOFINAL_2024\PROGRAMA 38kHz V1.X\main.c
-[v _Tiempo1 Tiempo1 `uc  1 e 1 0 ]
-"30
+"30 Z:\PROYECTOFINAL_2024v2\PROYECTOFINAL_2024v\PROGRAMA 38kHz V1.X\main.c
 [v _tInicioRonda tInicioRonda `uc  1 e 1 0 ]
-"31
-[v _Mostrar_Tiempo Mostrar_Tiempo `uc  1 e 1 0 ]
 "35
 [v _cont_balas cont_balas `uc  1 e 1 0 ]
 "36
 [v _VIDAS VIDAS `uc  1 e 1 0 ]
 "37
-[v _estadoActualGAT estadoActualGAT `E1396  1 e 1 0 ]
-[v _estadoActualRONDA estadoActualRONDA `E1396  1 e 1 0 ]
+[v _estadoActualGAT estadoActualGAT `E1397  1 e 1 0 ]
+[v _estadoActualRONDA estadoActualRONDA `E1397  1 e 1 0 ]
 "38
 [v _tInicioGAT tInicioGAT `ui  1 e 2 0 ]
 [v _tInicioBALAS tInicioBALAS `ui  1 e 2 0 ]
-"26 D:\LaserTag\PROYECTOFINAL_2024\PROGRAMA 38kHz V1.X\tick.c
+[v _tRFID tRFID `ui  1 e 2 0 ]
+"25 Z:\PROYECTOFINAL_2024v2\PROYECTOFINAL_2024v\PROGRAMA 38kHz V1.X\RFID_Read.c
+[v _UID UID `[8]uc  1 e 8 0 ]
+"26
+[v _buf buf `[4]uc  1 e 4 0 ]
+"27
+[v _TagType TagType `uc  1 e 1 0 ]
+"26 Z:\PROYECTOFINAL_2024v2\PROYECTOFINAL_2024v\PROGRAMA 38kHz V1.X\tick.c
 [v _tickCounter tickCounter `VEui  1 e 2 0 ]
-"61 D:\LaserTag\PROYECTOFINAL_2024\PROGRAMA 38kHz V1.X\main.c
+"62 Z:\PROYECTOFINAL_2024v2\PROYECTOFINAL_2024v\PROGRAMA 38kHz V1.X\main.c
 [v _main main `(v  1 e 1 0 ]
 {
-"62
-[v main@i i `uc  1 a 1 7 ]
-"104
+"74
 } 0
-"242
-[v _sumar_vida sumar_vida `(uc  1 e 1 0 ]
+"36 Z:\PROYECTOFINAL_2024v2\PROYECTOFINAL_2024v\PROGRAMA 38kHz V1.X\RFID_Read.c
+[v _main_RFID_Reader main_RFID_Reader `(v  1 e 1 0 ]
 {
-"244
+"49
+[v main_RFID_Reader@i i `uc  1 a 1 44 ]
+"59
 } 0
-"129
-[v _rx_LSR rx_LSR `(uc  1 e 1 0 ]
-{
-"134
-} 0
-"120
-[v _gatilloAP gatilloAP `(uc  1 e 1 0 ]
-{
-"127
-} 0
-"26 D:\LaserTag\PROYECTOFINAL_2024\PROGRAMA 38kHz V1.X\user.c
-[v _appInit appInit `(v  1 e 1 0 ]
-{
-"66
-} 0
-"39 D:\LaserTag\PROYECTOFINAL_2024\PROGRAMA 38kHz V1.X\uart.c
-[v _uartInit uartInit `(v  1 e 1 0 ]
-{
-"56
-} 0
-"39 D:\LaserTag\PROYECTOFINAL_2024\PROGRAMA 38kHz V1.X\display.c
-[v _displaytInit displaytInit `(v  1 e 1 0 ]
-{
-"42
-} 0
-"136 D:\LaserTag\PROYECTOFINAL_2024\PROGRAMA 38kHz V1.X\main.c
-[v _ActualizarRONDA ActualizarRONDA `(v  1 e 1 0 ]
-{
-"179
-} 0
-"62 D:\LaserTag\PROYECTOFINAL_2024\PROGRAMA 38kHz V1.X\tick.c
+"62 Z:\PROYECTOFINAL_2024v2\PROYECTOFINAL_2024v\PROGRAMA 38kHz V1.X\tick.c
 [v _tickRead tickRead `(ui  1 e 2 0 ]
 {
 "63
 [v tickRead@aux aux `ui  1 a 2 5 ]
 "68
 } 0
-"59 D:\LaserTag\PROYECTOFINAL_2024\PROGRAMA 38kHz V1.X\main.c
+"505 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c90\common\doprnt.c
+[v _sprintf sprintf `(i  1 e 2 0 ]
+{
+[v sprintf@sp sp `*.4uc  1 a 1 wreg ]
+"1526
+[v sprintf@idx idx `uc  1 a 1 9 ]
+"545
+[v sprintf@val val `ui  1 a 2 11 ]
+"512
+[v sprintf@c c `uc  1 a 1 15 ]
+"521
+[v sprintf@prec prec `c  1 a 1 13 ]
+"507
+[v sprintf@ap ap `[1]*.4v  1 a 1 10 ]
+"505
+[v sprintf@sp sp `*.4uc  1 a 1 wreg ]
+[v sprintf@f f `*.24DCuc  1 p 1 3 ]
+"550
+[v sprintf@sp sp `*.4uc  1 a 1 14 ]
+"1567
+} 0
+"5 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c90\common\lwdiv.c
+[v ___lwdiv __lwdiv `(ui  1 e 2 0 ]
+{
+"10
+[v ___lwdiv@quotient quotient `ui  1 a 2 1 ]
+"11
+[v ___lwdiv@counter counter `uc  1 a 1 0 ]
+"5
+[v ___lwdiv@divisor divisor `ui  1 p 2 3 ]
+[v ___lwdiv@dividend dividend `ui  1 p 2 5 ]
+"30
+} 0
+"120 Z:\PROYECTOFINAL_2024v2\PROYECTOFINAL_2024v\PROGRAMA 38kHz V1.X\uart.c
+[v _SendBuff SendBuff `(v  1 e 1 0 ]
+{
+[v SendBuff@buf buf `*.4uc  1 a 1 wreg ]
+"122
+[v SendBuff@i i `uc  1 a 1 4 ]
+"120
+[v SendBuff@buf buf `*.4uc  1 a 1 wreg ]
+[v SendBuff@len len `uc  1 p 1 6 ]
+"122
+[v SendBuff@buf buf `*.4uc  1 a 1 3 ]
+"129
+} 0
+"97
+[v _uartReadByte uartReadByte `(b  1 e 0 0 ]
+{
+[v uartReadByte@receivedByte receivedByte `*.39uc  1 p 2 3 ]
+"103
+} 0
+"299 Z:\PROYECTOFINAL_2024v2\PROYECTOFINAL_2024v\PROGRAMA 38kHz V1.X\mfrc522.c
+[v _MFRC522_ReadCardSerial MFRC522_ReadCardSerial `(uc  1 e 1 0 ]
+{
+[v MFRC522_ReadCardSerial@str str `*.4uc  1 a 1 wreg ]
+"301
+[v MFRC522_ReadCardSerial@_status _status `uc  1 a 1 39 ]
+"299
+[v MFRC522_ReadCardSerial@str str `*.4uc  1 a 1 wreg ]
+"302
+[v MFRC522_ReadCardSerial@str str `*.4uc  1 a 1 40 ]
+"308
+} 0
+"266
+[v _MFRC522_AntiColl MFRC522_AntiColl `(uc  1 e 1 0 ]
+{
+[v MFRC522_AntiColl@serNum serNum `*.4uc  1 a 1 wreg ]
+"271
+[v MFRC522_AntiColl@unLen unLen `ui  1 a 2 33 ]
+"269
+[v MFRC522_AntiColl@i i `uc  1 a 1 36 ]
+"268
+[v MFRC522_AntiColl@_status _status `uc  1 a 1 35 ]
+"270
+[v MFRC522_AntiColl@serNumCheck serNumCheck `uc  1 a 1 32 ]
+"266
+[v MFRC522_AntiColl@serNum serNum `*.4uc  1 a 1 wreg ]
+"270
+[v MFRC522_AntiColl@serNum serNum `*.4uc  1 a 1 37 ]
+"289
+} 0
+"291
+[v _MFRC522_IsCard MFRC522_IsCard `(uc  1 e 1 0 ]
+{
+[v MFRC522_IsCard@TagType TagType `*.4uc  1 a 1 wreg ]
+[v MFRC522_IsCard@TagType TagType `*.4uc  1 a 1 wreg ]
+"293
+[v MFRC522_IsCard@TagType TagType `*.4uc  1 a 1 37 ]
+"297
+} 0
+"192
+[v _MFRC522_Request MFRC522_Request `(uc  1 e 1 0 ]
+{
+[v MFRC522_Request@reqMode reqMode `uc  1 a 1 wreg ]
+"195
+[v MFRC522_Request@backBits backBits `ui  1 a 2 34 ]
+"194
+[v MFRC522_Request@_status _status `uc  1 a 1 33 ]
+"192
+[v MFRC522_Request@reqMode reqMode `uc  1 a 1 wreg ]
+[v MFRC522_Request@TagType TagType `*.4uc  1 p 1 27 ]
+"196
+[v MFRC522_Request@reqMode reqMode `uc  1 a 1 32 ]
+"204
+} 0
+"254
+[v _MFRC522_Halt MFRC522_Halt `(v  1 e 1 0 ]
+{
+"257
+[v MFRC522_Halt@buff buff `[4]uc  1 a 4 31 ]
+"256
+[v MFRC522_Halt@unLen unLen `ui  1 a 2 35 ]
+"264
+} 0
+"102
+[v _MFRC522_ToCard MFRC522_ToCard `(uc  1 e 1 0 ]
+{
+[v MFRC522_ToCard@command command `uc  1 a 1 wreg ]
+"109
+[v MFRC522_ToCard@i i `ui  1 a 2 24 ]
+"108
+[v MFRC522_ToCard@n n `uc  1 a 1 26 ]
+"105
+[v MFRC522_ToCard@irqEn irqEn `uc  1 a 1 22 ]
+"107
+[v MFRC522_ToCard@lastBits lastBits `uc  1 a 1 21 ]
+"104
+[v MFRC522_ToCard@_status _status `uc  1 a 1 20 ]
+"106
+[v MFRC522_ToCard@waitIRq waitIRq `uc  1 a 1 19 ]
+"102
+[v MFRC522_ToCard@command command `uc  1 a 1 wreg ]
+[v MFRC522_ToCard@sendData sendData `*.4uc  1 p 1 9 ]
+[v MFRC522_ToCard@sendLen sendLen `uc  1 p 1 10 ]
+[v MFRC522_ToCard@backData backData `*.4uc  1 p 1 11 ]
+[v MFRC522_ToCard@backLen backLen `*.4ui  1 p 1 12 ]
+"104
+[v MFRC522_ToCard@command command `uc  1 a 1 23 ]
+"190
+} 0
+"206
+[v _MFRC522_CRC MFRC522_CRC `(v  1 e 1 0 ]
+{
+[v MFRC522_CRC@dataIn dataIn `*.4uc  1 a 1 wreg ]
+"208
+[v MFRC522_CRC@i i `uc  1 a 1 14 ]
+[v MFRC522_CRC@n n `uc  1 a 1 12 ]
+"206
+[v MFRC522_CRC@dataIn dataIn `*.4uc  1 a 1 wreg ]
+[v MFRC522_CRC@length length `uc  1 p 1 9 ]
+[v MFRC522_CRC@dataOut dataOut `*.4uc  1 p 1 10 ]
+"209
+[v MFRC522_CRC@dataIn dataIn `*.4uc  1 a 1 13 ]
+"225
+} 0
+"62
+[v _MFRC522_Set_Bit MFRC522_Set_Bit `(v  1 s 1 MFRC522_Set_Bit ]
+{
+[v MFRC522_Set_Bit@addr addr `uc  1 a 1 wreg ]
+"64
+[v MFRC522_Set_Bit@tmp tmp `uc  1 a 1 7 ]
+"62
+[v MFRC522_Set_Bit@addr addr `uc  1 a 1 wreg ]
+[v MFRC522_Set_Bit@mask mask `uc  1 p 1 6 ]
+[v MFRC522_Set_Bit@addr addr `uc  1 a 1 8 ]
+"67
+} 0
+"55
+[v _MFRC522_Clear_Bit MFRC522_Clear_Bit `(v  1 s 1 MFRC522_Clear_Bit ]
+{
+[v MFRC522_Clear_Bit@addr addr `uc  1 a 1 wreg ]
+"57
+[v MFRC522_Clear_Bit@tmp tmp `uc  1 a 1 7 ]
+"55
+[v MFRC522_Clear_Bit@addr addr `uc  1 a 1 wreg ]
+[v MFRC522_Clear_Bit@mask mask `uc  1 p 1 6 ]
+[v MFRC522_Clear_Bit@addr addr `uc  1 a 1 8 ]
+"60
+} 0
+"30
+[v _MFRC522_Wr MFRC522_Wr `(v  1 e 1 0 ]
+{
+[v MFRC522_Wr@address address `uc  1 a 1 wreg ]
+"32
+[v MFRC522_Wr@i i `uc  1 a 1 2 ]
+[v MFRC522_Wr@ucAddr ucAddr `uc  1 a 1 1 ]
+"30
+[v MFRC522_Wr@address address `uc  1 a 1 wreg ]
+[v MFRC522_Wr@value value `uc  1 p 1 3 ]
+"33
+[v MFRC522_Wr@address address `uc  1 a 1 0 ]
+"53
+} 0
+"3
+[v _MFRC522_Rd MFRC522_Rd `(uc  1 e 1 0 ]
+{
+[v MFRC522_Rd@address address `uc  1 a 1 wreg ]
+"5
+[v MFRC522_Rd@i i `ui  1 a 2 5 ]
+"6
+[v MFRC522_Rd@ucResult ucResult `ui  1 a 2 3 ]
+"5
+[v MFRC522_Rd@ucAddr ucAddr `ui  1 a 2 1 ]
+"3
+[v MFRC522_Rd@address address `uc  1 a 1 wreg ]
+"6
+[v MFRC522_Rd@address address `uc  1 a 1 0 ]
+"28
+} 0
+"26 Z:\PROYECTOFINAL_2024v2\PROYECTOFINAL_2024v\PROGRAMA 38kHz V1.X\user.c
+[v _appInit appInit `(v  1 e 1 0 ]
+{
+"66
+} 0
+"39 Z:\PROYECTOFINAL_2024v2\PROYECTOFINAL_2024v\PROGRAMA 38kHz V1.X\uart.c
+[v _uartInit uartInit `(v  1 e 1 0 ]
+{
+"56
+} 0
+"39 Z:\PROYECTOFINAL_2024v2\PROYECTOFINAL_2024v\PROGRAMA 38kHz V1.X\display.c
+[v _displaytInit displaytInit `(v  1 e 1 0 ]
+{
+"42
+} 0
+"60 Z:\PROYECTOFINAL_2024v2\PROYECTOFINAL_2024v\PROGRAMA 38kHz V1.X\main.c
 [v _InicializarMEF InicializarMEF `(v  1 e 1 0 ]
 {
 } 0
-"31 D:\LaserTag\PROYECTOFINAL_2024\PROGRAMA 38kHz V1.X\interrupts.c
+"31 Z:\PROYECTOFINAL_2024v2\PROYECTOFINAL_2024v\PROGRAMA 38kHz V1.X\interrupts.c
 [v _isr isr `II(v  1 e 1 0 ]
 {
 "49

@@ -2658,12 +2658,14 @@ extern __bank0 __bit __timeout;
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c90\\stdint.h" 1 3
 # 15 "./uart.h" 2
 # 31 "./uart.h"
+void RFID_Init();
 void uartInit(void);
 void putch(char data);
 char getch(void);
 char getche(void);
 void uartWriteByte( uint8_t value );
 __bit uartReadByte( uint8_t* receivedByte );
+void SendBuff(uint8_t*, uint8_t );
 # 19 "uart.c" 2
 # 39 "uart.c"
 void uartInit(void) {
@@ -2746,4 +2748,14 @@ char getche(void) {
         continue;
     TXREG = data;
     return data;
+}
+void SendBuff(uint8_t* buf,uint8_t len)
+{
+    uint8_t i = 0 ;
+
+    for(i=0; i<len; i++)
+    {
+        uartReadByte(buf[i]) ;
+    }
+
 }

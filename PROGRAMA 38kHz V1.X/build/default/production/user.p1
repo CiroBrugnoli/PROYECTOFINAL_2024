@@ -49,8 +49,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "1558
 [; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic16f887.h: 1558: extern volatile TRISCbits_t TRISCbits __attribute__((address(0x087)));
 [v _TRISCbits `VS56 ~T0 @X0 0 e@135 ]
-"31 ./uart.h
-[; ;./uart.h: 31: void uartInit(void);
+"32 ./uart.h
+[; ;./uart.h: 32: void uartInit(void);
 [v _uartInit `(v ~T0 @X0 0 ef ]
 "27 ./display.h
 [; ;./display.h: 27: void displaytInit( void );

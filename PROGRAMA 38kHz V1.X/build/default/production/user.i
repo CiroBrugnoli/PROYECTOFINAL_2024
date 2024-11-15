@@ -2658,6 +2658,7 @@ extern __bank0 __bit __timeout;
 # 15 "./user.h" 2
 # 67 "./user.h"
 void appInit(void);
+void main_RFID_Reader(void);
 # 18 "user.c" 2
 
 # 1 "./uart.h" 1
@@ -2665,12 +2666,14 @@ void appInit(void);
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c90\\stdint.h" 1 3
 # 15 "./uart.h" 2
 # 31 "./uart.h"
+void RFID_Init();
 void uartInit(void);
 void putch(char data);
 char getch(void);
 char getche(void);
 void uartWriteByte( uint8_t value );
 __bit uartReadByte( uint8_t* receivedByte );
+void SendBuff(uint8_t*, uint8_t );
 # 19 "user.c" 2
 
 # 1 "./display.h" 1

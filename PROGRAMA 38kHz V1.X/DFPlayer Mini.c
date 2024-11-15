@@ -1,5 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <xc.h>          /* Archivo de Encabezados General XC8 */
+#include "user.h"        /* Archivo de Encabezados StdIO */
+#include "system.h"      /* Archivo de Encabezados StdIO */  
+#include "tick.h"       /* Funciones/Parametros Tick */
+#include "mfrc522.h"
 
 
 
@@ -13,15 +18,11 @@
     solución de chip, como disco U, tarjeta TF
 ******************************************************************************/
 // esto deben sacarlo y poner el tipo de dato de mplab y deberian borrarlo
-typedef unsigned char UINT8U ;
-typedef unsigned char  INT8U;
-typedef unsigned long INT32U;
-typedef unsigned int  INT16U;
 
-static INT8U Send_buf[10];// = {0} ;
-void Delay_Ms(INT32U z)
+static uint8_t Send_buf[10];// = {0} ;
+void Delay_Ms(uint32_t z)
 {
-    INT32U x=0 , y=0;
+    uint32_t x=0 , y=0;
     for(x=110 ; x>0 ;x--)
         for(y=z; y>0;y-- );
 }
@@ -45,7 +46,7 @@ void Serial_init(void)
 */
 }
 
-void Uart_PutByte(INT8U ch)
+void Uart_PutByte(uint8_t ch)
 {
     printf("%2x",ch);
     /*
@@ -66,9 +67,9 @@ datos:
 
 ******************************************************************************/
 
-void SendCmd(INT8U len)
+void SendCmd(uint8_t len)
 {
-    INT8U i = 0 ;
+    uint8_t i = 0 ;
     Uart_PutByte(0x7E); // comenzar
     for(i=0; i<len; i++)// datos
     {
@@ -88,27 +89,27 @@ Acumule los datos intermedios y agregue el byte de verificación recibido.
 Es exactamente 0.
 Esto significa que los datos recibidos son completamente correctos.
 ******************************************************************************/
-void DoSum( INT8U *Str, INT8U len)
+void DoSum( uint8_t *Str, uint8_t len)
 {
-    INT16U xorsum = 0;
-    INT8U i;
+    uint16_t xorsum = 0;
+    uint8_t i;
     for(i=0; i<len; i++)
     {
         xorsum = xorsum + Str[i];
     }
     xorsum = 0 -xorsum;
-    *(Str+i) = (INT8U)(xorsum >>8);
-    *(Str+i+1) = (INT8U)(xorsum & 0x00ff);
+    *(Str+i) = (uint8_t)(xorsum >>8);
+    *(Str+i+1) = (uint8_t)(xorsum & 0x00ff);
 }
 
-void Uart_SendCMD(INT8U CMD ,INT8U feedback , INT16U dat)
+void Uart_SendCMD(uint8_t CMD ,uint8_t feedback , uint16_t dat)
 {
     Send_buf[0] = 0xff;
     Send_buf[1] = 0x06;
     Send_buf[2] = CMD;
     Send_buf[3] = feedback;
-    Send_buf[4] = (INT8U)(dat >> 8); // data H
-    Send_buf[5] = (INT8U)(dat);      // data L
+    Send_buf[4] = (uint8_t)(dat >> 8); // data H
+    Send_buf[5] = (uint8_t)(dat);      // data L
     DoSum(&Send_buf[0],6);
     SendCmd(8);
 }

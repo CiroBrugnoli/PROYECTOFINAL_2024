@@ -28,11 +28,15 @@
 /*==================[declaraciones de datos externos]========================*/
 
 /*==================[declaraciones de funciones externas]====================*/
+void RFID_Init();
 void uartInit(void);    /* Inicializa la UART */
 void putch(char data);  /* Pone un byte en stdout */
 char getch(void);       /* Toma un byte en stdin  */
 char getche(void);      /* Toma un byte en stdin con eco */
 void uartWriteByte( uint8_t value );      /* Envia un byte en forma boqueante */
 __bit uartReadByte( uint8_t* receivedByte );/* Toma un byte de la UART */
+void SendBuff(uint8_t*, uint8_t ); 
+
+
 /*==================[fin del archivo]========================================*/
 #endif// UART_H

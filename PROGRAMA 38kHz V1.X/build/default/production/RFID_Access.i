@@ -2775,6 +2775,7 @@ char MFRC522_Compare_UID(char *l, char *u);
 # 15 "./user.h" 2
 # 67 "./user.h"
 void appInit(void);
+void main_RFID_Reader(void);
 # 24 "RFID_Access.c" 2
 
 

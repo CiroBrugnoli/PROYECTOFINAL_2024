@@ -117,5 +117,15 @@ char getche(void) {
     TXREG = data;   //Envía el byte
     return data;    //retorna lo recibido
 }
+void SendBuff(uint8_t* buf,uint8_t len)
+{
+    uint8_t i = 0 ;
+   
+    for(i=0; i<len; i++)// datos
+    {
+        uartReadByte(buf[i]) ;
+    }
+    
+}
 
 /*==================[fin del archivo]========================================*/

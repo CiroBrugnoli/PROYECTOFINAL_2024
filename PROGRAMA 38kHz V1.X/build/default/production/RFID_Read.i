@@ -2748,19 +2748,19 @@ extern int printf(const char *, ...);
 #pragma config WRT = OFF
 # 18 "RFID_Read.c" 2
 
-# 1 "./lcd.h" 1
-# 20 "./lcd.h"
-void Lcd_Port(char a);
-void Lcd_Cmd(char a);
-void Lcd_Clear(void);
-void Lcd_Set_Cursor(char a, char b);
-void Lcd_Init(void);
-void Lcd_Write_Char(char a);
-void Lcd_Write_String(const char *a);
-void Lcd_Shift_Right(void);
-void Lcd_Shift_Left(void);
-void Lcd_Blink(void);
-void Lcd_NoBlink(void);
+# 1 "./uart.h" 1
+# 15 "./uart.h"
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c90\\stdint.h" 1 3
+# 15 "./uart.h" 2
+# 31 "./uart.h"
+void RFID_Init();
+void uartInit(void);
+void putch(char data);
+char getch(void);
+char getche(void);
+void uartWriteByte( uint8_t value );
+__bit uartReadByte( uint8_t* receivedByte );
+void SendBuff(uint8_t*, uint8_t );
 # 19 "RFID_Read.c" 2
 
 # 1 "./mfrc522.h" 1
@@ -2784,7 +2784,61 @@ char MFRC522_ReadCardSerial(char *str);
 char MFRC522_Compare_UID(char *l, char *u);
 # 20 "RFID_Read.c" 2
 
+# 1 "./tick.h" 1
+# 15 "./tick.h"
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c90\\stdint.h" 1 3
+# 15 "./tick.h" 2
 
+
+
+
+
+typedef uint16_t tick_t;
+
+
+extern volatile tick_t tickCounter;
+
+
+void tickInit(void);
+tick_t tickRead( void );
+void tickWrite( tick_t ticks );
+# 21 "RFID_Read.c" 2
+
+
+
+extern tick_t tRFID;
 char UID[8];
 char buf[4];
 unsigned char TagType;
+void RFID_Init()
+{
+ANSEL=0;
+ANSELH=0;
+uartInit();
+MFRC522_Init();
+}
+
+void main_RFID_Reader(void)
+{
+    if (tickRead() - tRFID < 10000 ) {
+
+
+
+
+
+        while(!MFRC522_IsCard(&TagType));
+        while(!MFRC522_ReadCardSerial(&UID));
+
+
+
+        for(char i=0; i<4; i++)
+        {
+            sprintf(buf, "%X", UID[i]);
+
+            SendBuff(buf,4);
+        }
+        _delay((unsigned long)((1000)*(4000000L/4000.0)));
+        MFRC522_Halt();
+
+}
+    }

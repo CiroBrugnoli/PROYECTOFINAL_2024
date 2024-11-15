@@ -1,4 +1,40 @@
 Version 4.0 HI-TECH Software Intermediate Code
+"3388 C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic16f887.h
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic16f887.h: 3388: extern volatile unsigned char ANSEL __attribute__((address(0x188)));
+[v _ANSEL `Vuc ~T0 @X0 0 e@392 ]
+"3450
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic16f887.h: 3450: extern volatile unsigned char ANSELH __attribute__((address(0x189)));
+[v _ANSELH `Vuc ~T0 @X0 0 e@393 ]
+"32 ./uart.h
+[; ;./uart.h: 32: void uartInit(void);
+[v _uartInit `(v ~T0 @X0 0 ef ]
+"119 ./mfrc522.h
+[; ;./mfrc522.h: 119: void MFRC522_Init(void);
+[v _MFRC522_Init `(v ~T0 @X0 0 ef ]
+"27 ./tick.h
+[; ;./tick.h: 27: tick_t tickRead( void );
+[v _tickRead `(ui ~T0 @X0 0 ef ]
+"24 RFID_Read.c
+[; ;RFID_Read.c: 24: extern tick_t tRFID;
+[v _tRFID `ui ~T0 @X0 0 e ]
+"126 ./mfrc522.h
+[; ;./mfrc522.h: 126: char MFRC522_IsCard(char *TagType);
+[v _MFRC522_IsCard `(uc ~T0 @X0 0 ef1`*uc ]
+"127
+[; ;./mfrc522.h: 127: char MFRC522_ReadCardSerial(char *str);
+[v _MFRC522_ReadCardSerial `(uc ~T0 @X0 0 ef1`*uc ]
+"194 C:\Program Files\Microchip\xc8\v2.32\pic\include\c90\stdio.h
+[v _sprintf `(i ~T0 @X0 0 e1v`*uc`*Cuc ]
+"38 ./uart.h
+[; ;./uart.h: 38: void SendBuff(uint8_t*, uint8_t );
+[v _SendBuff `(v ~T0 @X0 0 ef2`*uc`uc ]
+[v F36 `(v ~T0 @X0 1 tf1`ul ]
+"12 C:\Program Files\Microchip\xc8\v2.32\pic\include\builtins.h
+[v __delay `JF36 ~T0 @X0 0 e ]
+[p i __delay ]
+"124 ./mfrc522.h
+[; ;./mfrc522.h: 124: void MFRC522_Halt(void);
+[v _MFRC522_Halt `(v ~T0 @X0 0 ef ]
 "55 C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic16f887.h
 [; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic16f887.h: 55: __asm("INDF equ 00h");
 [; <" INDF equ 00h ;# ">
@@ -257,12 +293,102 @@ Version 4.0 HI-TECH Software Intermediate Code
 [p x BOR4V  =  BOR21V    ]
 "38
 [p x WRT  =  OFF         ]
-"22 RFID_Read.c
-[; ;RFID_Read.c: 22: char UID[8];
+"25 RFID_Read.c
+[; ;RFID_Read.c: 25: char UID[8];
 [v _UID `uc ~T0 @X0 -> 8 `i e ]
-"23
-[; ;RFID_Read.c: 23: char buf[4];
+"26
+[; ;RFID_Read.c: 26: char buf[4];
 [v _buf `uc ~T0 @X0 -> 4 `i e ]
-"24
-[; ;RFID_Read.c: 24: unsigned char TagType;
+"27
+[; ;RFID_Read.c: 27: unsigned char TagType;
 [v _TagType `uc ~T0 @X0 1 e ]
+"28
+[; ;RFID_Read.c: 28: void RFID_Init()
+[v _RFID_Init `(v ~T0 @X0 1 ef ]
+"29
+[; ;RFID_Read.c: 29: {
+{
+[e :U _RFID_Init ]
+[f ]
+"30
+[; ;RFID_Read.c: 30: ANSEL=0;
+[e = _ANSEL -> -> 0 `i `uc ]
+"31
+[; ;RFID_Read.c: 31: ANSELH=0;
+[e = _ANSELH -> -> 0 `i `uc ]
+"32
+[; ;RFID_Read.c: 32: uartInit();
+[e ( _uartInit ..  ]
+"33
+[; ;RFID_Read.c: 33: MFRC522_Init();
+[e ( _MFRC522_Init ..  ]
+"34
+[; ;RFID_Read.c: 34: }
+[e :UE 139 ]
+}
+"36
+[; ;RFID_Read.c: 36: void main_RFID_Reader(void)
+[v _main_RFID_Reader `(v ~T0 @X0 1 ef ]
+"37
+[; ;RFID_Read.c: 37: {
+{
+[e :U _main_RFID_Reader ]
+[f ]
+"38
+[; ;RFID_Read.c: 38:     if (tickRead() - tRFID < 10000 ) {
+[e $ ! < - ( _tickRead ..  _tRFID -> -> 10000 `i `ui 141  ]
+{
+"44
+[; ;RFID_Read.c: 44:         while(!MFRC522_IsCard(&TagType));
+[e $U 142  ]
+[e :U 143 ]
+[e :U 142 ]
+[e $ ! != -> ( _MFRC522_IsCard (1 -> &U _TagType `*uc `i -> 0 `i 143  ]
+[e :U 144 ]
+"45
+[; ;RFID_Read.c: 45:         while(!MFRC522_ReadCardSerial(&UID));
+[e $U 145  ]
+[e :U 146 ]
+[e :U 145 ]
+[e $ ! != -> ( _MFRC522_ReadCardSerial (1 -> &U _UID `*uc `i -> 0 `i 146  ]
+[e :U 147 ]
+"49
+[; ;RFID_Read.c: 49:         for(char i=0; i<4; i++)
+{
+[v _i `uc ~T0 @X0 1 a ]
+[e = _i -> -> 0 `i `uc ]
+[e $ < -> _i `i -> 4 `i 148  ]
+[e $U 149  ]
+[e :U 148 ]
+"50
+[; ;RFID_Read.c: 50:         {
+{
+"51
+[; ;RFID_Read.c: 51:             sprintf(buf, "%X", UID[i]);
+[e ( _sprintf (1 , (. , &U _buf :s 1C -> *U + &U _UID * -> _i `ux -> -> # *U &U _UID `ui `ux `i ]
+"53
+[; ;RFID_Read.c: 53:             SendBuff(buf,4);
+[e ( _SendBuff (2 , -> &U _buf `*uc -> -> 4 `i `uc ]
+"54
+[; ;RFID_Read.c: 54:         }
+}
+[e ++ _i -> -> 1 `i `uc ]
+[e $ < -> _i `i -> 4 `i 148  ]
+[e :U 149 ]
+}
+"55
+[; ;RFID_Read.c: 55:         _delay((unsigned long)((1000)*(4000000L/4000.0)));
+[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"56
+[; ;RFID_Read.c: 56:         MFRC522_Halt();
+[e ( _MFRC522_Halt ..  ]
+"58
+[; ;RFID_Read.c: 58: }
+}
+[e :U 141 ]
+"59
+[; ;RFID_Read.c: 59:     }
+[e :UE 140 ]
+}
+[p f _sprintf 10485760 ]
+[a 1C 37 88 0 ]

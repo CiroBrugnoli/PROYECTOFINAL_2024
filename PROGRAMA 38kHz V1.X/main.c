@@ -35,10 +35,11 @@ uint8_t INMORTAL;
 uint8_t cont_balas = 30;
 uint8_t VIDAS;
 estadoMEF_t estadoActualGAT, estadoActualRONDA; // Variable de estado (global)
-tick_t tInicioGAT, tInicioBALAS;
+tick_t tInicioGAT, tInicioBALAS, tRFID;
 char gatilloAP(void);
 char rx_LSR(void);
 char sumar_vida(void);
+void RFID_Init();
 /*==================[definiciones de datos externos]=========================*/
   
 
@@ -61,13 +62,17 @@ void InicializarMEF(void) {}
 void main(void) {
     uint8_t i;
     appInit();
-//    appInit(); /* Inicializa I/O y Periféricos de la aplicación */
+//    appInit(); /* Inicializa I/O y Periféricos de la aplicación 
     InicializarMEF();
     PIN_VIDA1 = 1;
     PIN_LEDPRUEBA = 0;
 
     while (1) {
-        ActualizarRONDA();
+        tRFID = tickRead();
+        main_RFID_Reader();
+    
+}}
+ /*       ActualizarRONDA();
         // prenmdo led rojko para saber en que estado estoy
         if( estadoActualGAT == E_PRESIONADO )
         {
@@ -102,7 +107,6 @@ void main(void) {
              sumar_vida();
     }
 }
-
 
 /*
 void func_interup_boton() {
@@ -176,7 +180,7 @@ void ActualizarRONDA(void) {
             // lugar seguro, por ejemplo, la reinicio:
             InicializarMEF();
         }    
-    }
+}
 
 void ActualizarGAT(void)
 //void ActualizarMEF1(void) 

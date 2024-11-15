@@ -1,8 +1,8 @@
 Version 4.0 HI-TECH Software Intermediate Code
 "37 main.c
 [; ;main.c: 37: estadoMEF_t estadoActualGAT, estadoActualRONDA;
-[c E1396 0 1 2 3 4 5 6 7 8 9 .. ]
-[n E1396 . E_SUELTO E_BAJANDO E_PRESIONADO E_SUBIENDO E_MANTENIDO VIVO MUERTO REVIVIENDO BALAS_INF VIDA_INF  ]
+[c E1397 0 1 2 3 4 5 6 7 8 9 .. ]
+[n E1397 . E_SUELTO E_BAJANDO E_PRESIONADO E_SUBIENDO E_MANTENIDO VIVO MUERTO REVIVIENDO BALAS_INF VIDA_INF  ]
 [p mainexit ]
 "67 ./user.h
 [; ;./user.h: 67: void appInit(void);
@@ -29,22 +29,16 @@ Version 4.0 HI-TECH Software Intermediate Code
 "246
 [; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic16f887.h: 246: extern volatile PORTBbits_t PORTBbits __attribute__((address(0x006)));
 [v _PORTBbits `VS7 ~T0 @X0 0 e@6 ]
-"51 main.c
-[; ;main.c: 51: void ActualizarRONDA(void);
-[v _ActualizarRONDA `(v ~T0 @X0 0 ef ]
+"27 ./tick.h
+[; ;./tick.h: 27: tick_t tickRead( void );
+[v _tickRead `(ui ~T0 @X0 0 ef ]
+"68 ./user.h
+[; ;./user.h: 68: void main_RFID_Reader(void);
+[v _main_RFID_Reader `(v ~T0 @X0 0 ef ]
 [v F36 `(v ~T0 @X0 1 tf1`ul ]
 "12 C:\Program Files\Microchip\xc8\v2.32\pic\include\builtins.h
 [v __delay `JF36 ~T0 @X0 0 e ]
 [p i __delay ]
-"39 main.c
-[; ;main.c: 39: char gatilloAP(void);
-[v _gatilloAP `(uc ~T0 @X0 0 ef ]
-"40
-[; ;main.c: 40: char rx_LSR(void);
-[v _rx_LSR `(uc ~T0 @X0 0 ef ]
-"41
-[; ;main.c: 41: char sumar_vida(void);
-[v _sumar_vida `(uc ~T0 @X0 0 ef ]
 "173 C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic16f887.h
 [; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic16f887.h: 173:     struct {
 [s S6 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
@@ -67,9 +61,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 "1434
 [; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic16f887.h: 1434: extern volatile TRISAbits_t TRISAbits __attribute__((address(0x085)));
 [v _TRISAbits `VS52 ~T0 @X0 0 e@133 ]
-"27 ./tick.h
-[; ;./tick.h: 27: tick_t tickRead( void );
-[v _tickRead `(ui ~T0 @X0 0 ef ]
 "55 C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic16f887.h
 [; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic16f887.h: 55: __asm("INDF equ 00h");
 [; <" INDF equ 00h ;# ">
@@ -375,20 +366,21 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _VIDAS `uc ~T0 @X0 1 e ]
 "37
 [; ;main.c: 37: estadoMEF_t estadoActualGAT, estadoActualRONDA;
-[v _estadoActualGAT `E1396 ~T0 @X0 1 e ]
-[v _estadoActualRONDA `E1396 ~T0 @X0 1 e ]
+[v _estadoActualGAT `E1397 ~T0 @X0 1 e ]
+[v _estadoActualRONDA `E1397 ~T0 @X0 1 e ]
 "38
-[; ;main.c: 38: tick_t tInicioGAT, tInicioBALAS;
+[; ;main.c: 38: tick_t tInicioGAT, tInicioBALAS, tRFID;
 [v _tInicioGAT `ui ~T0 @X0 1 e ]
 [v _tInicioBALAS `ui ~T0 @X0 1 e ]
-"48
-[; ;main.c: 48: uint8_t VALOR_TIMER;
+[v _tRFID `ui ~T0 @X0 1 e ]
+"49
+[; ;main.c: 49: uint8_t VALOR_TIMER;
 [v _VALOR_TIMER `uc ~T0 @X0 1 e ]
-"57
-[; ;main.c: 57: uint8_t comando;
+"58
+[; ;main.c: 58: uint8_t comando;
 [v _comando `uc ~T0 @X0 1 e ]
-"59
-[; ;main.c: 59: void InicializarMEF(void) {}
+"60
+[; ;main.c: 60: void InicializarMEF(void) {}
 [v _InicializarMEF `(v ~T0 @X0 1 ef ]
 {
 [e :U _InicializarMEF ]
@@ -396,513 +388,412 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :UE 139 ]
 }
 [v $root$_main `(v ~T0 @X0 0 e ]
-"61
-[; ;main.c: 61: void main(void) {
+"62
+[; ;main.c: 62: void main(void) {
 [v _main `(v ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"62
-[; ;main.c: 62:     uint8_t i;
-[v _i `uc ~T0 @X0 1 a ]
 "63
-[; ;main.c: 63:     appInit();
+[; ;main.c: 63:     uint8_t i;
+[v _i `uc ~T0 @X0 1 a ]
+"64
+[; ;main.c: 64:     appInit();
 [e ( _appInit ..  ]
-"65
-[; ;main.c: 65:     InicializarMEF();
-[e ( _InicializarMEF ..  ]
 "66
-[; ;main.c: 66:     PORTEbits.RE2 = 1;
-[e = . . _PORTEbits 0 2 -> -> 1 `i `uc ]
+[; ;main.c: 66:     InicializarMEF();
+[e ( _InicializarMEF ..  ]
 "67
-[; ;main.c: 67:     PORTBbits.RB1 = 0;
+[; ;main.c: 67:     PORTEbits.RE2 = 1;
+[e = . . _PORTEbits 0 2 -> -> 1 `i `uc ]
+"68
+[; ;main.c: 68:     PORTBbits.RB1 = 0;
 [e = . . _PORTBbits 0 1 -> -> 0 `i `uc ]
-"69
-[; ;main.c: 69:     while (1) {
+"70
+[; ;main.c: 70:     while (1) {
 [e :U 142 ]
 {
-"70
-[; ;main.c: 70:         ActualizarRONDA();
-[e ( _ActualizarRONDA ..  ]
+"71
+[; ;main.c: 71:         tRFID = tickRead();
+[e = _tRFID ( _tickRead ..  ]
 "72
-[; ;main.c: 72:         if( estadoActualGAT == E_PRESIONADO )
-[e $ ! == -> _estadoActualGAT `ui -> . `E1396 2 `ui 144  ]
-"73
-[; ;main.c: 73:         {
-{
+[; ;main.c: 72:         main_RFID_Reader();
+[e ( _main_RFID_Reader ..  ]
 "74
-[; ;main.c: 74:             PORTEbits.RE2 = 1;
-[e = . . _PORTEbits 0 2 -> -> 1 `i `uc ]
-"75
-[; ;main.c: 75:         }
-}
-[e $U 145  ]
-"76
-[; ;main.c: 76:         else
-[e :U 144 ]
-"77
-[; ;main.c: 77:         {
-{
-"78
-[; ;main.c: 78:            PORTEbits.RE2 = 0;
-[e = . . _PORTEbits 0 2 -> -> 0 `i `uc ]
-"79
-[; ;main.c: 79:         }
-}
-[e :U 145 ]
-"81
-[; ;main.c: 81:         for (i = 0; i < 190; i++) {
-{
-[e = _i -> -> 0 `i `uc ]
-[e $ < -> _i `i -> 190 `i 146  ]
-[e $U 147  ]
-[e :U 146 ]
-{
-"82
-[; ;main.c: 82:             PORTBbits.RB1 = 1;
-[e = . . _PORTBbits 0 1 -> -> 1 `i `uc ]
-"83
-[; ;main.c: 83:             _delay((unsigned long)((10)*(4000000L/4000000.0)));
-[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 4000000 `l `d .4000000.0 `ul ]
-"84
-[; ;main.c: 84:             PORTBbits.RB1 = 0;
-[e = . . _PORTBbits 0 1 -> -> 0 `i `uc ]
-"85
-[; ;main.c: 85:             _delay((unsigned long)((10)*(4000000L/4000000.0)));
-[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 4000000 `l `d .4000000.0 `ul ]
-"86
-[; ;main.c: 86:         }
-}
-[e ++ _i -> -> 1 `i `uc ]
-[e $ < -> _i `i -> 190 `i 146  ]
-[e :U 147 ]
-}
-"87
-[; ;main.c: 87:         _delay((unsigned long)((100)*(4000000L/4000.0)));
-[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"89
-[; ;main.c: 89:         while (Mostrar_Tiempo) {
-[e $U 149  ]
-[e :U 150 ]
-{
-"90
-[; ;main.c: 90:             Mostrar_Tiempo = 0;
-[e = _Mostrar_Tiempo -> -> 0 `i `uc ]
-"91
-[; ;main.c: 91:             if (Tiempo1>=10)
-[e $ ! >= -> _Tiempo1 `i -> 10 `i 152  ]
-"92
-[; ;main.c: 92:             {
-{
-"94
-[; ;main.c: 94:             }
-}
-[e $U 153  ]
-"95
-[; ;main.c: 95:             else
-[e :U 152 ]
-"97
-[; ;main.c: 97:             Tiempo1=0;
-[e = _Tiempo1 -> -> 0 `i `uc ]
-[e :U 153 ]
-"98
-[; ;main.c: 98:         }
-}
-[e :U 149 ]
-"89
-[; ;main.c: 89:         while (Mostrar_Tiempo) {
-[e $ != -> _Mostrar_Tiempo `i -> 0 `i 150  ]
-[e :U 151 ]
-"99
-[; ;main.c: 99:          gatilloAP();
-[e ( _gatilloAP ..  ]
-"100
-[; ;main.c: 100:          rx_LSR();
-[e ( _rx_LSR ..  ]
-"101
-[; ;main.c: 101:          if(VIDAS==0)
-[e $ ! == -> _VIDAS `i -> 0 `i 154  ]
-"102
-[; ;main.c: 102:              sumar_vida();
-[e ( _sumar_vida ..  ]
-[e :U 154 ]
-"103
-[; ;main.c: 103:     }
+[; ;main.c: 74: }}
 }
 [e :U 141 ]
 [e $U 142  ]
 [e :U 143 ]
-"104
-[; ;main.c: 104: }
 [e :UE 140 ]
 }
-"120
-[; ;main.c: 120: char gatilloAP(void){
+"124
+[; ;main.c: 124: char gatilloAP(void){
 [v _gatilloAP `(uc ~T0 @X0 1 ef ]
 {
 [e :U _gatilloAP ]
 [f ]
-"121
-[; ;main.c: 121:     _delay((unsigned long)((300)*(4000000L/4000.0)));
-[e ( __delay (1 -> * -> -> 300 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"122
-[; ;main.c: 122:     if(PORTAbits.RA1==1)
-[e $ ! == -> . . _PORTAbits 0 1 `i -> 1 `i 156  ]
-"123
-[; ;main.c: 123:         PORTAbits.RA2=0;
-[e = . . _PORTAbits 0 2 -> -> 0 `i `uc ]
-[e $U 157  ]
-"124
-[; ;main.c: 124:     else
-[e :U 156 ]
 "125
-[; ;main.c: 125:         PORTAbits.RA2=1;
-[e = . . _PORTAbits 0 2 -> -> 1 `i `uc ]
-[e :U 157 ]
+[; ;main.c: 125:     _delay((unsigned long)((300)*(4000000L/4000.0)));
+[e ( __delay (1 -> * -> -> 300 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"126
+[; ;main.c: 126:     if(PORTAbits.RA1==1)
+[e $ ! == -> . . _PORTAbits 0 1 `i -> 1 `i 145  ]
 "127
-[; ;main.c: 127: }
-[e :UE 155 ]
-}
+[; ;main.c: 127:         PORTAbits.RA2=0;
+[e = . . _PORTAbits 0 2 -> -> 0 `i `uc ]
+[e $U 146  ]
+"128
+[; ;main.c: 128:     else
+[e :U 145 ]
 "129
-[; ;main.c: 129: char rx_LSR(void){
+[; ;main.c: 129:         PORTAbits.RA2=1;
+[e = . . _PORTAbits 0 2 -> -> 1 `i `uc ]
+[e :U 146 ]
+"131
+[; ;main.c: 131: }
+[e :UE 144 ]
+}
+"133
+[; ;main.c: 133: char rx_LSR(void){
 [v _rx_LSR `(uc ~T0 @X0 1 ef ]
 {
 [e :U _rx_LSR ]
 [f ]
-"130
-[; ;main.c: 130:         _delay((unsigned long)((300)*(4000000L/4000.0)));
-[e ( __delay (1 -> * -> -> 300 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"131
-[; ;main.c: 131:     if( !TRISAbits.TRISA2)
-[e $ ! ! != -> . . _TRISAbits 0 2 `i -> 0 `i 159  ]
-"132
-[; ;main.c: 132:         VIDAS--;
-[e -- _VIDAS -> -> 1 `i `uc ]
-[e :U 159 ]
 "134
-[; ;main.c: 134: }
-[e :UE 158 ]
-}
+[; ;main.c: 134:         _delay((unsigned long)((300)*(4000000L/4000.0)));
+[e ( __delay (1 -> * -> -> 300 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"135
+[; ;main.c: 135:     if( !TRISAbits.TRISA2)
+[e $ ! ! != -> . . _TRISAbits 0 2 `i -> 0 `i 148  ]
 "136
-[; ;main.c: 136: void ActualizarRONDA(void) {
+[; ;main.c: 136:         VIDAS--;
+[e -- _VIDAS -> -> 1 `i `uc ]
+[e :U 148 ]
+"138
+[; ;main.c: 138: }
+[e :UE 147 ]
+}
+"140
+[; ;main.c: 140: void ActualizarRONDA(void) {
 [v _ActualizarRONDA `(v ~T0 @X0 1 ef ]
 {
 [e :U _ActualizarRONDA ]
 [f ]
-"137
-[; ;main.c: 137:     switch (estadoActualRONDA) {
-[e $U 162  ]
+"141
+[; ;main.c: 141:     switch (estadoActualRONDA) {
+[e $U 151  ]
 {
-"138
-[; ;main.c: 138:         case VIVO:
-[e :U 163 ]
-"139
-[; ;main.c: 139:             if (PORTEbits.RE2 == 0) {
-[e $ ! == -> . . _PORTEbits 0 2 `i -> 0 `i 164  ]
-{
-"140
-[; ;main.c: 140:                 if (INMORTAL ==0)estadoActualRONDA=MUERTO;
-[e $ ! == -> _INMORTAL `i -> 0 `i 165  ]
-[e = _estadoActualRONDA . `E1396 6 ]
-[e :U 165 ]
 "142
-[; ;main.c: 142:             }
-}
-[e :U 164 ]
+[; ;main.c: 142:         case VIVO:
+[e :U 152 ]
+"143
+[; ;main.c: 143:             if (PORTEbits.RE2 == 0) {
+[e $ ! == -> . . _PORTEbits 0 2 `i -> 0 `i 153  ]
+{
 "144
-[; ;main.c: 144:             if (BALAS_INF == 1){
-[e $ ! == -> . `E1396 8 `i -> 1 `i 166  ]
-{
-"145
-[; ;main.c: 145:                 tInicioBALAS=tickRead();
-[e = _tInicioBALAS ( _tickRead ..  ]
+[; ;main.c: 144:                 if (INMORTAL ==0)estadoActualRONDA=MUERTO;
+[e $ ! == -> _INMORTAL `i -> 0 `i 154  ]
+[e = _estadoActualRONDA . `E1397 6 ]
+[e :U 154 ]
 "146
-[; ;main.c: 146:                 PORTBbits.RB1=!PORTBbits.RB1;
-[e = . . _PORTBbits 0 1 -> -> ! != -> . . _PORTBbits 0 1 `i -> 0 `i `i `uc ]
-"147
-[; ;main.c: 147:                 PORTBbits.RB2=!PORTBbits.RB2;
-[e = . . _PORTBbits 0 2 -> -> ! != -> . . _PORTBbits 0 2 `i -> 0 `i `i `uc ]
+[; ;main.c: 146:             }
+}
+[e :U 153 ]
 "148
-[; ;main.c: 148:                 PORTBbits.RB3=!PORTBbits.RB3;
-[e = . . _PORTBbits 0 3 -> -> ! != -> . . _PORTBbits 0 3 `i -> 0 `i `i `uc ]
-"149
-[; ;main.c: 149:                 estadoActualRONDA = BALAS_INF;
-[e = _estadoActualRONDA . `E1396 8 ]
-"150
-[; ;main.c: 150:             }
-}
-[e :U 166 ]
-"151
-[; ;main.c: 151:             break;
-[e $U 161  ]
-"162
-[; ;main.c: 162:         case MUERTO:
-[e :U 167 ]
-"163
-[; ;main.c: 163:             if (RFID == 1) {
-[e $ ! == -> _RFID `i -> 1 `i 168  ]
+[; ;main.c: 148:             if (BALAS_INF == 1){
+[e $ ! == -> . `E1397 8 `i -> 1 `i 155  ]
 {
-"164
-[; ;main.c: 164:                 estadoActualRONDA = REVIVIENDO;
-[e = _estadoActualRONDA . `E1396 7 ]
-"165
-[; ;main.c: 165:                 tInicioRonda = tickRead();
-[e = _tInicioRonda -> ( _tickRead ..  `uc ]
-"167
-[; ;main.c: 167:             }
+"149
+[; ;main.c: 149:                 tInicioBALAS=tickRead();
+[e = _tInicioBALAS ( _tickRead ..  ]
+"150
+[; ;main.c: 150:                 PORTBbits.RB1=!PORTBbits.RB1;
+[e = . . _PORTBbits 0 1 -> -> ! != -> . . _PORTBbits 0 1 `i -> 0 `i `i `uc ]
+"151
+[; ;main.c: 151:                 PORTBbits.RB2=!PORTBbits.RB2;
+[e = . . _PORTBbits 0 2 -> -> ! != -> . . _PORTBbits 0 2 `i -> 0 `i `i `uc ]
+"152
+[; ;main.c: 152:                 PORTBbits.RB3=!PORTBbits.RB3;
+[e = . . _PORTBbits 0 3 -> -> ! != -> . . _PORTBbits 0 3 `i -> 0 `i `i `uc ]
+"153
+[; ;main.c: 153:                 estadoActualRONDA = BALAS_INF;
+[e = _estadoActualRONDA . `E1397 8 ]
+"154
+[; ;main.c: 154:             }
 }
-[e :U 168 ]
+[e :U 155 ]
+"155
+[; ;main.c: 155:             break;
+[e $U 150  ]
+"166
+[; ;main.c: 166:         case MUERTO:
+[e :U 156 ]
+"167
+[; ;main.c: 167:             if (RFID == 1) {
+[e $ ! == -> _RFID `i -> 1 `i 157  ]
+{
 "168
-[; ;main.c: 168:             break;
-[e $U 161  ]
+[; ;main.c: 168:                 estadoActualRONDA = REVIVIENDO;
+[e = _estadoActualRONDA . `E1397 7 ]
 "169
-[; ;main.c: 169:         case REVIVIENDO:
-[e :U 169 ]
-"170
-[; ;main.c: 170:             if(tickRead()-tInicioRonda>5000)
-[e $ ! > - ( _tickRead ..  -> _tInicioRonda `ui -> -> 5000 `i `ui 170  ]
+[; ;main.c: 169:                 tInicioRonda = tickRead();
+[e = _tInicioRonda -> ( _tickRead ..  `uc ]
 "171
-[; ;main.c: 171:              estadoActualRONDA = VIVO;
-[e = _estadoActualRONDA . `E1396 5 ]
-[e :U 170 ]
+[; ;main.c: 171:             }
+}
+[e :U 157 ]
 "172
 [; ;main.c: 172:             break;
-[e $U 161  ]
+[e $U 150  ]
 "173
-[; ;main.c: 173:         default:
-[e :U 171 ]
+[; ;main.c: 173:         case REVIVIENDO:
+[e :U 158 ]
+"174
+[; ;main.c: 174:             if(tickRead()-tInicioRonda>5000)
+[e $ ! > - ( _tickRead ..  -> _tInicioRonda `ui -> -> 5000 `i `ui 159  ]
+"175
+[; ;main.c: 175:              estadoActualRONDA = VIVO;
+[e = _estadoActualRONDA . `E1397 5 ]
+[e :U 159 ]
+"176
+[; ;main.c: 176:             break;
+[e $U 150  ]
 "177
-[; ;main.c: 177:             InicializarMEF();
-[e ( _InicializarMEF ..  ]
-"178
-[; ;main.c: 178:         }
-}
-[e $U 161  ]
-[e :U 162 ]
-[e [\ -> _estadoActualRONDA `ui , $ -> . `E1396 5 `ui 163
- , $ -> . `E1396 6 `ui 167
- , $ -> . `E1396 7 `ui 169
- 171 ]
-[e :U 161 ]
-"179
-[; ;main.c: 179:     }
-[e :UE 160 ]
-}
+[; ;main.c: 177:         default:
+[e :U 160 ]
 "181
-[; ;main.c: 181: void ActualizarGAT(void)
-[v _ActualizarGAT `(v ~T0 @X0 1 ef ]
+[; ;main.c: 181:             InicializarMEF();
+[e ( _InicializarMEF ..  ]
+"182
+[; ;main.c: 182:         }
+}
+[e $U 150  ]
+[e :U 151 ]
+[e [\ -> _estadoActualRONDA `ui , $ -> . `E1397 5 `ui 152
+ , $ -> . `E1397 6 `ui 156
+ , $ -> . `E1397 7 `ui 158
+ 160 ]
+[e :U 150 ]
 "183
-[; ;main.c: 183: {
+[; ;main.c: 183: }
+[e :UE 149 ]
+}
+"185
+[; ;main.c: 185: void ActualizarGAT(void)
+[v _ActualizarGAT `(v ~T0 @X0 1 ef ]
+"187
+[; ;main.c: 187: {
 {
 [e :U _ActualizarGAT ]
 [f ]
-"184
-[; ;main.c: 184:     switch (estadoActualGAT) {
-[e $U 174  ]
-{
-"185
-[; ;main.c: 185:         case E_SUELTO:
-[e :U 175 ]
-"186
-[; ;main.c: 186:             if (PORTAbits.RA1 == 0) {
-[e $ ! == -> . . _PORTAbits 0 1 `i -> 0 `i 176  ]
-{
-"187
-[; ;main.c: 187:                 estadoActualGAT = E_BAJANDO;
-[e = _estadoActualGAT . `E1396 1 ]
 "188
-[; ;main.c: 188:                 tInicioGAT = tickRead();
-[e = _tInicioGAT ( _tickRead ..  ]
+[; ;main.c: 188:     switch (estadoActualGAT) {
+[e $U 163  ]
+{
 "189
-[; ;main.c: 189:             }
-}
-[e :U 176 ]
+[; ;main.c: 189:         case E_SUELTO:
+[e :U 164 ]
 "190
-[; ;main.c: 190:             break;
-[e $U 173  ]
+[; ;main.c: 190:             if (PORTAbits.RA1 == 0) {
+[e $ ! == -> . . _PORTAbits 0 1 `i -> 0 `i 165  ]
+{
 "191
-[; ;main.c: 191:         case E_BAJANDO:
-[e :U 177 ]
+[; ;main.c: 191:                 estadoActualGAT = E_BAJANDO;
+[e = _estadoActualGAT . `E1397 1 ]
 "192
-[; ;main.c: 192:             if (PORTAbits.RA1 == 1) {
-[e $ ! == -> . . _PORTAbits 0 1 `i -> 1 `i 178  ]
-{
+[; ;main.c: 192:                 tInicioGAT = tickRead();
+[e = _tInicioGAT ( _tickRead ..  ]
 "193
-[; ;main.c: 193:                 estadoActualGAT = E_SUELTO;
-[e = _estadoActualGAT . `E1396 0 ]
+[; ;main.c: 193:             }
+}
+[e :U 165 ]
 "194
-[; ;main.c: 194:             } else if (tickRead() - tInicioGAT > 20 && PORTAbits.RA1 == 0) {
-}
-[e $U 179  ]
-[e :U 178 ]
-[e $ ! && > - ( _tickRead ..  _tInicioGAT -> -> 20 `i `ui == -> . . _PORTAbits 0 1 `i -> 0 `i 180  ]
-{
+[; ;main.c: 194:             break;
+[e $U 162  ]
 "195
-[; ;main.c: 195:                 estadoActualGAT = E_PRESIONADO;
-[e = _estadoActualGAT . `E1396 2 ]
-"197
-[; ;main.c: 197:                 tInicioGAT = tickRead();
-[e = _tInicioGAT ( _tickRead ..  ]
-"198
-[; ;main.c: 198:             }
-}
-[e :U 180 ]
-[e :U 179 ]
-"199
-[; ;main.c: 199:             break;
-[e $U 173  ]
-"200
-[; ;main.c: 200:         case E_PRESIONADO:
-[e :U 181 ]
-"201
-[; ;main.c: 201:             if (PORTAbits.RA1 == 1) {
-[e $ ! == -> . . _PORTAbits 0 1 `i -> 1 `i 182  ]
+[; ;main.c: 195:         case E_BAJANDO:
+[e :U 166 ]
+"196
+[; ;main.c: 196:             if (PORTAbits.RA1 == 1) {
+[e $ ! == -> . . _PORTAbits 0 1 `i -> 1 `i 167  ]
 {
-"202
-[; ;main.c: 202:                 estadoActualGAT = E_SUBIENDO;
-[e = _estadoActualGAT . `E1396 3 ]
-"203
-[; ;main.c: 203:                 tInicioGAT = tickRead();
-[e = _tInicioGAT ( _tickRead ..  ]
-"204
-[; ;main.c: 204:             }
+"197
+[; ;main.c: 197:                 estadoActualGAT = E_SUELTO;
+[e = _estadoActualGAT . `E1397 0 ]
+"198
+[; ;main.c: 198:             } else if (tickRead() - tInicioGAT > 20 && PORTAbits.RA1 == 0) {
 }
-[e :U 182 ]
+[e $U 168  ]
+[e :U 167 ]
+[e $ ! && > - ( _tickRead ..  _tInicioGAT -> -> 20 `i `ui == -> . . _PORTAbits 0 1 `i -> 0 `i 169  ]
+{
+"199
+[; ;main.c: 199:                 estadoActualGAT = E_PRESIONADO;
+[e = _estadoActualGAT . `E1397 2 ]
+"201
+[; ;main.c: 201:                 tInicioGAT = tickRead();
+[e = _tInicioGAT ( _tickRead ..  ]
+"202
+[; ;main.c: 202:             }
+}
+[e :U 169 ]
+[e :U 168 ]
+"203
+[; ;main.c: 203:             break;
+[e $U 162  ]
+"204
+[; ;main.c: 204:         case E_PRESIONADO:
+[e :U 170 ]
 "205
-[; ;main.c: 205:             if (PORTAbits.RA1 == 0 && tickRead() - tInicioGAT > 40) {
-[e $ ! && == -> . . _PORTAbits 0 1 `i -> 0 `i > - ( _tickRead ..  _tInicioGAT -> -> 40 `i `ui 183  ]
+[; ;main.c: 205:             if (PORTAbits.RA1 == 1) {
+[e $ ! == -> . . _PORTAbits 0 1 `i -> 1 `i 171  ]
 {
 "206
-[; ;main.c: 206:                 estadoActualGAT = E_MANTENIDO;
-[e = _estadoActualGAT . `E1396 4 ]
+[; ;main.c: 206:                 estadoActualGAT = E_SUBIENDO;
+[e = _estadoActualGAT . `E1397 3 ]
 "207
-[; ;main.c: 207:                 if( BALAS_INF == 0)
-[e $ ! == -> . `E1396 8 `i -> 0 `i 184  ]
-"208
-[; ;main.c: 208:                   cont_balas--;
-[e -- _cont_balas -> -> 1 `i `uc ]
-[e :U 184 ]
-"209
-[; ;main.c: 209:                 tInicioGAT = tickRead();
+[; ;main.c: 207:                 tInicioGAT = tickRead();
 [e = _tInicioGAT ( _tickRead ..  ]
-"210
-[; ;main.c: 210:             }
+"208
+[; ;main.c: 208:             }
 }
-[e :U 183 ]
-"211
-[; ;main.c: 211:             if( BALAS_INF == 0){
-[e $ ! == -> . `E1396 8 `i -> 0 `i 185  ]
+[e :U 171 ]
+"209
+[; ;main.c: 209:             if (PORTAbits.RA1 == 0 && tickRead() - tInicioGAT > 40) {
+[e $ ! && == -> . . _PORTAbits 0 1 `i -> 0 `i > - ( _tickRead ..  _tInicioGAT -> -> 40 `i `ui 172  ]
 {
+"210
+[; ;main.c: 210:                 estadoActualGAT = E_MANTENIDO;
+[e = _estadoActualGAT . `E1397 4 ]
+"211
+[; ;main.c: 211:                 if( BALAS_INF == 0)
+[e $ ! == -> . `E1397 8 `i -> 0 `i 173  ]
 "212
-[; ;main.c: 212:                 cont_balas--;
+[; ;main.c: 212:                   cont_balas--;
 [e -- _cont_balas -> -> 1 `i `uc ]
+[e :U 173 ]
 "213
 [; ;main.c: 213:                 tInicioGAT = tickRead();
 [e = _tInicioGAT ( _tickRead ..  ]
 "214
 [; ;main.c: 214:             }
 }
-[e :U 185 ]
+[e :U 172 ]
 "215
-[; ;main.c: 215:             break;
-[e $U 173  ]
-"216
-[; ;main.c: 216:         case E_MANTENIDO:
-[e :U 186 ]
-"217
-[; ;main.c: 217:             if (PORTAbits.RA1 == 1) {
-[e $ ! == -> . . _PORTAbits 0 1 `i -> 1 `i 187  ]
+[; ;main.c: 215:             if( BALAS_INF == 0){
+[e $ ! == -> . `E1397 8 `i -> 0 `i 174  ]
 {
-"219
-[; ;main.c: 219:                 estadoActualGAT = E_SUBIENDO;
-[e = _estadoActualGAT . `E1396 3 ]
-"220
-[; ;main.c: 220:                 tInicioGAT = tickRead();
+"216
+[; ;main.c: 216:                 cont_balas--;
+[e -- _cont_balas -> -> 1 `i `uc ]
+"217
+[; ;main.c: 217:                 tInicioGAT = tickRead();
 [e = _tInicioGAT ( _tickRead ..  ]
-"221
-[; ;main.c: 221:             }
+"218
+[; ;main.c: 218:             }
 }
-[e :U 187 ]
-"222
-[; ;main.c: 222:             if(PORTAbits.RA1==0){
-[e $ ! == -> . . _PORTAbits 0 1 `i -> 0 `i 188  ]
+[e :U 174 ]
+"219
+[; ;main.c: 219:             break;
+[e $U 162  ]
+"220
+[; ;main.c: 220:         case E_MANTENIDO:
+[e :U 175 ]
+"221
+[; ;main.c: 221:             if (PORTAbits.RA1 == 1) {
+[e $ ! == -> . . _PORTAbits 0 1 `i -> 1 `i 176  ]
 {
 "223
-[; ;main.c: 223:                 estadoActualGAT = E_PRESIONADO;
-[e = _estadoActualGAT . `E1396 2 ]
+[; ;main.c: 223:                 estadoActualGAT = E_SUBIENDO;
+[e = _estadoActualGAT . `E1397 3 ]
 "224
 [; ;main.c: 224:                 tInicioGAT = tickRead();
 [e = _tInicioGAT ( _tickRead ..  ]
 "225
 [; ;main.c: 225:             }
 }
-[e :U 188 ]
+[e :U 176 ]
 "226
-[; ;main.c: 226:             break;
-[e $U 173  ]
+[; ;main.c: 226:             if(PORTAbits.RA1==0){
+[e $ ! == -> . . _PORTAbits 0 1 `i -> 0 `i 177  ]
+{
 "227
-[; ;main.c: 227:         case E_SUBIENDO:
-[e :U 189 ]
+[; ;main.c: 227:                 estadoActualGAT = E_PRESIONADO;
+[e = _estadoActualGAT . `E1397 2 ]
 "228
-[; ;main.c: 228:             if (PORTAbits.RA1 == 0) {
-[e $ ! == -> . . _PORTAbits 0 1 `i -> 0 `i 190  ]
-{
+[; ;main.c: 228:                 tInicioGAT = tickRead();
+[e = _tInicioGAT ( _tickRead ..  ]
 "229
-[; ;main.c: 229:                 estadoActualGAT = E_PRESIONADO;
-[e = _estadoActualGAT . `E1396 2 ]
+[; ;main.c: 229:             }
+}
+[e :U 177 ]
 "230
-[; ;main.c: 230:             }
-}
-[e $U 191  ]
+[; ;main.c: 230:             break;
+[e $U 162  ]
 "231
-[; ;main.c: 231:             else if (tickRead() - tInicioGAT > 40) {
-[e :U 190 ]
-[e $ ! > - ( _tickRead ..  _tInicioGAT -> -> 40 `i `ui 192  ]
-{
+[; ;main.c: 231:         case E_SUBIENDO:
+[e :U 178 ]
 "232
-[; ;main.c: 232:                 estadoActualGAT = E_SUELTO;
-[e = _estadoActualGAT . `E1396 0 ]
+[; ;main.c: 232:             if (PORTAbits.RA1 == 0) {
+[e $ ! == -> . . _PORTAbits 0 1 `i -> 0 `i 179  ]
+{
 "233
-[; ;main.c: 233:             }
-}
-[e :U 192 ]
-[e :U 191 ]
+[; ;main.c: 233:                 estadoActualGAT = E_PRESIONADO;
+[e = _estadoActualGAT . `E1397 2 ]
 "234
-[; ;main.c: 234:             break;
-[e $U 173  ]
+[; ;main.c: 234:             }
+}
+[e $U 180  ]
 "235
-[; ;main.c: 235:         default:
-[e :U 193 ]
+[; ;main.c: 235:             else if (tickRead() - tInicioGAT > 40) {
+[e :U 179 ]
+[e $ ! > - ( _tickRead ..  _tInicioGAT -> -> 40 `i `ui 181  ]
+{
+"236
+[; ;main.c: 236:                 estadoActualGAT = E_SUELTO;
+[e = _estadoActualGAT . `E1397 0 ]
+"237
+[; ;main.c: 237:             }
+}
+[e :U 181 ]
+[e :U 180 ]
+"238
+[; ;main.c: 238:             break;
+[e $U 162  ]
 "239
-[; ;main.c: 239:             InicializarMEF();
+[; ;main.c: 239:         default:
+[e :U 182 ]
+"243
+[; ;main.c: 243:             InicializarMEF();
 [e ( _InicializarMEF ..  ]
-"240
-[; ;main.c: 240:     }
+"244
+[; ;main.c: 244:     }
 }
-[e $U 173  ]
-[e :U 174 ]
-[e [\ -> _estadoActualGAT `ui , $ -> . `E1396 0 `ui 175
- , $ -> . `E1396 1 `ui 177
- , $ -> . `E1396 2 `ui 181
- , $ -> . `E1396 4 `ui 186
- , $ -> . `E1396 3 `ui 189
- 193 ]
-[e :U 173 ]
-"241
-[; ;main.c: 241: }
-[e :UE 172 ]
+[e $U 162  ]
+[e :U 163 ]
+[e [\ -> _estadoActualGAT `ui , $ -> . `E1397 0 `ui 164
+ , $ -> . `E1397 1 `ui 166
+ , $ -> . `E1397 2 `ui 170
+ , $ -> . `E1397 4 `ui 175
+ , $ -> . `E1397 3 `ui 178
+ 182 ]
+[e :U 162 ]
+"245
+[; ;main.c: 245: }
+[e :UE 161 ]
 }
-"242
-[; ;main.c: 242: char sumar_vida(void){
+"246
+[; ;main.c: 246: char sumar_vida(void){
 [v _sumar_vida `(uc ~T0 @X0 1 ef ]
 {
 [e :U _sumar_vida ]
 [f ]
-"243
-[; ;main.c: 243:     return 1;
+"247
+[; ;main.c: 247:     return 1;
 [e ) -> -> 1 `i `uc ]
-[e $UE 194  ]
-"244
-[; ;main.c: 244: }
-[e :UE 194 ]
+[e $UE 183  ]
+"248
+[; ;main.c: 248: }
+[e :UE 183 ]
 }

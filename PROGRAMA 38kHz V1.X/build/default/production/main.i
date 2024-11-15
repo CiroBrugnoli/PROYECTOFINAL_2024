@@ -2740,6 +2740,7 @@ extern int printf(const char *, ...);
 # 15 "./user.h" 2
 # 67 "./user.h"
 void appInit(void);
+void main_RFID_Reader(void);
 # 15 "main.c" 2
 
 # 1 "./system.h" 1
@@ -2819,10 +2820,11 @@ uint8_t INMORTAL;
 uint8_t cont_balas = 30;
 uint8_t VIDAS;
 estadoMEF_t estadoActualGAT, estadoActualRONDA;
-tick_t tInicioGAT, tInicioBALAS;
+tick_t tInicioGAT, tInicioBALAS, tRFID;
 char gatilloAP(void);
 char rx_LSR(void);
 char sumar_vida(void);
+void RFID_Init();
 
 
 
@@ -2851,42 +2853,11 @@ void main(void) {
     PORTBbits.RB1 = 0;
 
     while (1) {
-        ActualizarRONDA();
+        tRFID = tickRead();
+        main_RFID_Reader();
 
-        if( estadoActualGAT == E_PRESIONADO )
-        {
-            PORTEbits.RE2 = 1;
-        }
-        else
-        {
-           PORTEbits.RE2 = 0;
-        }
-
-        for (i = 0; i < 190; i++) {
-            PORTBbits.RB1 = 1;
-            _delay((unsigned long)((10)*(4000000L/4000000.0)));
-            PORTBbits.RB1 = 0;
-            _delay((unsigned long)((10)*(4000000L/4000000.0)));
-        }
-        _delay((unsigned long)((100)*(4000000L/4000.0)));
-
-        while (Mostrar_Tiempo) {
-            Mostrar_Tiempo = 0;
-            if (Tiempo1>=10)
-            {
-
-            }
-            else
-
-            Tiempo1=0;
-        }
-         gatilloAP();
-         rx_LSR();
-         if(VIDAS==0)
-             sumar_vida();
-    }
-}
-# 120 "main.c"
+}}
+# 124 "main.c"
 char gatilloAP(void){
     _delay((unsigned long)((300)*(4000000L/4000.0)));
     if(PORTAbits.RA1==1)
@@ -2919,7 +2890,7 @@ void ActualizarRONDA(void) {
                 estadoActualRONDA = BALAS_INF;
             }
             break;
-# 162 "main.c"
+# 166 "main.c"
         case MUERTO:
             if (RFID == 1) {
                 estadoActualRONDA = REVIVIENDO;
@@ -2937,7 +2908,7 @@ void ActualizarRONDA(void) {
 
             InicializarMEF();
         }
-    }
+}
 
 void ActualizarGAT(void)
 

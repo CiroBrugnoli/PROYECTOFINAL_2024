@@ -16,38 +16,45 @@
 #include <xc.h>
 #include <stdio.h>
 #include "system.h" 
-#include "lcd.h"                                    // Libreria de la pantalla lcd
+#include "uart.h"                                    // Libreria de la pantalla lcd
 #include "mfrc522.h"                                // Libreria del modulo RFID MFRC522
+#include "tick.h"
 
+
+extern tick_t tRFID;
 char UID[8];                                        // Almacena el codigo del UID
 char buf[4];                                        // Almacena el UID en formato de cadena
 unsigned char TagType;
-
-/*void main()
+void RFID_Init()
 {
-    ANSEL=0;
-    ANSELH=0;// Coloca todos los pines como digitales
-    Lcd_Init();                                     // Inicializa la pantalla lcd
-    MFRC522_Init();                                 // Inicializa el modulo MFRC522
-        
-    while(1)
-    {
-        Lcd_Set_Cursor(1,1);                        // Textos iniciales
+ANSEL=0;
+ANSELH=0;// Coloca todos los pines como digitales
+uartInit();                                     
+MFRC522_Init();
+}
+
+void main_RFID_Reader(void)
+{
+    if (tickRead() - tRFID < 10000 ) {                        
+        /*Lcd_Set_Cursor(1,1);                        // Textos iniciales
         Lcd_Write_String("Lector RFID");
         Lcd_Set_Cursor(2,1);
-        Lcd_Write_String("ID: ");
+        Lcd_Write_String("ID: ");*/
         
         while(!MFRC522_IsCard(&TagType));           // Verifica si hay TAG presente
         while(!MFRC522_ReadCardSerial(&UID));       // Lee el codigo del TAG
         
-        Lcd_Set_Cursor(2,1);
-        Lcd_Write_String("ID: ");
+//        Lcd_Set_Cursor(2,1);
+        //Lcd_Write_String("ID: ");
         for(char i=0; i<4; i++)                     // Imprime el codigo del UID
         {
             sprintf(buf, "%X", UID[i]);
-            Lcd_Write_String(buf);
+           // Lcd_Write_String(buf);
+            SendBuff(buf,4);
         }
         __delay_ms(1000);
         MFRC522_Halt();                             // Apaga la antena
+    
+}
     }
-}*/ 
+    

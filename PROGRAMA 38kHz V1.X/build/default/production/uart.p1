@@ -482,3 +482,45 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;uart.c: 119: }
 [e :UE 153 ]
 }
+"120
+[; ;uart.c: 120: void SendBuff(uint8_t* buf,uint8_t len)
+[v _SendBuff `(v ~T0 @X0 1 ef2`*uc`uc ]
+"121
+[; ;uart.c: 121: {
+{
+[e :U _SendBuff ]
+"120
+[; ;uart.c: 120: void SendBuff(uint8_t* buf,uint8_t len)
+[v _buf `*uc ~T0 @X0 1 r1 ]
+[v _len `uc ~T0 @X0 1 r2 ]
+"121
+[; ;uart.c: 121: {
+[f ]
+"122
+[; ;uart.c: 122:     uint8_t i = 0 ;
+[v _i `uc ~T0 @X0 1 a ]
+[e = _i -> -> 0 `i `uc ]
+"124
+[; ;uart.c: 124:     for(i=0; i<len; i++)
+{
+[e = _i -> -> 0 `i `uc ]
+[e $U 164  ]
+[e :U 161 ]
+"125
+[; ;uart.c: 125:     {
+{
+"126
+[; ;uart.c: 126:         uartReadByte(buf[i]) ;
+[e ( _uartReadByte (1 -> *U + _buf * -> _i `ux -> -> # *U _buf `ui `ux `*uc ]
+"127
+[; ;uart.c: 127:     }
+}
+[e ++ _i -> -> 1 `i `uc ]
+[e :U 164 ]
+[e $ < -> _i `i -> _len `i 161  ]
+[e :U 162 ]
+}
+"129
+[; ;uart.c: 129: }
+[e :UE 160 ]
+}

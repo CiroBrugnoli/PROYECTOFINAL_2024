@@ -3,12 +3,12 @@
 
 //#define USE_CGRAM_LCD
 
-#define RS LATDbits.LD2
-#define EN LATDbits.LD3
-#define D4 LATDbits.LD4
-#define D5 LATDbits.LD5
-#define D6 LATDbits.LD6
-#define D7 LATDbits.LD7
+#define RS PORTDbits.LD2
+#define EN PORTDbits.LD3
+#define D4 PORTDbits.LD4
+#define D5 PORTDbits.LD5
+#define D6 PORTDbits.LD6
+#define D7 PORTDbits.LD7
 
 #define RS_DIR TRISDbits.TRISD2
 #define EN_DIR TRISDbits.TRISD3
