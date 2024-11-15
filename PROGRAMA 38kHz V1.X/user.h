@@ -68,3 +68,4 @@ void appInit(void);     /* Inicializa las I/O y los periféricos */
 void main_RFID_Reader(void);
 /*==================[fin del archivo]========================================*/
 #endif// USER_H
+ 
