@@ -20,7 +20,7 @@
 
 typedef enum {
     E_SUELTO, E_BAJANDO, E_PRESIONADO, E_SUBIENDO, E_MANTENIDO ,
-    VIVO , MUERTO ,REVIVIENDO, BALAS_INF , VIDA_INF 
+    VIVO , MUERTO ,REVIVIENDO, VIDA_INF 
 } estadoMEF_t;
 
 /*==================[definiciones de datos internos]=========================*/
@@ -32,6 +32,7 @@ uint8_t Mostrar_Tiempo = 0;
 uint8_t Resta_Tiempo;
 uint8_t DISPAROS = CANTIDAD_MAX;
 uint8_t INMORTAL;
+uint8_t BALAS_INF;
 uint8_t cont_balas = 30;
 uint8_t VIDAS;
 estadoMEF_t estadoActualGAT, estadoActualRONDA; // Variable de estado (global)
@@ -110,7 +111,7 @@ void main(void) {
 
 /*
 void func_interup_boton() {
-    //Acá ingresa el programa cuando cambia el estado un pin de entrada del microcontrolador
+    Acá ingresa el programa cuando cambia el estado un pin de entrada del microcontrolador
     if (PIN_TEC1 == 0) {
         //El botón fue apretado
         Tiempo0 = VALOR_TIMER;

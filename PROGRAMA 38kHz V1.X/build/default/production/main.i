@@ -2805,7 +2805,7 @@ char MFRC522_Compare_UID(char *l, char *u);
 
 typedef enum {
     E_SUELTO, E_BAJANDO, E_PRESIONADO, E_SUBIENDO, E_MANTENIDO ,
-    VIVO , MUERTO ,REVIVIENDO, BALAS_INF , VIDA_INF
+    VIVO , MUERTO ,REVIVIENDO, VIDA_INF
 } estadoMEF_t;
 
 
@@ -2817,6 +2817,7 @@ uint8_t Mostrar_Tiempo = 0;
 uint8_t Resta_Tiempo;
 uint8_t DISPAROS = 30;
 uint8_t INMORTAL;
+uint8_t BALAS_INF;
 uint8_t cont_balas = 30;
 uint8_t VIDAS;
 estadoMEF_t estadoActualGAT, estadoActualRONDA;
@@ -2857,7 +2858,7 @@ void main(void) {
         main_RFID_Reader();
 
 }}
-# 124 "main.c"
+# 125 "main.c"
 char gatilloAP(void){
     _delay((unsigned long)((300)*(4000000L/4000.0)));
     if(PORTAbits.RA1==1)
@@ -2890,7 +2891,7 @@ void ActualizarRONDA(void) {
                 estadoActualRONDA = BALAS_INF;
             }
             break;
-# 166 "main.c"
+# 167 "main.c"
         case MUERTO:
             if (RFID == 1) {
                 estadoActualRONDA = REVIVIENDO;

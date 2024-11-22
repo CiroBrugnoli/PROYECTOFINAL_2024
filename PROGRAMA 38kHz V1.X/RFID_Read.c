@@ -57,4 +57,51 @@ void main_RFID_Reader(void)
     
 }
     }
-    
+void main_RFID_Access (void) {
+     {
+        //Lcd_Set_Cursor(1,1);                            // Solicita ingresar tarjeta
+        //Lcd_Write_String("Ingresa Tarjeta");
+        
+        while(!MFRC522_IsCard(&TagType));               // Verifica si hay TAG presente
+        while(!MFRC522_ReadCardSerial(&UID));           // Lee el codigo del TAG
+        
+        //Lcd_Clear();
+        //Lcd_Set_Cursor(1,1);
+        //Lcd_Write_String("ID: ");
+        //for(char i=0; i<4; i++)                         // Imprime el codigo del UID
+        //{
+        //    sprintf(buf, "%X", UID[i]);
+            //Lcd_Write_String(buf);
+        //}
+        
+        if(MFRC522_Compare_UID(UID, BALAS_INF))         // Compara la UID del usuario 1 (llavero)
+        {
+            //PIN_LED6 = 1;                           // Enciende el led verde
+           // LATBbits.LB3 = 0;
+            //Lcd_Set_Cursor(2,1);
+            //Lcd_Write_String("Acceso Correcto");
+            
+            __delay_ms(3000);
+        }
+        else if(MFRC522_Compare_UID(UID, usuario_2))    // Compara la UID del usuario 2 (TAG 1)
+        {
+            //PIN_LED6 = 1;                           // Enciende el led verde
+            //LATBbits.LB3 = 0;
+            //Lcd_Set_Cursor(2,1);
+            //Lcd_Write_String("Acceso Correcto");
+            __delay_ms(3000);
+        }
+        else                                            // Error de acceso
+        {
+            //LATBbits.LB2 = 0;
+           // PIN_LED5 = 1;                           // Enciende el led rojo
+            Lcd_Set_Cursor(2,1);
+            Lcd_Write_String("Acceso Denegado");
+            __delay_ms(2000);
+        }
+       // PIN_LED6 = 0;                               // Apaga los leds
+       // PIN_LED5 = 0;
+        Lcd_Clear();
+        MFRC522_Halt();                                 // Apaga la antena
+    }
+}
