@@ -20,7 +20,8 @@
 #include "mfrc522.h"                                // Libreria del modulo RFID MFRC522
 #include "tick.h"
 
-
+extern uint8_t INMORTAL;
+extern uint8_t BALAS_INF;
 extern tick_t tRFID;
 char UID[8];                                        // Almacena el codigo del UID
 char buf[4];                                        // Almacena el UID en formato de cadena
@@ -74,16 +75,17 @@ void main_RFID_Access (void) {
             //Lcd_Write_String(buf);
         //}
         
-        if(MFRC522_Compare_UID(UID, BALAS_INF))         // Compara la UID del usuario 1 (llavero)
+        if(MFRC522_Compare_UID(UID, TAG_BALAS_INF))         // Compara la UID del usuario 1 (llavero)
         {
-            //PIN_LED6 = 1;                           // Enciende el led verde
+            BALAS_INF = 1;
+                       //PIN_LED6 = 1;                           // Enciende el led verde
            // LATBbits.LB3 = 0;
             //Lcd_Set_Cursor(2,1);
             //Lcd_Write_String("Acceso Correcto");
             
             __delay_ms(3000);
         }
-        else if(MFRC522_Compare_UID(UID, usuario_2))    // Compara la UID del usuario 2 (TAG 1)
+        else if(MFRC522_Compare_UID(UID, TAG_INMORTAL))    // Compara la UID del usuario 2 (TAG 1)
         {
             //PIN_LED6 = 1;                           // Enciende el led verde
             //LATBbits.LB3 = 0;
