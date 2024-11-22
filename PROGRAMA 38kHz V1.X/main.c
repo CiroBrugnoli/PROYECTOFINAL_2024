@@ -35,6 +35,8 @@ uint8_t INMORTAL;
 uint8_t BALAS_INF;
 uint8_t cont_balas = 30;
 uint8_t VIDAS;
+ 
+
 estadoMEF_t estadoActualGAT, estadoActualRONDA; // Variable de estado (global)
 tick_t tInicioGAT, tInicioBALAS, tRFID;
 char gatilloAP(void);

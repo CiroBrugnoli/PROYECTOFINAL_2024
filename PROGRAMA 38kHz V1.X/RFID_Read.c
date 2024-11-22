@@ -92,7 +92,7 @@ void main_RFID_Access (void) {
             //Lcd_Set_Cursor(2,1);
             //Lcd_Write_String("Acceso Correcto");
             __delay_ms(3000);
-        }
+        } 
         else                                            // Error de acceso
         {
             //LATBbits.LB2 = 0;

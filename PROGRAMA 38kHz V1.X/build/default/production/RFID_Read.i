@@ -2805,7 +2805,8 @@ void tickWrite( tick_t ticks );
 # 21 "RFID_Read.c" 2
 
 
-
+extern uint8_t INMORTAL;
+extern uint8_t BALAS_INF;
 extern tick_t tRFID;
 char UID[8];
 char buf[4];
@@ -2849,9 +2850,10 @@ void main_RFID_Access (void) {
 
         while(!MFRC522_IsCard(&TagType));
         while(!MFRC522_ReadCardSerial(&UID));
-# 77 "RFID_Read.c"
-        if(MFRC522_Compare_UID(UID, BALAS_INF))
+# 78 "RFID_Read.c"
+        if(MFRC522_Compare_UID(UID, TAG_BALAS_INF))
         {
+            BALAS_INF = 1;
 
 
 
@@ -2859,7 +2861,7 @@ void main_RFID_Access (void) {
 
             _delay((unsigned long)((3000)*(4000000L/4000.0)));
         }
-        else if(MFRC522_Compare_UID(UID, usuario_2))
+        else if(MFRC522_Compare_UID(UID, TAG_INMORTAL))
         {
 
 
@@ -2870,13 +2872,13 @@ void main_RFID_Access (void) {
         else
         {
 
-            PIN_LED5 = 1;
+
             Lcd_Set_Cursor(2,1);
             Lcd_Write_String("Acceso Denegado");
             _delay((unsigned long)((2000)*(4000000L/4000.0)));
         }
-        PIN_LED6 = 0;
-        PIN_LED5 = 0;
+
+
         Lcd_Clear();
         MFRC522_Halt();
     }

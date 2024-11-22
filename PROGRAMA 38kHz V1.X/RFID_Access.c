@@ -27,8 +27,13 @@ char UID[8];                                            // Almacena el codigo de
 char buf[4];                                            // Almacena el UID en formato de cadena
 unsigned char TagType;
 
+                      
+
 const char usuario_1[4] = {0xF6,0x1E,0x86,0xBB};        // Llavero
 const char usuario_2[4] = {0x24,0x1D,0x4C,0xFF};        // TAG 1
+
+const char TAG_BALAS_INF[4] = {0x93,0xE8,0x59,0xED};        // Llavero
+const char TAG_INMORTAL[4] = {0x93,0xF2,0x34,0xF5};  
 
 /*void main()
 {

@@ -2820,6 +2820,8 @@ uint8_t INMORTAL;
 uint8_t BALAS_INF;
 uint8_t cont_balas = 30;
 uint8_t VIDAS;
+
+
 estadoMEF_t estadoActualGAT, estadoActualRONDA;
 tick_t tInicioGAT, tInicioBALAS, tRFID;
 char gatilloAP(void);
@@ -2858,7 +2860,7 @@ void main(void) {
         main_RFID_Reader();
 
 }}
-# 125 "main.c"
+# 127 "main.c"
 char gatilloAP(void){
     _delay((unsigned long)((300)*(4000000L/4000.0)));
     if(PORTAbits.RA1==1)
@@ -2891,7 +2893,7 @@ void ActualizarRONDA(void) {
                 estadoActualRONDA = BALAS_INF;
             }
             break;
-# 167 "main.c"
+# 169 "main.c"
         case MUERTO:
             if (RFID == 1) {
                 estadoActualRONDA = REVIVIENDO;
